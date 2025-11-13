@@ -23,7 +23,7 @@ export default function Header() {
                     </a>
                     <div className="flex items-center lg:gap-6 space-between gap-4.5">
                         <Navigation />
-                        <StarIcon className="hidden lg:block text-black-light" />
+                        <StarIcon className="hidden lg:block text-black" />
                         <MainButton
                             className="w-[175px] h-[43px] lg:w-[219px] lg:h-13.5 text-[10px] leading-[12px] lg:text-[12px] lg:leading-[14px] font-azbuka uppercase"
                             variant="outline"
@@ -32,11 +32,11 @@ export default function Header() {
                         </MainButton>
                         <button
                             type="button"
-                            className="lg:hidden group relative z-60 w-10 h-10 outline-none flex flex-col justify-center items-center gap-2 hover:bg-black-light/10 rounded-[10px] transition duration-300 ease-in-out"
+                            className="lg:hidden group relative z-60 w-10 h-10 outline-none flex flex-col justify-center items-center gap-2 hover:bg-black/10 rounded-[10px] transition duration-300 ease-in-out"
                         >
-                            <div className="w-[26.6px] h-[2px] bg-black-light"></div>
-                            <div className="w-[26.6px] h-[2px] bg-black-light"></div>
-                            <div className="w-[26.6px] h-[2px] bg-black-light"></div>
+                            <div className="w-[26.6px] h-[2px] bg-black rounded-full"></div>
+                            <div className="w-[26.6px] h-[2px] bg-black rounded-full"></div>
+                            <div className="w-[26.6px] h-[2px] bg-black rounded-full"></div>
                         </button>
                     </div>
                 </div>
