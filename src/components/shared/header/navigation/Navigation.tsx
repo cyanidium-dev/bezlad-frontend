@@ -8,7 +8,7 @@ export default function Navigation() {
                     <li key={item.href}>
                         <a
                             href={item.href}
-                            className="text-black font-azbuka uppercase text-4 leading-[120%]"
+                            className="text-black font-azbuka uppercase text-4 leading-[120%] hover:text-purple transition duration-300 ease-in-out"
                         >
                             {item.label}
                         </a>
