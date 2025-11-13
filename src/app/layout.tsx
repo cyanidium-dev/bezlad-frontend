@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/shared/header/Header";
+import Footer from "@/components/shared/footer/Footer";
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -36,8 +38,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk">
-      <body className={`${raleway.variable} ${azbuka.variable} antialiased`}>
-        {children}
+      <body
+        className={`${raleway.variable} ${azbuka.variable} flex min-h-screen flex-col text-[16px] font-normal leading-[120%] antialiased`}
+      >
+        <Header />
+        <main className="flex-1"> {children}</main>
+        <Footer />
       </body>
     </html>
   );
