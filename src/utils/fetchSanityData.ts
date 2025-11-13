@@ -7,7 +7,7 @@ export const fetchSanityData = async (
   try {
     const response = await client.fetch(query, params);
 
-    return response.data;
+    return response;
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     throw new Error("Failed to fetch Sanity data");
