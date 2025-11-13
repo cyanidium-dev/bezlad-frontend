@@ -21,7 +21,7 @@ export default function MainButton({
     variant = "black",
     disabled = false,
     isLoading = false,
-    loadingText = "Loading...",
+    loadingText = "Надсилання...",
     spanClassName,
     onClick,
     icon,
