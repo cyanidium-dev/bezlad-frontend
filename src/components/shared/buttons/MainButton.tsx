@@ -30,7 +30,7 @@ export default function MainButton({
         black: "bg-black text-white",
         white: "bg-white text-black",
         outline:
-            "bg-transparent text-black border border-black hover:bg-black/10",
+            "bg-transparent text-black border border-black xl:hover:bg-black/10 xl:focus-visible:bg-black/10",
     };
 
     return (

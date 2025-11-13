@@ -32,7 +32,7 @@ export default function Header() {
                         </MainButton>
                         <button
                             type="button"
-                            className="lg:hidden group relative z-60 w-10 h-10 outline-none flex flex-col justify-center items-center gap-2 hover:bg-black/10 rounded-[10px] transition duration-300 ease-in-out"
+                            className="lg:hidden group relative z-60 w-10 h-10 outline-none flex flex-col justify-center items-center gap-2 xl:focus-visible:bg-black/10 rounded-[10px] transition duration-300 ease-in-out"
                         >
                             <div className="w-[26.6px] h-[2px] bg-black rounded-full"></div>
                             <div className="w-[26.6px] h-[2px] bg-black rounded-full"></div>
