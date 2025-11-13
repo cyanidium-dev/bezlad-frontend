@@ -1,15 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Raleway } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/shared/header/Header";
+import Footer from "@/components/shared/footer/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const raleway = Raleway({
+  variable: "--font-raleway",
   subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const azbuka = localFont({
+  src: [
+    {
+      path: "../../public/fonts/azbuka04.woff2",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-azbuka",
+  display: "swap",
+  preload: true,
+  fallback: ["Arial", "sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -23,11 +37,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="uk">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${raleway.variable} ${azbuka.variable} flex min-h-screen flex-col text-[16px] font-normal leading-[120%] antialiased`}
       >
-        {children}
+        <Header />
+        <main className="flex-1"> {children}</main>
+        <Footer />
       </body>
     </html>
   );
