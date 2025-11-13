@@ -25,7 +25,7 @@ export default function Header() {
                         <Navigation />
                         <StarIcon className="hidden lg:block text-black" />
                         <MainButton
-                            className="w-[175px] h-[43px] lg:w-[219px] lg:h-13.5 text-[10px] leading-[12px] lg:text-[12px] lg:leading-[14px] font-azbuka uppercase"
+                            className="w-[175px] h-[43px] lg:w-[219px] lg:h-13.5 text-[10px] leading-[120%] lg:text-[12px] font-azbuka uppercase"
                             variant="outline"
                         >
                             Забронювати відвідування

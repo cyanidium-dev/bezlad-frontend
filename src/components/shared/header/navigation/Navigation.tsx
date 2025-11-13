@@ -8,7 +8,7 @@ export default function Navigation() {
                     <li key={item.href}>
                         <a
                             href={item.href}
-                            className="text-black font-azbuka uppercase text-4 leading-[19px]"
+                            className="text-black font-azbuka uppercase text-4 leading-[120%]"
                         >
                             {item.label}
                         </a>
