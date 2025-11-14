@@ -7,7 +7,7 @@ export default function CTAContactUs() {
   return (
     <section className="relative max-w-7xl mx-auto mt-25 lg:mt-[132px] bg-purple-ultra-light rounded-4xl overflow-hidden">
       <CTAImages />
-      <Container className="relative z-10 pt-[58px] lg:pt-[74px] pb-5 lg:pb-[87px]">
+      <Container className="relative z-10 pt-[58px] md:pt-[74px] pb-5 md:pb-[87px]">
         <SectionTitle className="mb-7 md:max-w-[350px] lg:max-w-[594px]">
           Дозвольте дитині грати природно вже сьогодні
         </SectionTitle>
