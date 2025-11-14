@@ -53,3 +53,14 @@
         padding: 0;
     }
 }
+
+@layer utilities {
+    .footer-block-rotate {
+        transform: rotate(-90deg) translateX(100%);
+        @apply origin-bottom-right;
+        @media (min-width: 1024px) {
+            transform: none;
+            transform-origin: initial;
+        }
+    }
+}
