@@ -20,7 +20,7 @@ export default function CTAContactUs() {
       <Container className="relative z-10 pt-[58px] md:pt-[74px] pb-5 md:pb-[87px]">
         <AnimatedArrow
           key="mobile-arrow"
-          className="md:hidden absolute top-[-16px] right-[10px] w-[128px] h-auto rotate-[-130deg]"
+          className="md:hidden absolute -top-4 right-2.5 w-32 h-auto rotate-[-130deg]"
         />
         <SectionTitle className="mb-7 md:max-w-[350px] lg:max-w-[594px]">
           Дозвольте дитині грати природно вже сьогодні
