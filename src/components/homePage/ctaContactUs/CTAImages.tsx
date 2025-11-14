@@ -1,5 +1,6 @@
 import StarIcon from "@/components/shared/icons/StarIcon";
 import Image from "next/image";
+import AnimatedArrow from "./AnimatedArrow";
 
 export default function CTAImages() {
   return (
