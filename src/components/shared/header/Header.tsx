@@ -22,7 +22,7 @@ export default function Header() {
                     <Link href="/">
                         <Logo className="w-[55px] h-[51px] lg:w-[71.4px] lg:h-[65.69px]" />
                     </Link>
-                    <div className="flex items-center lg:gap-6 space-between gap-4.5">
+                    <div className="flex items-center lg:gap-6 justify-between gap-4.5">
                         <Navigation />
                         <StarIcon className="hidden lg:block text-black" />
                         <MainButton

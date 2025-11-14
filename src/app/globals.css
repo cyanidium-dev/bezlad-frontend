@@ -129,6 +129,19 @@
         color: var(--color-black);
     }
 
+    @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .rotation {
+        animation: rotation 1600ms linear infinite;
+    }
+
     @media screen and (min-width: 1024px) {
         .rules-popup-scrollbar {
             scrollbar-width: 8px;

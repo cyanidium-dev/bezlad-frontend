@@ -14,7 +14,7 @@ export default function RulesPopup({
         <Modal
             isModalShown={isRulesPopupShown}
             setIsModalShown={setIsRulesPopupShown}
-            className="bg-white lg:bg-gray px-4.5 lg:px-[45px] pt-6 pb-6 lg:py-14 w-[calc(100%-66px)] max-w-[calc(100%-66px)] h-[calc(100dvh-176px)] max-h-[calc(100dvh-176px)] lg:w-[calc(100%-294px)] lg:max-w-[calc(100%-294px)] lg:h-[calc(100dvh-129px)] lg:max-h-[calc(100dvh-129px)]- overflow-hidden flex flex-col"
+            className="bg-white lg:bg-gray px-4.5 lg:px-[45px] pt-6 pb-6 lg:py-14 w-[calc(100%-66px)] max-w-[calc(100%-66px)] h-[calc(100dvh-176px)] max-h-[calc(100dvh-176px)] lg:w-[calc(100%-294px)] lg:max-w-[calc(100%-294px)] lg:h-[calc(100dvh-129px)] lg:max-h-[calc(100dvh-129px)] overflow-hidden flex flex-col"
         >
             <div className="relative flex flex-col items-center w-full z-20 flex-1 min-h-0">
                 <h2 className="mb-4 lg:mb-6 text-[24px] lg:text-[36px] font-azbuka leading-[26px] lg:leading-[39px] text-center uppercase flex-shrink-0">
