@@ -22,6 +22,7 @@ export default function SectionTitle({
       viewport={{ once: true, amount: 0.8 }}
       variants={fadeInAnimation({
         x: animationDirection === "right" ? -30 : 30,
+        scale: 0.9,
       })}
       className={twMerge(
         `font-azbuka text-[32px] lg:text-[64px] font-normal leading-[120%] uppercase`,
