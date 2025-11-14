@@ -30,6 +30,9 @@ export default function Footer() {
                     variants={fadeInAnimation({ delay: 0.3 })}
                     initial="hidden"
                     animate="visible"
+                    whileInView="visible"
+                    exit="exit"
+                    viewport={{ once: true, amount: 0.1 }}
                     className="text-[32px] lg:text-[64px] leading-[120%] uppercase font-azbuka flex items-center flex-wrap lg:justify-between gap-y-4 gap-x-[15px]"
                 >
                     Тут кожен момент
@@ -37,6 +40,9 @@ export default function Footer() {
                         variants={fadeInAnimation({ delay: 0.9 })}
                         initial="hidden"
                         animate="visible"
+                        whileInView="visible"
+                        exit="exit"
+                        viewport={{ once: true, amount: 0.5 }}
                         className="text-purple w-13 h-13 lg:w-17.5 lg:h-17.5 flex items-center justify-center -ml-2.5 lg:ml-0"
                     >
                         <StarIcon className="lg:w-17 lg:h-17" />
@@ -45,6 +51,9 @@ export default function Footer() {
                         variants={fadeInAnimation({ delay: 0.6 })}
                         initial="hidden"
                         animate="visible"
+                        whileInView="visible"
+                        exit="exit"
+                        viewport={{ once: true, amount: 0.5 }}
                         className="text-[16px] lg:text-[24px] leading-[120%] text-right uppercase max-w-[255px] lg:max-w-[382px]"
                     >
                         — маленьке відкриття, а кожна усмішка — нагорода
@@ -52,17 +61,11 @@ export default function Footer() {
                 </motion.h2>
             </Container>
             <Container className="pt-7 lg:pt-6.5 pb-[23.5px] lg:pb-[29px] pl-[27px] lg:relative">
-                <div className="flex flex-col lg:flex-row lg:justify-between lg:mb-[129px]">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start sm:gap-x-10 lg:gap-x-0 lg:mb-[129px]">
                     <SocialsGroup className="mb-[27px] lg:mb-0" />
                     <div className="mb-[39px] lg:mb-0 lg:flex lg:flex-row-reverse lg:justify-between lg:items-start w-full lg:max-w-[768px]">
                         <Contacts className="mb-[27px] lg:mb-0" />
-                        <motion.div
-                            variants={fadeInAnimation({ delay: 1.5 })}
-                            initial="hidden"
-                            animate="visible"
-                        >
-                            <RulesButton />
-                        </motion.div>
+                        <RulesButton />
                     </div>
                 </div>
                 <motion.div
@@ -73,6 +76,9 @@ export default function Footer() {
                     }
                     initial="hidden"
                     animate="visible"
+                    whileInView="visible"
+                    exit="exit"
+                    viewport={{ once: true, amount: 0.1 }}
                     className="absolute bottom-2 -right-10.5 lg:-bottom-17.5 lg:right-none lg:-left-[29px] -z-10"
                 >
                     <div className="footer-block-rotate">
@@ -93,6 +99,9 @@ export default function Footer() {
                     variants={fadeInAnimation({ delay: 2.1, y: 20 })}
                     initial="hidden"
                     animate="visible"
+                    whileInView="visible"
+                    exit="exit"
+                    viewport={{ once: true, amount: 0.1 }}
                     className="absolute bottom-[-50.44px] left-0 -z-10"
                 >
                     <Image
@@ -107,6 +116,9 @@ export default function Footer() {
                     variants={fadeInAnimation({ delay: 2.1, y: 20 })}
                     initial="hidden"
                     animate="visible"
+                    whileInView="visible"
+                    exit="exit"
+                    viewport={{ once: true, amount: 0.1 }}
                     className="absolute right-2 -bottom-7 -z-10"
                 >
                     <Image
@@ -121,6 +133,9 @@ export default function Footer() {
                     variants={fadeInAnimation({ delay: 2.4 })}
                     initial="hidden"
                     animate="visible"
+                    whileInView="visible"
+                    exit="exit"
+                    viewport={{ once: true, amount: 0.1 }}
                 >
                     <Rights />
                 </motion.div>

@@ -1,7 +1,11 @@
 @import "tailwindcss";
+@plugin 'tailwind-scrollbar' {
+    nocompatible: true;
+    preferredstrategy: "pseudoelements";
+}
 
 @theme inline {
-  --breakpoint-xs: 27rem;
+    --breakpoint-xs: 27rem;
 
     --color-black: #1e1e1e;
     --color-white: #ffffff;
@@ -11,8 +15,8 @@
     --color-purple-light: #d5b5ff;
     --color-purple-ultra-light: #ece4f9;
 
-  --font-raleway: var(--font-raleway), sans-serif;
-  --font-azbuka: var(--font-azbuka), sans-serif;
+    --font-raleway: var(--font-raleway), sans-serif;
+    --font-azbuka: var(--font-azbuka), sans-serif;
 }
 
 @layer base {
@@ -66,70 +70,6 @@
         }
     }
 
-    .rules-popup-scrollbar {
-        scrollbar-width: thin;
-        scrollbar-color: #7c48cc rgba(124, 72, 204, 0.1);
-    }
-
-    .rules-popup-scrollbar::-webkit-scrollbar {
-        width: 4px;
-    }
-
-    .rules-popup-scrollbar::-webkit-scrollbar-button {
-        display: none;
-        width: 0;
-        height: 0;
-    }
-
-    .rules-popup-scrollbar::-webkit-scrollbar-track {
-        width: 4px;
-        background-color: rgba(124, 72, 204, 0.1);
-        border-radius: 9999px;
-    }
-
-    .rules-popup-scrollbar::-webkit-scrollbar-thumb {
-        width: 4px;
-        height: 181px;
-        background-color: var(--color-purple);
-        border-radius: 9999px;
-    }
-
-    .rules-popup-ol {
-        counter-reset: rules-counter;
-        list-style: none;
-        padding-left: 0;
-    }
-
-    .rules-popup-ol > li {
-        counter-increment: rules-counter;
-        position: relative;
-        padding-left: 1rem;
-    }
-
-    .rules-popup-ol > li::before {
-        content: counter(rules-counter) ".";
-        position: absolute;
-        left: 0;
-        font-weight: 500;
-    }
-
-    .rules-popup-ol ul {
-        list-style: none;
-        padding-left: 0;
-    }
-
-    .rules-popup-ol ul li {
-        position: relative;
-        padding-left: 1.25rem;
-    }
-
-    .rules-popup-ol ul li::before {
-        content: "•";
-        position: absolute;
-        left: 0;
-        color: var(--color-black);
-    }
-
     @keyframes rotation {
         0% {
             transform: rotate(0deg);
@@ -141,24 +81,5 @@
 
     .rotation {
         animation: rotation 1600ms linear infinite;
-    }
-
-    @media screen and (min-width: 1024px) {
-        .rules-popup-scrollbar {
-            scrollbar-width: 8px;
-        }
-
-        .rules-popup-scrollbar::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .rules-popup-scrollbar::-webkit-scrollbar-track {
-            width: 8px;
-        }
-
-        .rules-popup-scrollbar::-webkit-scrollbar-thumb {
-            width: 8px;
-            height: 380px;
-        }
     }
 }

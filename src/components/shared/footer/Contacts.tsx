@@ -19,6 +19,9 @@ export default function Contacts({ className }: ContactsProps) {
             variants={listVariants({ delayChildren: 1 })}
             initial="hidden"
             animate="visible"
+            whileInView="visible"
+            exit="exit"
+            viewport={{ once: true, amount: 0.1 }}
             className={`not-italic w-full ${className}`}
         >
             <div className="lg:flex lg:justify-between">
@@ -26,6 +29,9 @@ export default function Contacts({ className }: ContactsProps) {
                     variants={fadeInAnimation({ delay: 0.3, y: 20 })}
                     initial="hidden"
                     animate="visible"
+                    whileInView="visible"
+                    exit="exit"
+                    viewport={{ once: true, amount: 0.1 }}
                     className="mb-8 lg:mb-0"
                 >
                     <h3 className="text-[14px] leading-[150%] font-light mb-[3px]">
@@ -42,6 +48,9 @@ export default function Contacts({ className }: ContactsProps) {
                     variants={fadeInAnimation({ delay: 0.6, y: 20 })}
                     initial="hidden"
                     animate="visible"
+                    whileInView="visible"
+                    exit="exit"
+                    viewport={{ once: true, amount: 0.1 }}
                     className="mb-8 lg:mb-0"
                 >
                     <h3 className="text-[14px] leading-[150%] font-light mb-[3px]">
@@ -51,7 +60,7 @@ export default function Contacts({ className }: ContactsProps) {
                         href={ADDRESS_URL}
                         target="_blank"
                         rel="noopener noreferrer nofollow"
-                        className="text-[12px] leading-[150%] uppercase font-semibold max-w-[162px]  whitespace-pre-line"
+                        className="text-[12px] leading-[150%] uppercase font-semibold max-w-[162px] whitespace-pre-line xl:hover:text-purple transition-colors duration-300"
                     >
                         {ADDRESS}
                     </a>
@@ -61,6 +70,9 @@ export default function Contacts({ className }: ContactsProps) {
                         variants={fadeInAnimation({ delay: 0.9, y: 20 })}
                         initial="hidden"
                         animate="visible"
+                        whileInView="visible"
+                        exit="exit"
+                        viewport={{ once: true, amount: 0.1 }}
                         className="mb-[27px] "
                     >
                         <h3 className="text-[14px] leading-[16px] font-light mb-3">
@@ -70,7 +82,7 @@ export default function Contacts({ className }: ContactsProps) {
                             href={`tel:${PHONE}`}
                             target="_blank"
                             rel="noopener noreferrer nofollow"
-                            className="text-[16px] leading-[19px] uppercase font-semibold"
+                            className="text-[16px] leading-[19px] uppercase font-semibold xl:hover:text-purple transition-colors duration-300"
                         >
                             {PHONE.replace(
                                 contactsPhoneRegex,
@@ -82,6 +94,9 @@ export default function Contacts({ className }: ContactsProps) {
                         variants={fadeInAnimation({ delay: 1.2, y: 20 })}
                         initial="hidden"
                         animate="visible"
+                        whileInView="visible"
+                        exit="exit"
+                        viewport={{ once: true, amount: 0.1 }}
                         className="lg:ml-auto"
                     >
                         <h3 className="text-[14px] leading-[16px] font-light mb-3">
@@ -91,7 +106,7 @@ export default function Contacts({ className }: ContactsProps) {
                             href={`mailto:${EMAIL}`}
                             target="_blank"
                             rel="noopener noreferrer nofollow"
-                            className="text-[16px] leading-[19px] uppercase font-bold"
+                            className="text-[16px] leading-[19px] uppercase font-bold xl:hover:text-purple transition-colors duration-300"
                         >
                             {EMAIL}
                         </a>
