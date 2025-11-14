@@ -8,7 +8,10 @@ interface AnimatedArrowProps {
   delay?: number;
 }
 
-export default function AnimatedArrow({ className = "", delay = 0 }: AnimatedArrowProps) {
+export default function AnimatedArrow({
+  className = "",
+  delay = 0,
+}: AnimatedArrowProps) {
   const id = useId();
   const mainMaskId = `reveal-main-${id}`;
   const tipMaskId = `reveal-tip-${id}`;

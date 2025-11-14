@@ -2,7 +2,7 @@ import MainButton from "@/components/shared/buttons/MainButton";
 import Container from "@/components/shared/container/Container";
 import BenefitsList from "./BenefitsList";
 import HeroImages from "./HeroImages";
-import Image from "next/image";
+import AnimatedAnimal from "@/components/shared/AnimatedAnimal";
 
 export default function Hero() {
   return (
@@ -29,7 +29,11 @@ export default function Hero() {
           </p>
         </div>
         <BenefitsList />
-        <Image src="/images/animal.svg" width="532" height="486" alt="1" />
+        <AnimatedAnimal
+          svgPath="/images/animal.svg"
+          className="w-[532px] h-[486px]"
+          maxPupilMovement={6}
+        />
       </Container>
     </section>
   );
