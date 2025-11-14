@@ -15,7 +15,7 @@ export default function SocialsGroup({ className }: SocialsGroupProps) {
     return (
         <div className={className}>
             <ul className="flex items-center gap-6">
-                <li className="w-9 h-9 flex items-center justify-center">
+                <li className="w-9 h-9 flex items-center justify-center hover:opacity-80 transition-opacity duration-300">
                     <a
                         href={INSTAGRAM_URL}
                         target="_blank"
@@ -25,7 +25,7 @@ export default function SocialsGroup({ className }: SocialsGroupProps) {
                         <InstagramIcon className="text-purple w-8 h-8" />
                     </a>
                 </li>
-                <li className="w-9 h-9 flex items-center justify-center">
+                <li className="w-9 h-9 flex items-center justify-center hover:opacity-80 transition-opacity duration-300">
                     <a
                         href={FACEBOOK_URL}
                         target="_blank"
@@ -35,7 +35,7 @@ export default function SocialsGroup({ className }: SocialsGroupProps) {
                         <FacebookIcon className="text-purple w-[27px] h-[27px]" />
                     </a>
                 </li>
-                <li className="w-9 h-9 flex items-center justify-center">
+                <li className="w-9 h-9 flex items-center justify-center hover:opacity-80 transition-opacity duration-300">
                     <a
                         href={TELEGRAM_URL}
                         target="_blank"

@@ -6,21 +6,22 @@ import { useScroll } from "framer-motion";
 import MainButton from "../buttons/MainButton";
 import Logo from "../icons/Logo";
 import StarIcon from "../icons/StarIcon";
+import Link from "next/link";
 
 export default function Header() {
     const { scrollYProgress } = useScroll();
     return (
         <header
             className={clsx(
-                "fixed top-[25px] left-0 right-0 z-50",
+                "fixed top-[25px] left-0 right-0 z-50 lg:z-0",
                 scrollYProgress.get() > 0.1 ? "backdrop-blur-[38px]" : ""
             )}
         >
             <Container className="w-full pr-[19px]">
                 <div className="flex items-center justify-between">
-                    <a href="/">
+                    <Link href="/">
                         <Logo className="w-[55px] h-[51px] lg:w-[71.4px] lg:h-[65.69px]" />
-                    </a>
+                    </Link>
                     <div className="flex items-center lg:gap-6 space-between gap-4.5">
                         <Navigation />
                         <StarIcon className="hidden lg:block text-black" />

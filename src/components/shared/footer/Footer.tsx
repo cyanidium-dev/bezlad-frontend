@@ -4,6 +4,7 @@ import SocialsGroup from "./SocialsGroup";
 import Contacts from "./Contacts";
 import Image from "next/image";
 import Rights from "./Rights";
+import RulesButton from "./RulesButton";
 
 export default function Footer() {
     return (
@@ -24,15 +25,10 @@ export default function Footer() {
                     <SocialsGroup className="mb-[27px] lg:mb-0" />
                     <div className="mb-[39px] lg:mb-0 lg:flex lg:flex-row-reverse lg:justify-between lg:items-start w-full lg:max-w-[768px]">
                         <Contacts className="mb-[27px] lg:mb-0" />
-                        <button
-                            type="button"
-                            className="w-[162px] lg:w-[148px] lg:mr-[54px] text-[16px] leading-[19px] font-semibold text-purple text-left uppercase"
-                        >
-                            Правила відвідування пісочниці
-                        </button>
+                        <RulesButton />
                     </div>
                 </div>
-                <div className="absolute bottom-2 -right-10.5 lg:-bottom-17.5 lg:right-none lg:-left-[29px]">
+                <div className="absolute bottom-2 -right-10.5 lg:-bottom-17.5 lg:right-none lg:-left-[29px] -z-10">
                     <div className="footer-block-rotate">
                         <p className="text-[147.567px] lg:text-[288.557px] leading-[120%] uppercase font-azbuka">
                             Безлад
