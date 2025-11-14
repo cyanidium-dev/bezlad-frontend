@@ -1,6 +1,7 @@
 import StarIcon from "@/components/shared/icons/StarIcon";
 import Image from "next/image";
-import AnimatedArrow from "./AnimatedArrow";
+import * as motion from "motion/react-client";
+import { fadeInAnimation } from "@/utils/animationVariants";
 
 export default function CTAImages() {
   return (
@@ -22,23 +23,44 @@ export default function CTAImages() {
           alt="boy"
           className="relative z-5 object-cover rounded-2xl"
         />
-        <div className="absolute md:hidden -top-9 right-[-22px]">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          viewport={{ once: true, amount: 0.8 }}
+          variants={fadeInAnimation({ delay: 1, scale: 0.95 })}
+          className="absolute md:hidden -top-9 right-[-22px]"
+        >
           <Image
             src="/images/ctaContactUs/leavesYellow.svg"
             alt="leaves"
             width="179"
             height="139"
           />
-        </div>
-        <div className="absolute z-7 md:hidden -top-[107px] right-[-69px]">
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInAnimation({ delay: 1, scale: 0.95 })}
+          className="absolute z-7 md:hidden -top-[107px] right-[-69px]"
+        >
           <Image
             src="/images/ctaContactUs/leavesWhite.svg"
             alt="leaves"
             width="179"
             height="139"
           />
-        </div>
-        <div className="absolute z-7 md:bottom-0 md:-left-5 lg:left-[-138px]">
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          exit="exit"
+          viewport={{ once: true, amount: 0.8 }}
+          variants={fadeInAnimation({ delay: 1, scale: 0.95 })}
+          className="absolute z-7 md:bottom-0 md:-left-5 lg:left-[-138px]"
+        >
           <Image
             src="/images/ctaContactUs/leavesDesk.svg"
             alt="leaves"
@@ -46,7 +68,7 @@ export default function CTAImages() {
             height="290"
             className="hidden md:block w-[180px] lg:w-[261px] h-auto object-cover"
           />
-        </div>
+        </motion.div>
       </div>
     </>
   );
