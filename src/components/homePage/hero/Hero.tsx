@@ -2,6 +2,7 @@ import MainButton from "@/components/shared/buttons/MainButton";
 import Container from "@/components/shared/container/Container";
 import BenefitsList from "./BenefitsList";
 import HeroImages from "./HeroImages";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -28,6 +29,7 @@ export default function Hero() {
           </p>
         </div>
         <BenefitsList />
+        <Image src="/images/animal.svg" width="532" height="486" alt="1" />
       </Container>
     </section>
   );
