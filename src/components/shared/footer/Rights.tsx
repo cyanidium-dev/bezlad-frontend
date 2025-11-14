@@ -1,5 +1,6 @@
 //import { CODE_SITE_URL } from "@/constants/constants";
 //import TagIcon from "../icons/TagIcon";
+import { CODE_SITE_URL } from "@/constants/constants";
 import Image from "next/image";
 
 export default function Rights() {
@@ -15,13 +16,20 @@ export default function Rights() {
                 height={21.2}
                 className="w-[63.6px] lg:w-[75.21px] h-[21.2px] lg:h-[25px]"
             />
-            <Image
-                src="/images/footer/codeSiteArtLogo.png"
-                alt="CodeSite"
-                width={78.82}
-                height={15}
-                className="w-[78.82px] lg:w-[93.2px] h-[15px] lg:h-[17.8px]"
-            />
+            <a
+                href={CODE_SITE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-1.5"
+            >
+                <Image
+                    src="/images/footer/codeSiteArtLogo.png"
+                    alt="CodeSite"
+                    width={78.82}
+                    height={15}
+                    className="w-[78.82px] lg:w-[93.2px] h-[15px] lg:h-[17.8px]"
+                />
+            </a>
             {/*    <a
                     href={CODE_SITE_URL}
                     target="_blank"
