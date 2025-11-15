@@ -24,7 +24,7 @@ export default function Rights() {
             <a
                 href={CODE_SITE_URL}
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener noreferrer"
                 className="group flex items-center gap-1.5 xl:hover:opacity-80 transition-opacity duration-300"
             >
                 <Image
