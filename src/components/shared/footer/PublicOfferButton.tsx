@@ -21,7 +21,7 @@ export default function PublicOfferButton({
             >
                 <Link
                     href="/public-offer"
-                    className="cursor-pointer w-[162px] lg:w-[148px] lg:mr-[54px] text-[14px] leading-[114.28%] font-semibold text-purple text-left uppercase xl:hover:brightness-150 transition-brightness duration-300"
+                    className="block cursor-pointer w-[162px] lg:w-[148px] lg:mr-[54px] text-[14px] leading-[114.28%] font-semibold text-purple text-left uppercase xl:hover:brightness-150 transition-brightness duration-300"
                 >
                     Публічна оферта
                 </Link>
