@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Rights() {
     return (
-        <div className="flex flex-col items-center justify-center w-[84.5px] lg:w-[100px] ml-[136px] sm:ml-[168px] lg:ml-auto lg:mr-[-2px]">
+        <div className="flex flex-col items-center justify-center w-[84.5px] lg:w-[100px] ml-[136px] sm:ml-[162px] lg:ml-auto lg:mr-[-2px]">
             <p className="text-[7.51px] lg:text-[9px] font-medium leading-[120%] lg:leading-[122%] uppercase text-white mb-2.5 lg:mb-3 tracking-[0.05em]">
                 Created by
             </p>

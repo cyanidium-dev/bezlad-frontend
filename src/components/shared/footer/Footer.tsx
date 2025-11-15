@@ -22,7 +22,7 @@ export default function Footer() {
                 viewport={{ once: true, amount: 0.1 }}
                 className="w-full pb-[27px] sm:pb-6 lg:pb-3 border-b border-black"
             >
-                <Container className="sm:max-w-full">
+                <Container className="sm:max-w-full sm:pr-[120px] sm:pl-8">
                     <div className="sm:max-w-[592px] lg:max-w-full lg:flex lg:items-center lg:justify-between">
                         <SectionTitle className="mb-4 sm:mb-7 sm:text-[64px]">
                             Тут кожен момент
@@ -34,7 +34,7 @@ export default function Footer() {
                                 whileInView="visible"
                                 exit="exit"
                                 viewport={{ once: true, amount: 0.1 }}
-                                className="text-purple w-13 h-13 sm:w-17.5 sm:h-17.5 flex items-center justify-center -ml-2.5 md:ml-0 lg:mr-[78px]"
+                                className="text-purple w-13 h-13 sm:w-17.5 sm:h-17.5 flex items-center justify-center -ml-2.5 sm:ml-0 lg:mr-[78px]"
                             >
                                 <StarIcon className="sm:w-17 sm:h-17" />
                             </motion.div>
@@ -53,7 +53,7 @@ export default function Footer() {
                     </div>
                 </Container>
             </motion.div>
-            <Container className="pt-7 lg:pt-6.5 pb-[23.5px] lg:pb-[29px] pl-[27px] relative sm:max-w-full">
+            <Container className="pt-7 sm:pr-[120px] sm:pl-8 lg:pt-6.5 pb-[23.5px] lg:pb-[29px] pl-[27px] relative sm:max-w-full">
                 <div className="flex flex-col lg:flex-row sm:items-start sm:justify-between sm:max-w-[592px] mb-[39px] lg:mb-[129px] lg:max-w-full">
                     <SocialsGroup className="mb-[27px] lg:mb-0 sm:hidden lg:flex" />
                     <div className="lg:w-[768px] sm:flex sm:flex-row-reverse sm:justify-between">
@@ -78,7 +78,7 @@ export default function Footer() {
                         alt="Безлад"
                         width={267}
                         height={153.46}
-                        className="block lg:hidden"
+                        className="block lg:hidden "
                     />
                 </motion.div>
                 <motion.div
