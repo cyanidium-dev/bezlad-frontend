@@ -42,7 +42,7 @@ export default function AnimatedArrow({
                 ? { pathLength: 1, opacity: 1 }
                 : { pathLength: 0, opacity: 0 }
             }
-            transition={{ duration: 2, ease: "easeInOut", delay }}
+            transition={{ duration: 1.6, ease: "easeInOut", delay }}
           />
         </mask>
 
@@ -63,7 +63,7 @@ export default function AnimatedArrow({
             transition={{
               duration: 0.8,
               ease: "easeInOut",
-              delay: delay + 1.8, // після основної лінії
+              delay: delay + 1.4, // після основної лінії
             }}
           />
         </mask>
