@@ -19,7 +19,7 @@ export default function Header() {
     >
       <Container className="w-full pr-[19px]">
         <div className="flex items-center justify-between">
-          <Link href="/">
+          <Link href="/" className="outline-none">
             <Logo className="w-[55px] h-[51px] lg:w-[71.4px] lg:h-[65.69px]" />
           </Link>
           <div className="flex items-center lg:gap-6 space-between gap-4.5">
