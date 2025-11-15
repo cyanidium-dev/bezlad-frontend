@@ -106,7 +106,7 @@ export default function Footer() {
                     className="flex items-center justify-between"
                 >
                     <Rights />
-                    <SocialsGroup className="hidden sm:block lg:hidden mr-[228px]" />
+                    <SocialsGroup className="hidden sm:block lg:hidden mr-[128px]" />
                 </motion.div>
                 <FooterText className="lg:block hidden" />
             </Container>
