@@ -83,18 +83,6 @@
         animation: rotation 1600ms linear infinite;
     }
 
-    /* Firefox scrollbar support using Tailwind colors */
-    .scrollbar-firefox {
-        scrollbar-width: thin;
-        scrollbar-color: var(--color-purple) rgba(124, 72, 204, 0.1);
-    }
-
-    @media (min-width: 1024px) {
-        .scrollbar-firefox {
-            scrollbar-width: auto;
-        }
-    }
-
     /* Hide scrollbar arrows in Chrome/WebKit browsers */
     .scrollbar::-webkit-scrollbar-button {
         display: none;

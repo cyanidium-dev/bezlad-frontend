@@ -15,7 +15,7 @@ export default function Footer() {
     return (
         <footer className="pt-[100px] relative overflow-hidden">
             <div className="w-full pb-[27px] sm:pb-6 lg:pb-3 border-b border-black">
-                <Container>
+                <Container className="sm:max-w-full">
                     <div className="sm:max-w-[592px] lg:max-w-full lg:flex lg:items-center lg:justify-between">
                         <SectionTitle className="mb-4 sm:mb-7 sm:text-[64px]">
                             Тут кожен момент
@@ -47,11 +47,11 @@ export default function Footer() {
                 </Container>
             </div>
             <Container className="pt-7 lg:pt-6.5 pb-[23.5px] lg:pb-[29px] pl-[27px] relative">
-                <div className="flex flex-col sm:flex-row-reverse lg:flex-row sm:items-start sm:justify-between sm:max-w-[592px] mb-[39px] lg:mb-[129px] lg:max-w-full">
+                <div className="flex flex-col lg:flex-row sm:items-start sm:justify-between sm:max-w-[592px] mb-[39px] lg:mb-[129px] lg:max-w-full">
                     <SocialsGroup className="mb-[27px] lg:mb-0 sm:hidden lg:flex" />
-                    <div className="lg:w-[768px] lg:flex lg:flex-row-reverse lg:justify-between">
-                        <Contacts className="mb-[27px] lg:mb-0" />
-                        <div className="lg:w-[148px]">
+                    <div className="lg:w-[768px] sm:flex sm:flex-row-reverse sm:justify-between">
+                        <Contacts className="mb-[27px] sm:mb-0" />
+                        <div className="sm:w-[148px]">
                             <RulesButton className="mb-[27px] lg:mb-[52px]" />
                             <PublicOfferButton className="lg:ml-[-432px]" />
                         </div>
