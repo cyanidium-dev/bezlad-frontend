@@ -17,13 +17,13 @@ export default function RulesPopup({
             className="bg-white lg:bg-gray px-4.5 lg:px-[45px] pt-6 pb-6 lg:py-14 w-[calc(100%-66px)] max-w-[calc(100%-66px)] h-[calc(100dvh-176px)] max-h-[calc(100dvh-176px)] lg:w-[calc(100%-294px)] lg:max-w-[986px] lg:h-[calc(100dvh-129px)] lg:max-h-[933px] overflow-hidden flex flex-col"
         >
             <div className="relative flex flex-col items-center w-full z-20 flex-1 min-h-0">
-                <h2 className="mb-4 lg:mb-6 text-[24px] lg:text-[36px] font-azbuka leading-[108.33%] lg:leading-[108.33%] text-center uppercase flex-shrink-0">
+                <h2 className="mb-4 lg:mb-6 text-[24px] lg:text-[36px] font-azbuka leading-[108.33%] lg:leading-[108.33%] text-center uppercase shrink-0">
                     Правила відвідування пісочниці:
                 </h2>
                 <div
                     id="rules-popup-content"
                     className="overflow-y-auto scrollbar scrollbar-w-[4px] lg:scrollbar-w-[8px] scrollbar-thumb-rounded-full 
-      scrollbar-track-rounded-full scrollbar-thumb-purple scrollbar-track-purple/10 popup-scroll w-full flex-1 min-h-0 pr-3 lg:pr-6"
+      scrollbar-track-rounded-full scrollbar-thumb-purple scrollbar-track-purple/10 popup-scroll w-full flex-1 min-h-0 pr-3 lg:pr-6 [scrollbar-width:thin] [scrollbar-color:#7c48cc_#ece4f9]"
                 >
                     <p className="text-base lg:text-[20px] leading-[120%] lg:leading-[150%] mb-4">
                         Шановні батьки та гості, будь ласка, дотримуйтесь цих
