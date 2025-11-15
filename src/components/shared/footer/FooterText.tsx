@@ -7,31 +7,10 @@ import { useScreenWidth } from "@/hooks/useScreenWidth";
 export default function FooterText() {
     const width = useScreenWidth();
 
-    // Create custom variants that include the rotation transform
     const getVariants = () => {
-        const baseVariants =
-            width >= 1024
-                ? fadeInAnimation({ delay: 1.8, x: -20 })
-                : fadeInAnimation({ delay: 1.8, y: 20 });
-
-        const rotationTransform =
-            width >= 1024 ? "" : "rotate(-90deg) translateX(100%)";
-
-        if (!rotationTransform) {
-            return baseVariants;
-        }
-
-        return {
-            hidden: {
-                ...baseVariants.hidden,
-                transform: `${rotationTransform} ${baseVariants.hidden.transform}`,
-            },
-            visible: {
-                ...baseVariants.visible,
-                transform: `${rotationTransform} ${baseVariants.visible.transform}`,
-            },
-            exit: baseVariants.exit,
-        };
+        return width >= 1024
+            ? fadeInAnimation({ delay: 1.8, x: -20 })
+            : fadeInAnimation({ delay: 1.8, y: 20 });
     };
 
     return (

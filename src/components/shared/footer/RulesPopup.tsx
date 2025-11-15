@@ -22,7 +22,7 @@ export default function RulesPopup({
                 </h2>
                 <div
                     id="rules-popup-content"
-                    className="overflow-y-auto scrollbar scrollbar-w-[4px] lg:scrollbar-w-[8px] scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-purple scrollbar-track-purple/10 w-full flex-1 min-h-0 pr-3 lg:pr-6"
+                    className="overflow-y-auto scrollbar scrollbar-w-[4px] lg:scrollbar-w-[8px] scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-purple scrollbar-track-purple/10 scrollbar-firefox w-full flex-1 min-h-0 pr-3 lg:pr-6"
                 >
                     <p className="text-base lg:text-[20px] leading-[120%] lg:leading-[150%] mb-4">
                         Шановні батьки та гості, будь ласка, дотримуйтесь цих
