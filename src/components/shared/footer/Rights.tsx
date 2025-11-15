@@ -19,7 +19,6 @@ export default function Rights() {
                     width={63.6}
                     height={21.2}
                     className="w-[63.6px] lg:w-[75.21px] h-[21.2px] lg:h-[25px]"
-                    quality={100}
                 />
             </a>
             <a
