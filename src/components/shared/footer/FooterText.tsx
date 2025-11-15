@@ -19,7 +19,7 @@ export default function FooterText({ className }: FooterTextProps) {
 
     return (
         <div
-            className={`absolute bottom-2 -right-10.5 sm:-bottom-2.5 lg:-bottom-17.5 lg:right-none lg:-left-[29px] z-1 lg:-z-10 ${className}`}
+            className={`absolute bottom-2 -right-10.5 sm:-bottom-2.5 sm:-right-9 lg:-bottom-17.5 lg:right-none lg:-left-[29px] z-1 lg:-z-10 ${className}`}
         >
             <div className="footer-block-rotate">
                 <motion.div
