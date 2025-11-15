@@ -1,4 +1,5 @@
 import AnimatedAnimal from "@/components/shared/animatedAnimal/AnimatedAnimal";
+import AnimatedArrow from "@/components/shared/animatedArrow/AnimatedArrow";
 import Image from "next/image";
 
 export default function HeroImages() {
@@ -38,6 +39,7 @@ export default function HeroImages() {
           maxPupilMovement={6}
           fetchPriority="high"
         />
+        <AnimatedArrow className="absolute -z-10 top-[156px] xl:top-[220px] left-[-64px] lg:left-[-80px] xl:left-[-170px] w-[135px] lg:w-[218px] xl:w-[288px] h-auto rotate-[-65deg] lg:rotate-[-5deg] scale-y-[-1] lg:scale-y-[1]" />
       </div>
     </>
   );
