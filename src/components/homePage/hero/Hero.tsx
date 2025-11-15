@@ -13,7 +13,7 @@ export default function Hero() {
         initial="hidden"
         whileInView="visible"
         exit="exit"
-        viewport={{ once: true, amount: 0.8 }}
+        viewport={{ once: true, amount: 0.01 }}
         variants={fadeInAnimation({
           x: 120,
           scale: 0.85,

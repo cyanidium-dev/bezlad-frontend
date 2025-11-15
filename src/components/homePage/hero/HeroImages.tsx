@@ -11,7 +11,7 @@ export default function HeroImages() {
         initial="hidden"
         whileInView="visible"
         exit="exit"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.01 }}
         variants={fadeInAnimation({})}
         className="absolute -z-10 left-[calc(50%-325px)] lg:left-auto lg:right-[calc(50%-785px)] bottom-[-363px] lg:bottom-[-507px] 
         w-[746px] lg:w-[999px] h-[758px] lg:h-[1029px] rounded-full 
@@ -29,7 +29,7 @@ export default function HeroImages() {
         initial="hidden"
         whileInView="visible"
         exit="exit"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.01 }}
         variants={fadeInAnimation({})}
         className="hidden lg:block absolute -z-10 left-[calc(50%-725px)] bottom-[-277px] 
         w-[535px] h-[439px] overflow-hidden"
@@ -48,7 +48,7 @@ export default function HeroImages() {
         initial="hidden"
         whileInView="visible"
         exit="exit"
-        viewport={{ once: true, amount: 0.8 }}
+        viewport={{ once: true, amount: 0.3 }}
         variants={fadeInAnimation({
           x: -20,
           scale: 0.95,
