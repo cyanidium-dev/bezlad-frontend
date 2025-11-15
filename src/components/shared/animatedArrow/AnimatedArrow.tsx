@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useId } from "react";
+import { motion, useInView } from "framer-motion";
+import { useId, useRef } from "react";
 
 interface AnimatedArrowProps {
   className?: string;
@@ -15,9 +15,12 @@ export default function AnimatedArrow({
   const id = useId();
   const mainMaskId = `reveal-main-${id}`;
   const tipMaskId = `reveal-tip-${id}`;
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
     <svg
+      ref={ref}
       width="209"
       height="117"
       viewBox="0 0 209 117"
@@ -34,9 +37,8 @@ export default function AnimatedArrow({
             strokeWidth="6"
             strokeLinecap="round"
             initial={{ pathLength: 0, opacity: 0 }}
-            whileInView={{ pathLength: 1, opacity: 1 }}
+            animate={isInView ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
             transition={{ duration: 2, ease: "easeInOut", delay }}
-            viewport={{ once: true, amount: 0.1 }}
           />
         </mask>
 
@@ -49,13 +51,12 @@ export default function AnimatedArrow({
             strokeLinecap="round"
             /* Головне: приховати початкову точку */
             initial={{ pathLength: 0, opacity: 0 }}
-            whileInView={{ pathLength: 1, opacity: 1 }}
+            animate={isInView ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
             transition={{
               duration: 1.2,
               ease: "easeInOut",
               delay: delay + 1.8, // після основної лінії
             }}
-            viewport={{ once: true, amount: 0.1 }}
           />
         </mask>
       </defs>

@@ -4,7 +4,7 @@ import MainButton from "@/components/shared/buttons/MainButton";
 import Container from "@/components/shared/container/Container";
 import SectionTitle from "@/components/shared/titles/SectionTitle";
 import CTAImages from "./CTAImages";
-import AnimatedArrow from "./AnimatedArrow";
+import AnimatedArrow from "../../shared/animatedArrow/AnimatedArrow";
 
 export default function CTAContactUs() {
   return (
