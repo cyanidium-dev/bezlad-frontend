@@ -53,7 +53,7 @@ export default function Footer() {
                         <Contacts className="mb-[27px] sm:mb-0" />
                         <div className="sm:w-[148px]">
                             <RulesButton className="mb-[27px] lg:mb-[52px]" />
-                            <PublicOfferButton className="lg:ml-[-432px]" />
+                            <PublicOfferButton className="lg:ml-[-182px] xl:ml-[-432px]" />
                         </div>
                     </div>
                 </div>
