@@ -46,7 +46,7 @@ export default function FooterText({ className }: FooterTextProps) {
                         className="absolute bottom-[42px] left-[223.58px] w-[121px] h-[144px] lg:w-[193.6px] lg:h-[234px] lg:left-[434px] lg:bottom-[70px]"
                     >
                         <Image
-                            src="/images/footer/AThingPurple.png"
+                            src="/images/footer/drawing.webp"
                             alt="Безлад"
                             width={121}
                             height={144}

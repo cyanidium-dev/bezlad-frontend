@@ -94,4 +94,45 @@
             scrollbar-width: auto;
         }
     }
+
+    /* Hide scrollbar arrows in Chrome/WebKit browsers */
+    .scrollbar::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    .rules-popup-ol {
+        counter-reset: rules-counter;
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .rules-popup-ol > li {
+        counter-increment: rules-counter;
+        position: relative;
+        padding-left: 1rem;
+    }
+
+    .rules-popup-ol > li::before {
+        content: counter(rules-counter) ".";
+        position: absolute;
+        left: 0;
+        font-weight: 500;
+    }
+
+    .rules-popup-ol ul {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .rules-popup-ol ul li {
+        position: relative;
+        padding-left: 1.25rem;
+    }
+
+    .rules-popup-ol ul li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--color-black);
+    }
 }
