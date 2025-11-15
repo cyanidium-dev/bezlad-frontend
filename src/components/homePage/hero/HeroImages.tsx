@@ -1,4 +1,5 @@
 import AnimatedAnimal from "@/components/shared/AnimatedAnimal";
+import Image from "next/image";
 
 export default function HeroImages() {
   return (
@@ -7,7 +8,15 @@ export default function HeroImages() {
         className="absolute -z-10 left-[calc(50%-325px)] lg:left-auto lg:right-[calc(50%-785px)] bottom-[-363px] lg:bottom-[-507px] 
         w-[746px] lg:w-[999px] h-[758px] lg:h-[1029px] rounded-full 
       bg-[linear-gradient(164deg,#F6FF3A_7%,#F9FF8A_59.69%)]"
-      />
+      >
+        <Image
+          src="/images/hero/dashedLine.svg"
+          alt="dashed line"
+          width="533"
+          height="303"
+          className="absolute top-[247px] lg:top-[323px] right-[125px] lg:right-[73px] rotate-[-5deg] w-[333px] lg:w-[533px] h-auto"
+        />
+      </div>
       <div
         className="hidden lg:block absolute -z-10 left-[calc(50%-725px)] bottom-[-277px] 
         w-[535px] h-[439px] overflow-hidden"
@@ -22,10 +31,10 @@ export default function HeroImages() {
           }}
         />
       </div>
-      <div className="absolute top-[257px] lg:top-[289px] right-[calc(50%-338px)] lg:right-[238px]">
+      <div className="absolute top-[257px] lg:top-[397px] xl:top-[289px] right-[calc(50%-338px)] lg:right-[calc(50%-272px)] xl:right-[calc(50%-402px)]">
         <AnimatedAnimal
           svgPath="/images/animal.svg"
-          className="w-[393px] lg:w-[532px] h-[355px] lg:h-[486px]"
+          className="w-[393px] xl:w-[532px] h-[355px] xl:h-[486px]"
           maxPupilMovement={6}
         />
       </div>
