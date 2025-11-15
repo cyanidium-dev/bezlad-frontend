@@ -1,5 +1,6 @@
 import SectionTitle from "@/components/shared/titles/SectionTitle";
 import Container from "@/components/shared/container/Container";
+import InteractiveZonesBlock from "./interactiveZonesBlock/InteractiveZonesBlock";
 
 export default function InteractiveZones() {
     return (
@@ -12,6 +13,7 @@ export default function InteractiveZones() {
                     Деревина, вода, пісок, рослини - тут про природу, гармонію,
                     заземлення та спокій.
                 </p>
+                <InteractiveZonesBlock />
             </Container>
         </div>
     );

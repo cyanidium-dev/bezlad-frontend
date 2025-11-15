@@ -1,8 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { Blobs, BlobsT } from "./cardDecorations/Blobs";
-import CrossIcon from "@/components/shared/icons/CrossIcon";
-import { BluredElipse } from "./cardDecorations/BluredElipse";
+import StarIcon from "@/components/shared/icons/StarIcon";
 
 type CardDirection = "horizontal" | "vertical";
 type CardVariant =
@@ -22,15 +21,21 @@ interface InterativeZonesCardProps {
     variant: CardVariant;
 }
 
-const GlassCard = (title: string, image: string) => {
+export const GlassCard = ({
+    title,
+    image,
+}: {
+    title: string;
+    image: string;
+}) => {
     return (
-        <div className="p-px w-[312px] h-[117px] w-[386px] h-[189px] bg-gradient-to-r from-black from-[27.26%] to-white to-[97.59%] rounded-[14px] lg:rounded-[18px]">
+        <div className="p-px w-[312px] h-[117px] lg:w-[386px] lg:h-[189px] bg-linear-to-r from-black from-[27.26%] to-white to-[97.59%] rounded-[14px] lg:rounded-[18px]">
             <div className="relative bg-white px-4 py-3 lg:p-5 overflow-hidden rounded-[14px] lg:rounded-[18px]">
                 <div className="flex flex-col gap-0.5 lg:gap-[9px] items-end ml-auto mt-auto lg:ml-none lg:max-w-[146px]">
+                    <StarIcon className="text-purple w-[47px] h-[47px]" />
                     <p className="text-base lg:text-[24px] font-azbuka leading-[120%] uppercase">
                         {title}
                     </p>
-                    <CrossIcon className="text-purple w-[47px] h-[47px]" />
                 </div>
                 <Image
                     src={image}
@@ -44,10 +49,16 @@ const GlassCard = (title: string, image: string) => {
     );
 };
 
-const PurpleBlobCard = (title: string, image: string) => {
+export const PurpleBlobCard = ({
+    title,
+    image,
+}: {
+    title: string;
+    image: string;
+}) => {
     return (
         <div className="relative w-[312px] h-[117px] lg:w-[285px] lg:h-[409px] bg-purple rounded-[14px] lg:rounded-[18px] overflow-hidden px-4 py-3 lg:p-5">
-            <div className="mt-auto">
+            <div className="absolute bottom-3 lg:bottom-5 z-2">
                 <p className="text-base lg:text-[24px] font-azbuka leading-[120%] uppercase">
                     {title}
                 </p>
@@ -57,31 +68,74 @@ const PurpleBlobCard = (title: string, image: string) => {
                 alt={title}
                 width={207.5}
                 height={198}
-                className="lg:w-[404px] lg:h-[386px] object-cover absolute top-[-65px] lg:top-[-75px] left-[183px] lg:left-[11px]"
+                className="lg:w-[404px] lg:h-[386px] object-cover absolute z-2 top-[-65px] lg:top-[-75px] left-[183px] lg:left-[11px]"
             />
-            <BluredElipse className="w-[153.74px] h-[60.2px] lg:w-[309px] lg:h-[121px] text-purple absolute top-[70px] left-[5px] lg:top-[322px] lg:left-[-12px]  pointer-events-none" />
-            <Blobs className="w-[123px] h-[68.4px] lg:w-[213.5px] lg:h-[83.8px] text-purple absolute top-[-7px] left-[-20px] rotate-[-170.14deg] lg:top-[92px] lg:left-[-92px] lg:rotate-[161.58deg] pointer-events-none" />
-            <BlobsT className="w-[106.2px] h-[59.1px] lg:w-[213.5px] lg:h-[83.8px] text-purple absolute top-[33px] left-[98px] rotate-[-8.19deg] lg:top-[238px] lg:left-[-81px] lg:rotate-[161.66deg] pointer-events-none" />
-            <BlobsT className="w-[132.2px] h-[73.6px] lg:w-[213.5px] lg:h-[83.8px] text-purple absolute top-[60.75px] left-[-6.47px] rotate-[-170.14 deg] lg:top-[247px] lg:left-[94px] lg:rotate-[-26.63deg] pointer-events-none" />
+            <div className="w-[153.74px] h-[60.2px] lg:w-[309px] z-1 lg:h-[121px] text-purple absolute top-[70px] left-[5px] lg:top-[322px] lg:left-[-12px]  pointer-events-none">
+                <div className="bg-purple blur-[10.8466px] w-full h-full" />
+            </div>
+            <Blobs className="w-[123px] h-[68.4px] lg:w-[213.5px] lg:h-[83.8px] text-purple-blob absolute top-[-7px] left-[-20px] rotate-[-170.14deg] lg:top-[92px] lg:left-[-92px] lg:rotate-[161.58deg] pointer-events-none" />
+            <BlobsT className="w-[106.2px] h-[59.1px] lg:w-[213.5px] lg:h-[83.8px] text-purple-blob absolute top-[33px] left-[98px] rotate-[-8.19deg] lg:top-[238px] lg:left-[-81px] lg:rotate-[161.66deg] pointer-events-none" />
+            <BlobsT className="w-[132.2px] h-[73.6px] lg:w-[213.5px] lg:h-[83.8px] text-purple-blob absolute top-[60.75px] left-[-6.47px] rotate-[-170.14 deg] lg:top-[247px] lg:left-[94px] lg:rotate-[-26.63deg] pointer-events-none" />
         </div>
     );
 };
 
-const YellowElipseCard = (title: string, image: string) => {
+export const YellowElipseCard = ({
+    title,
+    image,
+}: {
+    title: string;
+    image: string;
+}) => {
     return (
-        <div className="relative w-[312px] h-[117px] lg:w-[285px] lg:h-[409px] bg-yellow rounded-[14px] lg:rounded-[18px] px-4 py-3 lg:p-5">
-            <div className="mt-auto">
-                <p className="text-base lg:text-[24px] font-azbuka leading-[120%] max-w[103px] lg:max-w[146px] uppercase">
-                    {title}
-                </p>
+        <div className="relative w-fit h-fit">
+            <div className="overflow-hidden relative w-[312px] h-[117px] lg:w-[285px] lg:h-[409px] bg-yellow rounded-[14px] lg:rounded-[18px] px-4 py-3 lg:p-5">
+                <div className="absolute bottom-3 lg:bottom-5">
+                    <p className="text-base lg:text-[24px] font-azbuka leading-[120%] uppercase">
+                        {title}
+                    </p>
+                </div>
+                <div className="z-1 w-[263px] h-[225.7px] lg:w-[263px] lg:h-[225.7px] text-[#FCFFC1] absolute top-[-93px] left-[137px] lg:top-[-57px] lg:left-[226px] pointer-events-none">
+                    <div className="bg-[#FCFFC1] blur-[40.6624px] w-full h-full" />
+                </div>
             </div>
-            <BluredElipse className="w-[263px] h-[225.7px] lg:w-[263px] lg:h-[225.7px] text-[#FCFFC1] absolute top-[-93px] left-[137px] lg:top-[-57px] lg:left-[226px] pointer-events-none" />
             <Image
                 src={image}
                 alt={title}
                 width={162.7}
                 height={196.6}
-                className="lg:w-[286.8px] lg:h-[360.5px] object-cover absolute top-[80px] lg:top-[190px] left-[148px] lg:left-[215px]"
+                className="z-2 lg:w-[286.8px] lg:h-[360.5px] object-cover absolute top-[-80px] lg:top-[190px] left-[148px] lg:left-[215px]"
+            />
+        </div>
+    );
+};
+
+export const PurpleNoiseCard = ({
+    title,
+    image,
+}: {
+    title: string;
+    image: string;
+}) => {
+    return (
+        <div className="overflow-hidden relative w-[312px] h-[117px] lg:w-[285px] lg:h-[409px] bg-purple rounded-[14px] lg:rounded-[18px] px-4 py-3 lg:p-5">
+            <div className="absolute bottom-3 lg:bottom-5 z-1">
+                <p className="text-base lg:text-[24px] font-azbuka leading-[120%] max-w-[103px] lg:max-w-[146px] uppercase">
+                    {title}
+                </p>
+            </div>
+            <Image
+                src={image}
+                alt={title}
+                width={219}
+                height={209}
+                className="object-cover absolute z-1 top-[-62px] lg:top-[-75px] left-[126px] lg:left-[11px]"
+            />
+            <Image
+                src="/images/ctaContactUs/noise.webp"
+                alt="noise"
+                fill
+                className="absolute inset-0 pointer-events-none"
             />
         </div>
     );

@@ -15,6 +15,8 @@
     --color-purple-light: #d5b5ff;
     --color-purple-ultra-light: #ece4f9;
 
+    --color-purple-blob: #8852de;
+
     --font-raleway: var(--font-raleway), sans-serif;
     --font-azbuka: var(--font-azbuka), sans-serif;
 }
