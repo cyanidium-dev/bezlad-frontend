@@ -20,7 +20,7 @@ export default function Hero() {
           delay: 0.8,
           duration: 1.6,
         })}
-        className="absolute top-0 right-[calc(50%-264px)] lg:right-[-138px]"
+        className="absolute top-2 right-[calc(50%-264px)] lg:right-[-138px]"
       >
         <AnimatedAnimal
           svgPath="/images/animals/animalYellow.svg"

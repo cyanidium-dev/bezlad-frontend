@@ -1,4 +1,5 @@
 import CTAContactUs from "@/components/homePage/ctaContactUs/CTAContactUs";
+import CTAOrder from "@/components/homePage/ctaOrder/CTAOrder";
 import Hero from "@/components/homePage/hero/Hero";
 import { ALL_SERVICES_QUERY, GALLERY_IMAGES } from "@/lib/queries";
 import { fetchSanityData } from "@/utils/fetchSanityData";
@@ -10,6 +11,7 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
+      <CTAOrder />
       <CTAContactUs />
     </>
   );

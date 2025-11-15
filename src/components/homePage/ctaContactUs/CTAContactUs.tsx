@@ -1,5 +1,5 @@
 import * as motion from "motion/react-client";
-import { fadeInAnimation } from "@/utils/animationVariants";
+import { fadeInAnimation, headerVariants } from "@/utils/animationVariants";
 import MainButton from "@/components/shared/buttons/MainButton";
 import Container from "@/components/shared/container/Container";
 import SectionTitle from "@/components/shared/titles/SectionTitle";
@@ -13,7 +13,7 @@ export default function CTAContactUs() {
       whileInView="visible"
       exit="exit"
       viewport={{ once: true, amount: 0.1 }}
-      variants={fadeInAnimation({})}
+      variants={headerVariants}
       className="relative max-w-7xl mx-auto mt-25 lg:mt-[132px] bg-purple-ultra-light rounded-4xl overflow-hidden"
     >
       <CTAImages />
