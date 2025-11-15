@@ -64,7 +64,7 @@ export default function Footer() {
                     className="absolute bottom-[-50.44px] left-0 -z-10"
                 >
                     <Image
-                        src="/images/footer/bottomImageMob.png"
+                        src="/images/footer/bottomImageMob.webp"
                         alt="Безлад"
                         width={267}
                         height={153.46}
@@ -80,7 +80,7 @@ export default function Footer() {
                     className="absolute right-2 -bottom-7 -z-10"
                 >
                     <Image
-                        src="/images/footer/bottomImageDesk.png"
+                        src="/images/footer/bottomImageDesk.webp"
                         alt="Безлад"
                         width={328.5}
                         height={218.2}

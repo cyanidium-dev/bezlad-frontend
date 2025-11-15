@@ -14,11 +14,12 @@ export default function Rights() {
                 className="group flex items-center gap-1.5 xl:hover:opacity-80 transition-opacity duration-300"
             >
                 <Image
-                    src="/images/footer/WebBondLogo.png"
+                    src="/images/footer/WebBondLogo.webp"
                     alt="WebBond"
                     width={63.6}
                     height={21.2}
                     className="w-[63.6px] lg:w-[75.21px] h-[21.2px] lg:h-[25px]"
+                    quality={100}
                 />
             </a>
             <a
@@ -28,24 +29,13 @@ export default function Rights() {
                 className="group flex items-center gap-1.5 xl:hover:opacity-80 transition-opacity duration-300"
             >
                 <Image
-                    src="/images/footer/codeSiteArtLogo.png"
+                    src="/images/footer/CodeSiteLogo.svg"
                     alt="CodeSite"
                     width={78.82}
                     height={15}
                     className="w-[78.82px] lg:w-[93.2px] h-[15px] lg:h-[17.8px]"
                 />
             </a>
-            {/*    <a
-                    href={CODE_SITE_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-1.5"
-                >
-                    <p className="text-[14px] font-medium leading-[180%] uppercase active:text-gray-300 xl:hover:text-gray-300 focus-visible:text-gray-300 transition duration-300 ease-in-out">
-                        Code-site.art
-                    </p>
-                    <TagIcon className="mb-1.5 xl:hover:text-gray-300 transition duration-300 ease-in-out" />
-                </a> */}
         </div>
     );
 }
