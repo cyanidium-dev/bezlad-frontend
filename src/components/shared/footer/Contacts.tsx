@@ -7,7 +7,7 @@ import {
 } from "@/constants/constants";
 import { contactsPhoneRegex } from "@/regex/regex";
 import { fadeInAnimation, listVariants } from "@/utils/animationVarints";
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 
 interface ContactsProps {
     className?: string;
@@ -18,7 +18,6 @@ export default function Contacts({ className }: ContactsProps) {
         <motion.address
             variants={listVariants({ delayChildren: 1 })}
             initial="hidden"
-            animate="visible"
             whileInView="visible"
             exit="exit"
             viewport={{ once: true, amount: 0.1 }}
@@ -28,7 +27,6 @@ export default function Contacts({ className }: ContactsProps) {
                 <motion.div
                     variants={fadeInAnimation({ delay: 0.3, y: 20 })}
                     initial="hidden"
-                    animate="visible"
                     whileInView="visible"
                     exit="exit"
                     viewport={{ once: true, amount: 0.1 }}
@@ -37,17 +35,16 @@ export default function Contacts({ className }: ContactsProps) {
                     <h3 className="text-[14px] leading-[150%] font-light mb-[3px]">
                         Графік роботи
                     </h3>
-                    <p className="text-[16px] leading-[19px] uppercase font-semibold mb-px">
+                    <p className="text-[16px] leading-[118.75%] uppercase font-semibold mb-px">
                         {SCHEDULE[0]}
                     </p>
-                    <p className="text-[12px] leading-[14px] uppercase font-semibold">
+                    <p className="text-[12px] leading-[116.67%] uppercase font-semibold">
                         {SCHEDULE[1]}
                     </p>
                 </motion.div>
                 <motion.div
                     variants={fadeInAnimation({ delay: 0.6, y: 20 })}
                     initial="hidden"
-                    animate="visible"
                     whileInView="visible"
                     exit="exit"
                     viewport={{ once: true, amount: 0.1 }}
@@ -69,20 +66,19 @@ export default function Contacts({ className }: ContactsProps) {
                     <motion.div
                         variants={fadeInAnimation({ delay: 0.9, y: 20 })}
                         initial="hidden"
-                        animate="visible"
                         whileInView="visible"
                         exit="exit"
                         viewport={{ once: true, amount: 0.1 }}
                         className="mb-[27px] "
                     >
-                        <h3 className="text-[14px] leading-[16px] font-light mb-3">
+                        <h3 className="text-[14px] leading-[114.29%] font-light mb-3">
                             Зателефонуйте:
                         </h3>
                         <a
                             href={`tel:${PHONE}`}
                             target="_blank"
                             rel="noopener noreferrer nofollow"
-                            className="text-[16px] leading-[19px] uppercase font-semibold xl:hover:text-purple transition-colors duration-300"
+                            className="text-[16px] leading-[118.75%] uppercase font-semibold xl:hover:text-purple transition-colors duration-300"
                         >
                             {PHONE.replace(
                                 contactsPhoneRegex,
@@ -93,20 +89,19 @@ export default function Contacts({ className }: ContactsProps) {
                     <motion.div
                         variants={fadeInAnimation({ delay: 1.2, y: 20 })}
                         initial="hidden"
-                        animate="visible"
                         whileInView="visible"
                         exit="exit"
                         viewport={{ once: true, amount: 0.1 }}
                         className="lg:ml-auto"
                     >
-                        <h3 className="text-[14px] leading-[16px] font-light mb-3">
+                        <h3 className="text-[14px] leading-[114.29%] font-light mb-3">
                             Або напишіть нам:
                         </h3>
                         <a
                             href={`mailto:${EMAIL}`}
                             target="_blank"
                             rel="noopener noreferrer nofollow"
-                            className="text-[16px] leading-[19px] uppercase font-bold xl:hover:text-purple transition-colors duration-300"
+                            className="text-[16px] leading-[118.75%] uppercase font-bold xl:hover:text-purple transition-colors duration-300"
                         >
                             {EMAIL}
                         </a>

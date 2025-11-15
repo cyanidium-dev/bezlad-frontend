@@ -20,7 +20,7 @@ export default function Header() {
     return (
         <header
             className={clsx(
-                "fixed  left-0 right-0 z-50 lg:z-10 py-2 transition-top duration-300 ease-in-out",
+                "fixed  left-0 right-0 z-50 py-2 transition-top duration-300 ease-in-out",
                 scrollProgress > 0.1
                     ? "backdrop-blur-[38px] top-0"
                     : "top-[25px]"

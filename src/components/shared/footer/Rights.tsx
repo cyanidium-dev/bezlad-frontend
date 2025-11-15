@@ -1,12 +1,10 @@
-//import { CODE_SITE_URL } from "@/constants/constants";
-//import TagIcon from "../icons/TagIcon";
 import { CODE_SITE_URL, WEB_BOND_URL } from "@/constants/constants";
 import Image from "next/image";
 
 export default function Rights() {
     return (
         <div className="flex flex-col items-center justify-center w-[84.5px] lg:w-[100px] ml-[136px] lg:ml-auto lg:mr-[-2px]">
-            <p className="text-[7.51px] lg:text-[9px] font-medium leading-[9px] lg:leading-[11px] uppercase text-white mb-2.5 lg:mb-3 tracking-[0.05em]">
+            <p className="text-[7.51px] lg:text-[9px] font-medium leading-[120%] lg:leading-[122%] uppercase text-white mb-2.5 lg:mb-3 tracking-[0.05em]">
                 Created by
             </p>
             <a

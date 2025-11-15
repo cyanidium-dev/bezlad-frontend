@@ -29,7 +29,7 @@ export default function Backdrop({
 
     return (
         <div
-            className={`fixed z-[40] inset-0 w-dvw h-dvh ${
+            className={`fixed z-[60] inset-0 w-dvw h-dvh ${
                 transparent ? "bg-transparent" : "bg-black/50"
             } transition-opacity duration-[1000ms] ease-in-out ${
                 isVisible

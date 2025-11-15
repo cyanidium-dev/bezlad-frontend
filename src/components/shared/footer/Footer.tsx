@@ -1,4 +1,3 @@
-"use client";
 import Container from "../container/Container";
 import StarIcon from "../icons/StarIcon";
 import SocialsGroup from "./SocialsGroup";
@@ -6,30 +5,17 @@ import Contacts from "./Contacts";
 import Image from "next/image";
 import Rights from "./Rights";
 import RulesButton from "./RulesButton";
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 import { fadeInAnimation } from "@/utils/animationVarints";
-import { useEffect, useState } from "react";
+import FooterText from "./FooterText";
 
 export default function Footer() {
-    const [isLargeScreen, setIsLargeScreen] = useState(false);
-
-    useEffect(() => {
-        const checkScreenSize = () => {
-            setIsLargeScreen(window.innerWidth >= 1024);
-        };
-
-        checkScreenSize();
-        window.addEventListener("resize", checkScreenSize);
-
-        return () => window.removeEventListener("resize", checkScreenSize);
-    }, []);
     return (
         <footer className="pt-[100px] relative overflow-hidden">
             <Container className="pb-[27px] lg:pb-3 border-b border-black">
                 <motion.h2
-                    variants={fadeInAnimation({ delay: 0.3 })}
+                    variants={fadeInAnimation({})}
                     initial="hidden"
-                    animate="visible"
                     whileInView="visible"
                     exit="exit"
                     viewport={{ once: true, amount: 0.1 }}
@@ -37,23 +23,21 @@ export default function Footer() {
                 >
                     Тут кожен момент
                     <motion.span
-                        variants={fadeInAnimation({ delay: 0.9 })}
+                        variants={fadeInAnimation({ delay: 0.6 })}
                         initial="hidden"
-                        animate="visible"
                         whileInView="visible"
                         exit="exit"
-                        viewport={{ once: true, amount: 0.5 }}
+                        viewport={{ once: true, amount: 0.1 }}
                         className="text-purple w-13 h-13 lg:w-17.5 lg:h-17.5 flex items-center justify-center -ml-2.5 lg:ml-0"
                     >
                         <StarIcon className="lg:w-17 lg:h-17" />
                     </motion.span>
                     <motion.span
-                        variants={fadeInAnimation({ delay: 0.6 })}
+                        variants={fadeInAnimation({ delay: 0.3 })}
                         initial="hidden"
-                        animate="visible"
                         whileInView="visible"
                         exit="exit"
-                        viewport={{ once: true, amount: 0.5 }}
+                        viewport={{ once: true, amount: 0.1 }}
                         className="text-[16px] lg:text-[24px] leading-[120%] text-right uppercase max-w-[255px] lg:max-w-[382px]"
                     >
                         — маленьке відкриття, а кожна усмішка — нагорода
@@ -68,37 +52,12 @@ export default function Footer() {
                         <RulesButton />
                     </div>
                 </div>
-                <motion.div
-                    variants={
-                        isLargeScreen
-                            ? fadeInAnimation({ delay: 1.8, x: -20 })
-                            : fadeInAnimation({ delay: 1.8, y: 20 })
-                    }
-                    initial="hidden"
-                    animate="visible"
-                    whileInView="visible"
-                    exit="exit"
-                    viewport={{ once: true, amount: 0.1 }}
-                    className="absolute bottom-2 -right-10.5 lg:-bottom-17.5 lg:right-none lg:-left-[29px] -z-10"
-                >
-                    <div className="footer-block-rotate">
-                        <p className="text-[147.567px] lg:text-[288.557px] leading-[120%] uppercase font-azbuka">
-                            Безлад
-                        </p>
-                        <Image
-                            src="/images/footer/AThingPurple.png"
-                            alt="Безлад"
-                            width={121}
-                            height={144}
-                            className="absolute bottom-[42px] left-[223.58px] lg:w-[193.6px] lg:h-[234px] lg:left-[434px] lg:bottom-[70px]"
-                        />
-                    </div>
-                </motion.div>
+
+                <FooterText />
 
                 <motion.div
-                    variants={fadeInAnimation({ delay: 2.1, y: 20 })}
+                    variants={fadeInAnimation({ delay: 2.2, y: 20 })}
                     initial="hidden"
-                    animate="visible"
                     whileInView="visible"
                     exit="exit"
                     viewport={{ once: true, amount: 0.1 }}
@@ -113,9 +72,8 @@ export default function Footer() {
                     />
                 </motion.div>
                 <motion.div
-                    variants={fadeInAnimation({ delay: 2.1, y: 20 })}
+                    variants={fadeInAnimation({ delay: 2.2, y: 20 })}
                     initial="hidden"
-                    animate="visible"
                     whileInView="visible"
                     exit="exit"
                     viewport={{ once: true, amount: 0.1 }}
@@ -130,9 +88,8 @@ export default function Footer() {
                     />
                 </motion.div>
                 <motion.div
-                    variants={fadeInAnimation({ delay: 2.4 })}
+                    variants={fadeInAnimation({ delay: 2.4, scale: 0.95 })}
                     initial="hidden"
-                    animate="visible"
                     whileInView="visible"
                     exit="exit"
                     viewport={{ once: true, amount: 0.1 }}
