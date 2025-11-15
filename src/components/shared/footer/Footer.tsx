@@ -71,7 +71,7 @@ export default function Footer() {
                     whileInView="visible"
                     exit="exit"
                     viewport={{ once: true, amount: 0.1 }}
-                    className="absolute bottom-[-50.44px] left-0 -z-10 sm:left-8"
+                    className="absolute bottom-[-50.44px] left-0 -z-1 sm:left-8"
                 >
                     <Image
                         src="/images/footer/bottomImageMob.webp"
@@ -87,7 +87,7 @@ export default function Footer() {
                     whileInView="visible"
                     exit="exit"
                     viewport={{ once: true, amount: 0.1 }}
-                    className="absolute right-2 -bottom-7 -z-10"
+                    className="absolute right-2 -bottom-7 -z-1"
                 >
                     <Image
                         src="/images/footer/bottomImageDesk.webp"
@@ -103,14 +103,14 @@ export default function Footer() {
                     whileInView="visible"
                     exit="exit"
                     viewport={{ once: true, amount: 0.1 }}
-                    className="flex items-center justify-between"
+                    className="flex items-center"
                 >
                     <Rights />
-                    <SocialsGroup className="hidden sm:block lg:hidden mr-[128px]" />
+                    <SocialsGroup className="hidden sm:block lg:hidden ml-[182.5px]" />
                 </motion.div>
                 <FooterText className="lg:block hidden" />
             </Container>
-            <FooterText className="lg:hidden" />
+            <FooterText className="lg:hidden sm:hidden md:block" />
         </footer>
     );
 }
