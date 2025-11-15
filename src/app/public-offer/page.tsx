@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Container from "@/components/shared/container/Container";
+
+export const metadata: Metadata = {
+    title: "Публічний договір (Оферта) - Безлад",
+    description:
+        "Публічний договір (оферта) про надання послуг з організації дозвілля дітей у дитячому ігровому просторі «Безлад». Умови надання послуг, права та обов'язки сторін.",
+};
 
 export default function PublicOfferPage() {
     return (
