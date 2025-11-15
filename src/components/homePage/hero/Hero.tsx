@@ -12,6 +12,7 @@ export default function Hero() {
           svgPath="/images/animals/animalYellow.svg"
           className="w-[261px] lg:w-[352px] h-[267px] lg:h-[342px]"
           maxPupilMovement={3}
+          fetchPriority="high"
         />
       </div>
       <div className="overflow-hidden lg:rounded-b-4xl">

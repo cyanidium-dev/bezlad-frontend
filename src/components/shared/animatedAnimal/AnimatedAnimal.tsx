@@ -6,6 +6,7 @@ interface AnimatedAnimalProps {
   className?: string;
   svgPath?: string;
   maxPupilMovement?: number;
+  fetchPriority?: "high" | "low" | "auto";
 }
 
 interface EyeData {
@@ -19,9 +20,28 @@ export default function AnimatedAnimal({
   className = "",
   svgPath = "/images/animal.svg",
   maxPupilMovement = 10,
+  fetchPriority = "auto",
 }: AnimatedAnimalProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [eyes, setEyes] = useState<EyeData[]>([]);
+
+  // Додаємо preload hint для high priority
+  useEffect(() => {
+    if (fetchPriority === "high") {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = svgPath;
+      link.setAttribute("fetchpriority", "high");
+      document.head.appendChild(link);
+
+      return () => {
+        if (document.head.contains(link)) {
+          document.head.removeChild(link);
+        }
+      };
+    }
+  }, [svgPath, fetchPriority]);
 
   // Завантаження SVG
   useEffect(() => {

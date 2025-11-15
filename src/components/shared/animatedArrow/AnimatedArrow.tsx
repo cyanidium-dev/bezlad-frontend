@@ -16,7 +16,7 @@ export default function AnimatedArrow({
   const mainMaskId = `reveal-main-${id}`;
   const tipMaskId = `reveal-tip-${id}`;
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
     <svg
@@ -37,7 +37,11 @@ export default function AnimatedArrow({
             strokeWidth="6"
             strokeLinecap="round"
             initial={{ pathLength: 0, opacity: 0 }}
-            animate={isInView ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
+            animate={
+              isInView
+                ? { pathLength: 1, opacity: 1 }
+                : { pathLength: 0, opacity: 0 }
+            }
             transition={{ duration: 2, ease: "easeInOut", delay }}
           />
         </mask>
@@ -51,7 +55,11 @@ export default function AnimatedArrow({
             strokeLinecap="round"
             /* Головне: приховати початкову точку */
             initial={{ pathLength: 0, opacity: 0 }}
-            animate={isInView ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
+            animate={
+              isInView
+                ? { pathLength: 1, opacity: 1 }
+                : { pathLength: 0, opacity: 0 }
+            }
             transition={{
               duration: 1.2,
               ease: "easeInOut",

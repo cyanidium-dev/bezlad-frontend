@@ -36,6 +36,7 @@ export default function HeroImages() {
           svgPath="/images/animals/animal.svg"
           className="w-[393px] xl:w-[532px] h-[355px] xl:h-[486px]"
           maxPupilMovement={6}
+          fetchPriority="high"
         />
       </div>
     </>
