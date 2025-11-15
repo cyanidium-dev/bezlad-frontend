@@ -1,10 +1,15 @@
 @import "tailwindcss";
+@plugin 'tailwind-scrollbar' {
+  nocompatible: true;
+  preferredstrategy: "pseudoelements";
+}
 
 @theme inline {
   --breakpoint-xs: 27rem;
 
   --color-black: #1e1e1e;
   --color-white: #ffffff;
+  --color-gray: #f2f2f2;
   --color-yellow: #f8ff66;
   --color-purple: #7c48cc;
   --color-purple-light: #d5b5ff;
@@ -53,5 +58,29 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+  }
+}
+
+@layer utilities {
+  .footer-block-rotate {
+    transform: rotate(-90deg) translateX(100%);
+    @apply origin-bottom-right;
+    @media (min-width: 1024px) {
+      transform: none;
+      transform-origin: initial;
+    }
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .rotation {
+    animation: rotation 1600ms linear infinite;
   }
 }
