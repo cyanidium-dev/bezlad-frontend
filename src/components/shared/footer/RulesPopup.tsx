@@ -30,7 +30,7 @@ export default function RulesPopup({
                         правил для забезпечення безпечного та приємного ігрового
                         досвіду для всіх.
                     </p>
-                    <ol className="rules-popup-ol">
+                    <ol className="list-none pl-0 [counter-reset:rules-counter] [&>li]:relative [&>li]:pl-4 [&>li]:[counter-increment:rules-counter] [&>li::before]:content-[counter(rules-counter)_'.'] [&>li::before]:absolute [&>li::before]:left-0 [&>li::before]:font-medium [&_ul]:list-none [&_ul]:pl-0 [&_ul_li]:relative [&_ul_li]:pl-5 [&_ul_li::before]:content-['•'] [&_ul_li::before]:absolute [&_ul_li::before]:left-0 [&_ul_li::before]:text-black">
                         <li>
                             <h3 className="text-[14px] lg:text-[16px] leading-[120%] font-medium mb-3 lg:mb-4">
                                 Вікові Обмеження та Відповідальність
