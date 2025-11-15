@@ -2,7 +2,6 @@ import MainButton from "@/components/shared/buttons/MainButton";
 import Container from "@/components/shared/container/Container";
 import BenefitsList from "./BenefitsList";
 import HeroImages from "./HeroImages";
-import AnimatedAnimal from "@/components/shared/AnimatedAnimal";
 
 export default function Hero() {
   return (
@@ -10,7 +9,7 @@ export default function Hero() {
       <Container className="relative lg:flex justify-between items-end pt-[113px] lg:pt-[147px] pb-[55px] lg:pb-[33px]">
         <HeroImages />
         <div>
-          <h1 className="lg:max-w-[841px] mb-4.5 font-azbuka text-[36px] lg:text-[81px] font-normal leading-[120%] uppercase">
+          <h1 className="max-w-[313px] lg:max-w-[841px] mb-4.5 font-azbuka text-[36px] lg:text-[81px] font-normal leading-[120%] uppercase">
             Безлад — <br /> територія ПРИРОДНОЇ Гри
           </h1>
           <p className="mb-64 lg:mb-9.5 font-azbuka text-[16px] lg:text-[32px] font-normal leading-[120%] uppercase">
@@ -29,11 +28,6 @@ export default function Hero() {
           </p>
         </div>
         <BenefitsList />
-        <AnimatedAnimal
-          svgPath="/images/animal.svg"
-          className="w-[532px] h-[486px]"
-          maxPupilMovement={6}
-        />
       </Container>
     </section>
   );

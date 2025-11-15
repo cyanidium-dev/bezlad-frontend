@@ -1,3 +1,5 @@
+import AnimatedAnimal from "@/components/shared/AnimatedAnimal";
+
 export default function HeroImages() {
   return (
     <>
@@ -18,6 +20,13 @@ export default function HeroImages() {
           style={{
             borderRadius: "50%",
           }}
+        />
+      </div>
+      <div className="absolute top-[257px] lg:top-[289px] right-[calc(50%-338px)] lg:right-[238px]">
+        <AnimatedAnimal
+          svgPath="/images/animal.svg"
+          className="w-[393px] lg:w-[532px] h-[355px] lg:h-[486px]"
+          maxPupilMovement={6}
         />
       </div>
     </>

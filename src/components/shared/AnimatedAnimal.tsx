@@ -34,6 +34,12 @@ export default function AnimatedAnimal({
           const svg = containerRef.current.querySelector("svg");
           if (!svg) return;
 
+          // Робимо SVG адаптивним до розміру контейнера
+          svg.style.width = "100%";
+          svg.style.height = "100%";
+          svg.removeAttribute("width");
+          svg.removeAttribute("height");
+
           const allPaths = Array.from(
             svg.querySelectorAll("path")
           ) as SVGPathElement[];
@@ -101,7 +107,7 @@ export default function AnimatedAnimal({
     <div
       ref={containerRef}
       className={className}
-      style={{ display: "inline-block", width: "100%", minHeight: 200 }}
+      style={{ display: "inline-block" }}
     />
   );
 }
