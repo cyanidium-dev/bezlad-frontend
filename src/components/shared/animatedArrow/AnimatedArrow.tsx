@@ -61,7 +61,7 @@ export default function AnimatedArrow({
                 : { pathLength: 0, opacity: 0 }
             }
             transition={{
-              duration: 1.2,
+              duration: 0.8,
               ease: "easeInOut",
               delay: delay + 1.8, // після основної лінії
             }}

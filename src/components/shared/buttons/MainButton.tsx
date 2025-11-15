@@ -27,10 +27,12 @@ export default function MainButton({
   icon,
 }: MainButtonProps) {
   const variants = {
-    black: "bg-black text-white",
-    white: "bg-white text-black",
+    black:
+      "bg-black text-white enabled:xl:hover:brightness-125 enabled:focus-visible:brightness-125",
+    white:
+      "bg-white text-black enabled:xl:hover:bg-purple-ultra-light enabled:focus-visible:bg-purple-ultra-light",
     outline:
-      "bg-transparent text-black border border-black xl:hover:bg-black/10 xl:focus-visible:bg-black/10",
+      "bg-transparent text-black border border-black enabled:xl:hover:bg-purple-ultra-light enabled:focus-visible:bg-purple-ultra-light",
   };
 
   return (
@@ -40,7 +42,7 @@ export default function MainButton({
       onClick={onClick}
       className={twMerge(
         `group relative overflow-hidden enabled:cursor-pointer flex items-center justify-center rounded-full 
-          disabled:opacity-60 enabled:xl:hover:brightness-125 enabled:focus-visible:brightness-125 enabled:active:scale-[98%] 
+          disabled:opacity-60  enabled:active:scale-[98%] 
            font-azbuka uppercase will-change-transform transition duration-300 ease-in-out`,
         "w-full",
         variants[variant],
