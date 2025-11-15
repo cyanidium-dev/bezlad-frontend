@@ -8,52 +8,55 @@ import RulesButton from "./RulesButton";
 import * as motion from "motion/react-client";
 import { fadeInAnimation } from "@/utils/animationVarints";
 import FooterText from "./FooterText";
+import PublicOfferButton from "./PublicOfferButton";
+import SectionTitle from "../titles/SectionTitle";
 
 export default function Footer() {
     return (
         <footer className="pt-[100px] relative overflow-hidden">
-            <Container className="pb-[27px] lg:pb-3 border-b border-black">
-                <motion.h2
-                    variants={fadeInAnimation({})}
-                    initial="hidden"
-                    whileInView="visible"
-                    exit="exit"
-                    viewport={{ once: true, amount: 0.1 }}
-                    className="text-[32px] lg:text-[64px] leading-[120%] uppercase font-azbuka flex items-center flex-wrap lg:justify-between gap-y-4 gap-x-[15px]"
-                >
-                    Тут кожен момент
-                    <motion.span
-                        variants={fadeInAnimation({ delay: 0.6 })}
-                        initial="hidden"
-                        whileInView="visible"
-                        exit="exit"
-                        viewport={{ once: true, amount: 0.1 }}
-                        className="text-purple w-13 h-13 lg:w-17.5 lg:h-17.5 flex items-center justify-center -ml-2.5 lg:ml-0"
-                    >
-                        <StarIcon className="lg:w-17 lg:h-17" />
-                    </motion.span>
-                    <motion.span
-                        variants={fadeInAnimation({ delay: 0.3 })}
-                        initial="hidden"
-                        whileInView="visible"
-                        exit="exit"
-                        viewport={{ once: true, amount: 0.1 }}
-                        className="text-[16px] lg:text-[24px] leading-[120%] text-right uppercase max-w-[255px] lg:max-w-[382px]"
-                    >
-                        — маленьке відкриття, а кожна усмішка — нагорода
-                    </motion.span>
-                </motion.h2>
-            </Container>
-            <Container className="pt-7 lg:pt-6.5 pb-[23.5px] lg:pb-[29px] pl-[27px] lg:relative">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start sm:gap-x-10 lg:gap-x-0 lg:mb-[129px]">
-                    <SocialsGroup className="mb-[27px] lg:mb-0" />
-                    <div className="mb-[39px] lg:mb-0 lg:flex lg:flex-row-reverse lg:justify-between lg:items-start w-full lg:max-w-[768px]">
+            <div className="w-full pb-[27px] sm:pb-6 lg:pb-3 border-b border-black">
+                <Container>
+                    <div className="sm:max-w-[592px] lg:max-w-full lg:flex lg:items-center lg:justify-between">
+                        <SectionTitle className="mb-4 sm:mb-7 sm:text-[64px]">
+                            Тут кожен момент
+                        </SectionTitle>
+                        <div className="flex justify-between items-center">
+                            <motion.div
+                                variants={fadeInAnimation({ delay: 0.6 })}
+                                initial="hidden"
+                                whileInView="visible"
+                                exit="exit"
+                                viewport={{ once: true, amount: 0.1 }}
+                                className="text-purple w-13 h-13 md:w-17.5 md:h-17.5 flex items-center justify-center -ml-2.5 md:ml-0 lg:mr-[78px]"
+                            >
+                                <StarIcon className="lg:w-17 lg:h-17" />
+                            </motion.div>
+
+                            <motion.p
+                                variants={fadeInAnimation({ delay: 0.3 })}
+                                initial="hidden"
+                                whileInView="visible"
+                                exit="exit"
+                                viewport={{ once: true, amount: 0.1 }}
+                                className="text-[16px] md:text-[24px] leading-[120%] text-right uppercase max-w-[255px] md:max-w-[382px]"
+                            >
+                                — маленьке відкриття, а кожна усмішка — нагорода
+                            </motion.p>
+                        </div>
+                    </div>
+                </Container>
+            </div>
+            <Container className="pt-7 lg:pt-6.5 pb-[23.5px] lg:pb-[29px] pl-[27px] relative">
+                <div className="flex flex-col sm:flex-row-reverse lg:flex-row sm:items-start sm:justify-between sm:max-w-[592px] mb-[39px] lg:mb-[129px] lg:max-w-full">
+                    <SocialsGroup className="mb-[27px] lg:mb-0 sm:hidden lg:flex" />
+                    <div className="lg:w-[768px] lg:flex lg:flex-row-reverse lg:justify-between">
                         <Contacts className="mb-[27px] lg:mb-0" />
-                        <RulesButton />
+                        <div className="lg:w-[148px]">
+                            <RulesButton className="mb-[27px] lg:mb-[52px]" />
+                            <PublicOfferButton className="lg:ml-[-432px]" />
+                        </div>
                     </div>
                 </div>
-
-                <FooterText />
 
                 <motion.div
                     variants={fadeInAnimation({ delay: 2.2, y: 20 })}
@@ -61,7 +64,7 @@ export default function Footer() {
                     whileInView="visible"
                     exit="exit"
                     viewport={{ once: true, amount: 0.1 }}
-                    className="absolute bottom-[-50.44px] left-0 -z-10"
+                    className="absolute bottom-[-50.44px] left-0 -z-10 sm:left-8"
                 >
                     <Image
                         src="/images/footer/bottomImageMob.webp"
@@ -93,10 +96,14 @@ export default function Footer() {
                     whileInView="visible"
                     exit="exit"
                     viewport={{ once: true, amount: 0.1 }}
+                    className="flex items-center justify-between"
                 >
                     <Rights />
+                    <SocialsGroup className="hidden sm:block lg:hidden mr-[248px]" />
                 </motion.div>
+                <FooterText className="lg:block hidden" />
             </Container>
+            <FooterText className="lg:hidden" />
         </footer>
     );
 }

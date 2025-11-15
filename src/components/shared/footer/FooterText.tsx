@@ -4,7 +4,11 @@ import { fadeInAnimation } from "@/utils/animationVariants";
 import Image from "next/image";
 import { useScreenWidth } from "@/hooks/useScreenWidth";
 
-export default function FooterText() {
+interface FooterTextProps {
+    className?: string;
+}
+
+export default function FooterText({ className }: FooterTextProps) {
     const width = useScreenWidth();
 
     const getVariants = () => {
@@ -14,7 +18,9 @@ export default function FooterText() {
     };
 
     return (
-        <div className="absolute bottom-2 -right-10.5 lg:-bottom-17.5 lg:right-none lg:-left-[29px] -z-10">
+        <div
+            className={`absolute bottom-2 -right-10.5 lg:-bottom-17.5 lg:right-none lg:-left-[29px] z-1 lg:-z-10 ${className}`}
+        >
             <div className="footer-block-rotate">
                 <motion.div
                     variants={getVariants()}

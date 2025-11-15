@@ -5,7 +5,11 @@ import Backdrop from "../backdrop/Backdrop";
 import * as motion from "motion/react-client";
 import { fadeInAnimation } from "@/utils/animationVarints";
 
-export default function RulesButton() {
+interface RulesButtonProps {
+    className?: string;
+}
+
+export default function RulesButton({ className }: RulesButtonProps) {
     const [isRulesPopupShown, setIsRulesPopupShown] = useState(false);
 
     return (
@@ -15,11 +19,12 @@ export default function RulesButton() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.1 }}
+                className={`w-[162px] lg:w-[148px] ${className}`}
             >
                 <motion.button
                     onClick={() => setIsRulesPopupShown(true)}
                     type="button"
-                    className="cursor-pointer w-[162px] lg:w-[148px] lg:mr-[54px] text-[16px] leading-[118.75%] font-semibold text-purple text-left uppercase hover:brightness-125 transition-brightness duration-300"
+                    className="cursor-pointer w-[162px] lg:w-[148px] lg:mr-[54px] text-[16px] leading-[118.75%] font-semibold text-purple text-left uppercase xl:hover:brightness-150 transition-brightness duration-300"
                 >
                     Правила відвідування пісочниці
                 </motion.button>

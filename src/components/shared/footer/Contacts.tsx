@@ -21,55 +21,57 @@ export default function Contacts({ className }: ContactsProps) {
             whileInView="visible"
             exit="exit"
             viewport={{ once: true, amount: 0.1 }}
-            className={`not-italic w-full ${className}`}
+            className={`not-italic lg:w-[566px] ${className}`}
         >
-            <div className="lg:flex lg:justify-between">
-                <motion.div
-                    variants={fadeInAnimation({ delay: 0.3, y: 20 })}
-                    initial="hidden"
-                    whileInView="visible"
-                    exit="exit"
-                    viewport={{ once: true, amount: 0.1 }}
-                    className="mb-8 lg:mb-0"
-                >
-                    <h3 className="text-[14px] leading-[150%] font-light mb-[3px]">
-                        Графік роботи
-                    </h3>
-                    <p className="text-[16px] leading-[118.75%] uppercase font-semibold mb-px">
-                        {SCHEDULE[0]}
-                    </p>
-                    <p className="text-[12px] leading-[116.67%] uppercase font-semibold">
-                        {SCHEDULE[1]}
-                    </p>
-                </motion.div>
-                <motion.div
-                    variants={fadeInAnimation({ delay: 0.6, y: 20 })}
-                    initial="hidden"
-                    whileInView="visible"
-                    exit="exit"
-                    viewport={{ once: true, amount: 0.1 }}
-                    className="mb-8 lg:mb-0"
-                >
-                    <h3 className="text-[14px] leading-[150%] font-light mb-[3px]">
-                        Наша адреса
-                    </h3>
-                    <a
-                        href={ADDRESS_URL}
-                        target="_blank"
-                        rel="noopener noreferrer nofollow"
-                        className="text-[12px] leading-[150%] uppercase font-semibold max-w-[162px] whitespace-pre-line xl:hover:text-purple transition-colors duration-300"
+            <div className="sm:h-[147px] flex flex-col sm:flex-row sm:justify-between lg:h-auto sm:w-[374px] lg:w-full">
+                <div className="lg:flex lg:mr-[54px]">
+                    <motion.div
+                        variants={fadeInAnimation({ delay: 0.3, y: 20 })}
+                        initial="hidden"
+                        whileInView="visible"
+                        exit="exit"
+                        viewport={{ once: true, amount: 0.1 }}
+                        className="mb-8 sm:mb-[27px] lg:mb-0 lg:mr-[54px]"
                     >
-                        {ADDRESS}
-                    </a>
-                </motion.div>
-                <div className="mb-8 lg:mb-0">
+                        <h3 className="text-[14px] leading-[150%] font-light mb-[3px]">
+                            Графік роботи
+                        </h3>
+                        <p className="text-[16px] leading-[118.75%] uppercase font-semibold mb-px">
+                            {SCHEDULE[0]}
+                        </p>
+                        <p className="text-[12px] leading-[116.67%] uppercase font-semibold">
+                            {SCHEDULE[1]}
+                        </p>
+                    </motion.div>
+                    <motion.div
+                        variants={fadeInAnimation({ delay: 0.6, y: 20 })}
+                        initial="hidden"
+                        whileInView="visible"
+                        exit="exit"
+                        viewport={{ once: true, amount: 0.1 }}
+                        className="mb-8 sm:mb-0"
+                    >
+                        <h3 className="text-[14px] leading-[150%] font-light mb-[3px]">
+                            Наша адреса
+                        </h3>
+                        <a
+                            href={ADDRESS_URL}
+                            target="_blank"
+                            rel="noopener noreferrer nofollow"
+                            className="text-[12px] leading-[150%] uppercase font-semibold max-w-[162px] whitespace-pre-line xl:hover:text-purple transition-colors duration-300"
+                        >
+                            {ADDRESS}
+                        </a>
+                    </motion.div>
+                </div>
+                <div className="">
                     <motion.div
                         variants={fadeInAnimation({ delay: 0.9, y: 20 })}
                         initial="hidden"
                         whileInView="visible"
                         exit="exit"
                         viewport={{ once: true, amount: 0.1 }}
-                        className="mb-[27px] "
+                        className="mb-[27px] sm:mb-[33px]"
                     >
                         <h3 className="text-[14px] leading-[114.29%] font-light mb-3">
                             Зателефонуйте:
@@ -101,7 +103,7 @@ export default function Contacts({ className }: ContactsProps) {
                             href={`mailto:${EMAIL}`}
                             target="_blank"
                             rel="noopener noreferrer nofollow"
-                            className="text-[16px] leading-[118.75%] uppercase font-bold xl:hover:text-purple transition-colors duration-300"
+                            className="text-[16px] sm:text-[12px] lg:text-[16px] leading-[118.75%] uppercase font-bold xl:hover:text-purple transition-colors duration-300"
                         >
                             {EMAIL}
                         </a>
