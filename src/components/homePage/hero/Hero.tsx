@@ -2,14 +2,14 @@ import MainButton from "@/components/shared/buttons/MainButton";
 import Container from "@/components/shared/container/Container";
 import BenefitsList from "./BenefitsList";
 import HeroImages from "./HeroImages";
-import AnimatedAnimal from "@/components/shared/AnimatedAnimal";
+import AnimatedAnimal from "@/components/shared/animatedAnimal/AnimatedAnimal";
 
 export default function Hero() {
   return (
     <section className="relative max-w-7xl mx-auto">
       <div className="absolute top-0 right-[calc(50%-264px)] lg:right-[-138px]">
         <AnimatedAnimal
-          svgPath="/images/animalYellow.svg"
+          svgPath="/images/animals/animalYellow.svg"
           className="w-[261px] lg:w-[352px] h-[267px] lg:h-[342px]"
           maxPupilMovement={3}
         />

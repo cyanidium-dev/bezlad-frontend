@@ -1,4 +1,4 @@
-import AnimatedAnimal from "@/components/shared/AnimatedAnimal";
+import AnimatedAnimal from "@/components/shared/animatedAnimal/AnimatedAnimal";
 import Image from "next/image";
 
 export default function HeroImages() {
@@ -33,7 +33,7 @@ export default function HeroImages() {
       </div>
       <div className="absolute top-[257px] lg:top-[397px] xl:top-[289px] right-[calc(50%-338px)] lg:right-[calc(50%-272px)] xl:right-[calc(50%-402px)]">
         <AnimatedAnimal
-          svgPath="/images/animal.svg"
+          svgPath="/images/animals/animal.svg"
           className="w-[393px] xl:w-[532px] h-[355px] xl:h-[486px]"
           maxPupilMovement={6}
         />
