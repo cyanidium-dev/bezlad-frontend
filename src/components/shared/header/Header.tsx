@@ -1,8 +1,9 @@
 "use client";
+import { useState } from "react";
 import Container from "../container/Container";
 import Navigation from "./navigation/Navigation";
 import clsx from "clsx";
-import { useScroll } from "framer-motion";
+import { useScroll, useMotionValueEvent } from "framer-motion";
 import MainButton from "../buttons/MainButton";
 import Logo from "../icons/Logo";
 import StarIcon from "../icons/StarIcon";
@@ -10,11 +11,19 @@ import Link from "next/link";
 
 export default function Header() {
     const { scrollYProgress } = useScroll();
+    const [scrollProgress, setScrollProgress] = useState(0);
+
+    useMotionValueEvent(scrollYProgress, "change", latest => {
+        setScrollProgress(latest);
+    });
+
     return (
         <header
             className={clsx(
-                "fixed top-[25px] left-0 right-0 z-50 lg:z-10 py-2",
-                scrollYProgress.get() > 0.1 ? "backdrop-blur-[38px]" : ""
+                "fixed  left-0 right-0 z-50 lg:z-10 py-2 transition-top duration-300 ease-in-out",
+                scrollProgress > 0.1
+                    ? "backdrop-blur-[38px] top-0"
+                    : "top-[25px]"
             )}
         >
             <Container className="w-full pr-[19px]">
