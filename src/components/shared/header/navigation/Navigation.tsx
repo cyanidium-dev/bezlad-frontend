@@ -1,9 +1,23 @@
 import { navList } from "./navList";
+import { twMerge } from "tailwind-merge";
 
-export default function Navigation() {
+interface NavigationProps {
+    className?: string;
+    variant?: "default" | "burger";
+}
+
+export default function Navigation({
+    className,
+    variant = "default",
+}: NavigationProps) {
     return (
-        <nav className="hidden lg:block">
-            <ul className="flex items-center gap-7">
+        <nav className={className}>
+            <ul
+                className={twMerge(
+                    "flex items-center gap-7 w-full",
+                    variant === "burger" && "flex-col gap-5 items-start"
+                )}
+            >
                 {navList.map(item => (
                     <li key={item.href}>
                         <a

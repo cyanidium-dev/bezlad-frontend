@@ -8,10 +8,13 @@ import MainButton from "../buttons/MainButton";
 import Logo from "../icons/Logo";
 import StarIcon from "../icons/StarIcon";
 import Link from "next/link";
+import BurgerButton from "./burgerMenu/BurgerButton";
+import BurgerMenu from "./burgerMenu/BurgerMenu";
 
 export default function Header() {
     const { scrollYProgress } = useScroll();
     const [scrollProgress, setScrollProgress] = useState(0);
+    const [isHeaderMenuOpened, setIsHeaderMenuOpened] = useState(false);
 
     useMotionValueEvent(scrollYProgress, "change", latest => {
         setScrollProgress(latest);
@@ -32,7 +35,7 @@ export default function Header() {
                         <Logo className="w-[55px] h-[51px] lg:w-[71.4px] lg:h-[65.69px]" />
                     </Link>
                     <div className="flex items-center lg:gap-6 space-between gap-4.5">
-                        <Navigation />
+                        <Navigation className="hidden lg:block" />
                         <StarIcon className="hidden lg:block text-black" />
                         <MainButton
                             className="w-[175px] h-[43px] lg:w-[219px] lg:h-13.5 text-[10px] leading-[120%] lg:text-[12px]"
@@ -40,14 +43,13 @@ export default function Header() {
                         >
                             Забронювати відвідування
                         </MainButton>
-                        <button
-                            type="button"
-                            className="lg:hidden group relative z-60 w-10 h-10 outline-none flex flex-col justify-center items-center gap-2 xl:focus-visible:bg-black/10 rounded-[10px] transition duration-300 ease-in-out"
-                        >
-                            <div className="w-[26.6px] h-[2px] bg-black rounded-full"></div>
-                            <div className="w-[26.6px] h-[2px] bg-black rounded-full"></div>
-                            <div className="w-[26.6px] h-[2px] bg-black rounded-full"></div>
-                        </button>
+                        <BurgerButton
+                            setIsHeaderMenuOpened={setIsHeaderMenuOpened}
+                        />
+                        <BurgerMenu
+                            isHeaderMenuOpened={isHeaderMenuOpened}
+                            setIsHeaderMenuOpened={setIsHeaderMenuOpened}
+                        />
                     </div>
                 </div>
             </Container>
