@@ -153,7 +153,7 @@ export const YellowElipseCard = React.memo(
                 </div>
                 <AnimatedAnimal
                     svgPath={image}
-                    className="z-2 md:w-[226.8px] md:h-auto lg:w-[226.8px] lg:h-auto xl:w-[286.8px] xl:h-[360.5px] absolute top-[-80px] md:top-[-110px] lg:top-[-110px] xl:top-[-190px] left-[148px] md:left-[130px] lg:left-[130px] xl:left-[215px] pointer-events-none"
+                    className="z-2 md:w-[226.8px] md:h-auto lg:w-[226.8px] lg:h-auto xl:w-[286.8px] xl:h-[360.5px] absolute top-[-80px] sm:top-[-160px] md:top-[-110px] lg:top-[-110px] xl:top-[-190px] left-[148px] sm:left-[130px] md:left-[130px] lg:left-[130px] xl:left-[215px] pointer-events-none"
                     maxPupilMovement={3}
                 />
             </div>
