@@ -90,7 +90,7 @@ export const PurpleBlobCard = React.memo(
             <div
                 role="article"
                 aria-label={`Interactive zone: ${title}`}
-                className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[250px] lg:h-[360px] xl:w-[285px] xl:h-[409px] bg-purple rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5"
+                className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[250px] lg:h-[350px] xl:w-[285px] xl:h-[409px] bg-purple rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5"
             >
                 <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 xl:bottom-5 z-2">
                     <p className="text-base sm:text-lg md:text-[24px] xl:text-[24px] text-white font-azbuka leading-[120%] uppercase">
@@ -200,40 +200,64 @@ export const GrayCard = React.memo(
     ({ title, image, pictureSize = "big" }: InterativeZonesCardProps) => {
         const picVariant = {
             big: {
+                //cafe
                 width: 243,
                 height: 232,
-                className:
-                    "md:w-[323px] md:h-[308.6px] lg:w-[230px] lg:h-auto xl:w-[323px] xl:h-[308.6px] top-[-93px] md:top-[-133px] lg:top-[-100px] xl:top-[-133px] left-[115px] md:left-[115px] lg:left-[130px] xl:left-[115px]",
+                imageClassName:
+                    "w-[243px] h-[232px] md:w-[323px] md:h-[308.6px] lg:w-[230px] lg:h-[219.933px] xl:w-[323px] xl:h-[308.6px] top-[-93px] md:top-[-133px] lg:top-[-50px] xl:top-[-133px] left-[115px] sm:left-[160px] md:left-[115px] lg:left-[200px] xl:left-[115px]",
+                cardClassName: "xl:w-[386px] xl:h-[201px] lg:w-[380px]",
+                textClassName: "",
             },
             small: {
+                //small sandbox
                 width: 158,
                 height: 152,
-                className:
-                    "md:w-[323px] md:h-[308.6px] lg:w-[230px] lg:h-auto xl:w-[323px] xl:h-[308.6px] top-[-14px] md:top-[-143px] lg:top-[-100px] xl:top-[-143px] left-[186px] md:left-[185px] lg:left-[130px] xl:left-[185px]",
+                imageClassName:
+                    "w-[158px] h-[152px] md:w-[323px] md:h-[308.6px] lg:w-[180px] lg:h-[173px] xl:w-[349px] xl:h-[288px] top-[-14px] md:top-[-143px] lg:top-[-60px] xl:top-[-128px] left-[186px] sm:left-[160px] md:left-[185px] lg:left-[-60px] xl:left-[-184.5px]",
+                cardClassName:
+                    "xl:w-[234.5px] xl:h-[201px] lg:w-[230px] lg:h-[165px]",
+                textClassName: "lg:right-5",
             },
         };
         return (
             <div
                 role="article"
                 aria-label={`Interactive zone: ${title}`}
-                className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[350px] lg:h-[165px] xl:w-[386px] xl:h-[201px] bg-gray-dark rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5"
+                className={clsx(
+                    "relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px]  bg-gray-dark rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5",
+                    picVariant[pictureSize].cardClassName
+                )}
             >
-                <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 xl:bottom-5 z-1">
-                    <p className="text-base sm:text-lg md:text-[24px] xl:text-[24px] text-white font-azbuka leading-[120%] uppercase lg:max-w-[198px] xl:max-w-[198px]">
+                <div
+                    className={clsx(
+                        "absolute bottom-3 sm:bottom-4 md:bottom-5 xl:bottom-5 z-1",
+                        picVariant[pictureSize].textClassName
+                    )}
+                >
+                    <p className="text-base sm:text-lg md:text-[24px] xl:text-[24px] text-white font-azbuka leading-[120%] uppercase lg:max-w-[198px] xl:max-w-[198px] lg:text-right">
                         {title}
                     </p>
                 </div>
-                <Image
-                    src={image}
-                    alt={title}
-                    width={picVariant[pictureSize].width}
-                    height={picVariant[pictureSize].height}
-                    loading="lazy"
+                <div
                     className={clsx(
-                        "object-cover absolute",
-                        picVariant[pictureSize].className
+                        "absolute rounded-full overflow-hidden",
+                        picVariant[pictureSize].imageClassName
                     )}
-                />
+                >
+                    <Image
+                        src={image}
+                        alt={title}
+                        width={picVariant[pictureSize].width}
+                        height={picVariant[pictureSize].height}
+                        loading="lazy"
+                        className={clsx(
+                            pictureSize === "small"
+                                ? "xl:left-[100px] object-cover w-[158px] h-[152px] md:w-[323px] md:h-[308.6px] lg:w-[180px] lg:h-auto xl:w-[349px] xl:h-[288px]"
+                                : "object-contain w-[243px] h-[232px] md:w-[323px] md:h-[308.6px] lg:w-[230px] lg:h-auto xl:w-[323px] xl:h-[308.6px]",
+                            "absolute"
+                        )}
+                    />
+                </div>
             </div>
         );
     }
@@ -251,21 +275,28 @@ export const BlackCard = React.memo(
 
         const directionVariant = {
             left: {
+                //lego
                 imageSize: { width: 190, height: 181 },
                 imageClassName:
-                    "md:w-[230px] md:h-auto lg:w-[230px] lg:h-auto xl:w-[323px] xl:h-[308.6px] object-cover absolute top-[-16px] md:top-[-26.3px] lg:top-[-20px] xl:top-[-26.3px] left-[130px] md:left-[190px] lg:left-[130px] xl:left-[190px]",
+                    "md:w-[230px] md:h-auto lg:w-[180px] lg:h-auto xl:w-[323px] xl:h-[308.6px] object-cover absolute top-[-16px] md:top-[-26.3px] lg:top-[-20px] xl:top-[-13px] left-[130px] md:left-[190px] lg:left-[60px] xl:left-[185px]",
                 arrowClassName:
                     "top-[-17px] left-[-8.97px] z-10 rotate-[-165deg]",
                 textClassName:
                     "bottom-3 sm:bottom-4 md:bottom-5 xl:bottom-5 z-1",
+                cardClassName:
+                    "xl:w-[386px] xl:h-[201px] lg:w-[230px] lg:h-[165px]",
             },
             right: {
+                //engineer
                 imageSize: { width: 170, height: 162 },
                 imageClassName:
-                    "md:w-[272px] md:h-[260px] lg:w-[200px] lg:h-auto xl:w-[272px] xl:h-[260px] object-cover absolute top-[-26px] md:top-[-91px] lg:top-[-60px] xl:top-[-91px] left-[-32px] md:left-[175px] lg:left-[150px] xl:left-[175px]",
-                arrowClassName: "top-[-4px] right-[26px] z-10 rotate-[-32deg]",
+                    "md:w-[272px] md:h-[260px] lg:w-[230px] lg:h-auto xl:w-[323px] xl:h-[308.6px] object-cover absolute top-[-26px] md:top-[-91px] lg:top-[-20px] xl:top-[-26.3px] left-[-32px] md:left-[175px] lg:left-[150px] xl:left-[190px]",
+                arrowClassName:
+                    "w-fit top-[-4px] right-[26px] z-10 rotate-[-32deg] lg:top-[-17px] lg:left-[-8.97px] lg:rotate-[-165deg]",
                 textClassName:
-                    "bottom-3 right-4 md:right-5 md:bottom-5 xl:right-5 xl:bottom-5 z-1",
+                    "bottom-3 right-4 md:right-5 md:bottom-5 lg:right-auto xl:bottom-5 z-1 lg:max-w-[129px]",
+                cardClassName:
+                    "lg:w-[323px] lg:h-[165px] xl:w-[488px] xl:h-[201px] ",
             },
         };
 
@@ -274,7 +305,10 @@ export const BlackCard = React.memo(
             <div
                 role="article"
                 aria-label={`Interactive zone: ${title}`}
-                className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[350px] lg:h-[165px] xl:w-[488px] xl:h-[201px] bg-black rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5"
+                className={clsx(
+                    "relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px]  bg-black rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5",
+                    variant.cardClassName
+                )}
             >
                 <div className={clsx("absolute", variant.textClassName)}>
                     <p className="text-base sm:text-lg md:text-[24px] xl:text-[24px] text-white font-azbuka leading-[120%] uppercase">
@@ -290,7 +324,7 @@ export const BlackCard = React.memo(
                     className={clsx("object-cover", variant.imageClassName)}
                 />
                 <div className={clsx("absolute", variant.arrowClassName)}>
-                    <DashedArrow className="w-28 h-auto text-gray-dark" />
+                    <DashedArrow className="w-28 xl:w-50 h-auto text-gray-dark" />
                 </div>
             </div>
         );
@@ -308,7 +342,7 @@ export const NoodleCard = React.memo(
                     background:
                         "linear-gradient(164.01deg, #F6FF3A 7%, #F9FF8A 59.69%)",
                 }}
-                className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[250px] lg:h-[360px] xl:w-[285px] xl:h-[409px] rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5"
+                className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[250px] lg:h-[350px] xl:w-[285px] xl:h-[409px] rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5"
             >
                 <div className="absolute bottom-3 right-4 sm:right-5 sm:bottom-4 md:right-5 md:bottom-5 xl:right-5 xl:bottom-8 z-1">
                     <p className="text-base sm:text-lg md:text-[24px] xl:text-[24px] font-azbuka leading-[120%] uppercase">
@@ -355,7 +389,7 @@ export const PlaceholderCard = React.memo(
         return (
             <div
                 className={clsx(
-                    "relative bg-gray-light rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] flex items-center justify-center w-[312px] sm:w-[380px] md:w-[350px] lg:w-[350px] xl:w-[386px]",
+                    "overflow-visible relative bg-gray-light rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] flex items-center justify-center w-[312px] sm:w-[380px] md:w-[350px] lg:w-[350px] xl:w-[386px]",
                     doubleWidth
                         ? "h-[calc(2*117px+16px)] sm:h-[calc(2*145px+16px)] md:h-[calc(2*165px+16px)] lg:h-[calc(2*189px+16px)] xl:h-[calc(2*189px+16px)]"
                         : isRowSpan
@@ -367,8 +401,8 @@ export const PlaceholderCard = React.memo(
                 <Image
                     src="/images/interactiveZone/placeholder.svg"
                     alt="Placeholder"
-                    width={175}
-                    height={257}
+                    width={104}
+                    height={143.6}
                     className="object-contain"
                 />
             </div>
@@ -376,3 +410,50 @@ export const PlaceholderCard = React.memo(
     }
 );
 PlaceholderCard.displayName = "PlaceholderCard";
+
+export const YellowBlobCard = React.memo(
+    ({ title, image }: InterativeZonesCardProps) => {
+        return (
+            <div
+                role="article"
+                aria-label={`Interactive zone: ${title}`}
+                style={{
+                    background:
+                        "linear-gradient(164.01deg, #F6FF3A 7%, #F9FF8A 59.69%)",
+                }}
+                className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[230px] lg:h-[165px] xl:w-[234.5px] xl:h-[201px] rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5"
+            >
+                <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 xl:bottom-5 z-3">
+                    <p className="text-base sm:text-lg md:text-[24px] xl:text-[24px] font-azbuka leading-[120%] uppercase lg:max-w-[154px]">
+                        {title}
+                    </p>
+                </div>
+                <div className="z-2 absolute w-[158px] h-[152px] sm:w-[349px] sm:h-[288px] lg:w-[180px] lg:h-[173px] xl:w-[349px] xl:h-[288px] top-[-14px] md:top-[-143px] lg:top-[-60px] xl:top-[-128px] left-[186px] md:left-[185px] lg:left-[60px] xl:left-[70px] rounded-full overflow-hidden">
+                    <Image
+                        src={image}
+                        alt={title}
+                        fill
+                        loading="lazy"
+                        className="object-cover"
+                    />
+                </div>
+                <div className="w-[255px] h-[100px] md:hidden lg:block xl:block lg:w-[180px] xl:w-[255px] z-1 lg:h-[60px] xl:h-[100px] text-purple absolute top-[43px] left-[-72px] lg:top-[113px] xl:top-[113px] lg:left-[-40px] xl:left-[-51px] pointer-events-none">
+                    <div
+                        className="blur-[10.8466px] w-full h-full"
+                        style={{
+                            background:
+                                "linear-gradient(164.01deg, #F6FF3A 7%, #F9FF8A 59.69%)",
+                        }}
+                    />
+                </div>
+                <Image
+                    src="/images/interactiveZone/yellowBlobs.svg"
+                    alt="yellow blob"
+                    fill
+                    className="absolute inset-0 pointer-events-none "
+                />
+            </div>
+        );
+    }
+);
+YellowBlobCard.displayName = "YellowBlobCard";

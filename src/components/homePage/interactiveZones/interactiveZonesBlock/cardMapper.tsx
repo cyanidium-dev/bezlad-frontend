@@ -7,6 +7,7 @@ import {
     GrayCard,
     BlackCard,
     NoodleCard,
+    YellowBlobCard,
 } from "./InterativeZoneCard";
 import type { CardType, InteractiveZoneItem } from "../interactiveZonesData";
 
@@ -26,6 +27,7 @@ const cardComponentMap: Record<CardType, CardComponent> = {
     gray: GrayCard,
     black: BlackCard,
     yellowNoodle: NoodleCard,
+    yellowBlob: YellowBlobCard,
 };
 
 export function getCardComponent(cardType: CardType): CardComponent {

@@ -26,29 +26,14 @@ export const MobileSlide = React.memo(
                 );
                 i++;
             } else {
-                // Count consecutive nulls
-                const startIndex = i;
-                let nullCount = 0;
-                while (i < items.length && items[i] === null) {
-                    nullCount++;
-                    i++;
-                }
-                // Render one placeholder for all consecutive nulls
-                if (nullCount > 1) {
-                    renderedItems.push(
-                        <PlaceholderCard
-                            key={`placeholder-${slideIndex}-${startIndex}`}
-                            doubleWidth={true}
-                        />
-                    );
-                } else if (nullCount === 1) {
-                    renderedItems.push(
-                        <PlaceholderCard
-                            key={`placeholder-${slideIndex}-${startIndex}`}
-                            doubleWidth={false}
-                        />
-                    );
-                }
+                // Render single height placeholder for each null
+                renderedItems.push(
+                    <PlaceholderCard
+                        key={`placeholder-${slideIndex}-${i}`}
+                        doubleWidth={false}
+                    />
+                );
+                i++;
             }
         }
 

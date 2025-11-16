@@ -5,7 +5,8 @@ export type CardType =
     | "purpleNoise"
     | "gray"
     | "black"
-    | "yellowNoodle";
+    | "yellowNoodle"
+    | "yellowBlob";
 
 export type Direction = "left" | "right";
 export type PictureSize = "big" | "small";
@@ -45,9 +46,9 @@ export const interactiveZonesData: InteractiveZoneItem[] = [
         direction: "left",
     },
     {
-        id: 5,
-        title: "Велика та мала пісочниці",
-        image: "/images/interactiveZone/sandbox.webp",
+        id: 10,
+        title: "Mала пісочниця",
+        image: "/images/interactiveZone/smallSandbox.webp",
         card: "gray",
         pictureSize: "small",
     },
@@ -58,12 +59,11 @@ export const interactiveZonesData: InteractiveZoneItem[] = [
         card: "yellowElipse",
     },
     {
-        id: 10,
+        id: 8,
         title: "Інженерні споруди",
         image: "/images/interactiveZone/engineer.webp",
         card: "black",
         direction: "right",
-        desktopDirection: "left",
     },
     {
         id: 7,
@@ -79,7 +79,7 @@ export const interactiveZonesData: InteractiveZoneItem[] = [
         card: "purpleNoise",
     },
     {
-        id: 8,
+        id: 5,
         title: "Зона кафе",
         image: "/images/interactiveZone/cafe.webp",
         card: "gray",
@@ -91,5 +91,11 @@ export const interactiveZonesData: InteractiveZoneItem[] = [
         image: "/images/interactiveZone/noodlesWall.webp",
         card: "yellowNoodle",
         vertical: true,
+    },
+    {
+        id: 11,
+        title: "Велика пісочниця",
+        image: "/images/interactiveZone/bigSandbox.webp",
+        card: "yellowBlob",
     },
 ];

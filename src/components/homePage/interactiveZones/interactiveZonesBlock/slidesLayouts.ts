@@ -2,7 +2,7 @@
 
 export type DesktopSlideLayout = {
     fullWidth?: number[]; // IDs that span full width
-    rows?: number[][]; // IDs arranged in rows (2 cards per row)
+    rows?: number[][]; // IDs arranged in rows (can have 2 or 3 cards per row)
     fullWidthRight?: number[]; // IDs that span full width on the right
     fullHeightLeft?: number[]; // IDs that span full height on the left
 };
@@ -12,6 +12,7 @@ export type TabletSlideLayout = {
 };
 
 // Tablet layout configuration (768px-1024px): 2x2 grid, 3 slides
+// Ordered by id, placeholder in bottom right
 export const tabletLayouts: TabletSlideLayout[] = [
     // Slide 1: IDs 1-4
     {
@@ -27,33 +28,32 @@ export const tabletLayouts: TabletSlideLayout[] = [
             [7, 8],
         ],
     },
-    // Slide 3: IDs 9-10 with placeholder
+    // Slide 3: IDs 9-11 with placeholder in bottom right
     {
         grid: [
-            [9, "placeholder"], // First column: ID 9, second column: placeholder (spans 2 rows)
-            [10], // First column: ID 10
+            [9, 10],
+            [11, "placeholder"], // Placeholder in bottom right
         ],
     },
 ];
 
 // Desktop layout configuration
 export const desktopLayouts: DesktopSlideLayout[] = [
-    // Slide 1: IDs 1-5
-    // ID 2 spans full height on left, rows on right: ID 3/1, ID 4/5
+    // Slide 1: ID 2 vertical on left, top row: id3/id1, bottom row: id11/id10/id4
     {
         fullHeightLeft: [2], // ID 2 spans full height on the left
         rows: [
-            [3, 1], // Row 1: ID 3, ID 1
-            [4, 5], // Row 2: ID 4, ID 5
+            [3, 1], // Top row: ID 3, ID 1
+            [11, 10, 4], // Bottom row: ID 11, ID 10, ID 4 (3 cards)
         ],
     },
-    // Slide 2: IDs 6-10
+    // Slide 2: ID 9 vertical on left, top row: id8/id5, bottom row: id7/id6
     {
+        fullHeightLeft: [9], // ID 9 spans full height on the left
         rows: [
-            [10, 8], // Row 1: ID 10, ID 8
-            [7, 6], // Row 2: ID 7, ID 6
+            [8, 5], // Top row: ID 8, ID 5
+            [7, 6], // Bottom row: ID 7, ID 6
         ],
-        fullWidthRight: [9], // ID 9 spans whole card on the right
     },
 ];
 
