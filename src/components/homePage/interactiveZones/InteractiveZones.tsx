@@ -6,7 +6,7 @@ export default function InteractiveZones() {
     return (
         <div className="py-25">
             <Container>
-                <div className="mb-22 lg:mb-[34px] flex flex-col lg:items-center lg:flex-row gap-4.5 lg:gap-8">
+                <div className="mb-22 md:mb-26 lg:mb-[34px] flex flex-col lg:items-center lg:flex-row gap-4.5 lg:gap-8">
                     <SectionTitle>Інтерактивні зони</SectionTitle>
                     <p className="text-[16px] leading-[120%] font-light lg:max-w-[296px]">
                         Деревина, вода, пісок,{" "}

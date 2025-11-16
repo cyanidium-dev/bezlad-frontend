@@ -48,7 +48,7 @@ export const GlassCard = ({
                 backdropFilter: "blur(38px)",
                 boxShadow: "0px 4px 12px 0px #FFFFFF1F inset",
             }}
-            className="p-px overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[386px] lg:h-[189px] xl:w-[386px] xl:h-[189px] rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px]"
+            className="p-px overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[350px] lg:h-[165px] xl:w-[386px] xl:h-[189px] rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px]"
         >
             <div className="w-full h-full relative bg-white px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5 overflow-hidden rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px]">
                 <div
@@ -79,16 +79,16 @@ export const GlassCard = ({
 
 export const PurpleBlobCard = ({ title, image }: InterativeZonesCardProps) => {
     return (
-        <div className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[285px] lg:h-[409px] xl:w-[285px] xl:h-[409px] bg-purple rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5">
+        <div className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[250px] lg:h-[360px] xl:w-[285px] xl:h-[409px] bg-purple rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5">
             <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 xl:bottom-5 z-2">
                 <p className="text-base sm:text-lg md:text-[24px] xl:text-[24px] text-white font-azbuka leading-[120%] uppercase">
                     {title}
                 </p>
             </div>
-            <div className="w-[207.5px] h-[198px] md:w-[207.5px] md:h-[198px] lg:w-[404px] lg:h-[386px] xl:w-[404px] xl:h-[386px] absolute z-2 top-[-65px] md:top-[-75px] lg:top-[-75px] xl:top-[-75px] left-[183px] md:left-[183px] lg:left-[11px] xl:left-[11px]">
+            <div className="w-[207.5px] h-[198px] md:w-[207.5px] md:h-[198px] lg:w-[280px] lg:h-[270px] xl:w-[404px] xl:h-[386px] absolute z-2 top-[-65px] md:top-[-75px] lg:top-[-60px] xl:top-[-75px] left-[183px] md:left-[183px] lg:left-[11px] xl:left-[11px]">
                 <Image src={image} alt={title} fill className="object-cover" />
             </div>
-            <div className="w-[153.74px] h-[60.2px] md:hidden lg:block xl:block lg:w-[309px] xl:w-[309px] z-1 lg:h-[121px] xl:h-[121px] text-purple absolute lg:top-[322px] xl:top-[322px] lg:left-[-12px] xl:left-[-12px] pointer-events-none">
+            <div className="w-[153.74px] h-[60.2px] md:hidden lg:block xl:block lg:w-[220px] xl:w-[309px] z-1 lg:h-[85px] xl:h-[121px] text-purple absolute lg:top-[280px] xl:top-[322px] lg:left-[-12px] xl:left-[-12px] pointer-events-none">
                 <div className="bg-purple blur-[10.8466px] w-full h-full" />
             </div>
             <Image
@@ -113,7 +113,7 @@ export const YellowElipseCard = ({
 }: InterativeZonesCardProps) => {
     return (
         <div className="relative w-fit h-fit overflow-visible">
-            <div className="relative w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[489px] lg:h-[189px] xl:w-[489px] xl:h-[189px] bg-yellow rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5 overflow-hidden">
+            <div className="relative w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[350px] lg:h-[165px] xl:w-[489px] xl:h-[189px] bg-yellow rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5 overflow-hidden">
                 <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 xl:bottom-5">
                     <p className="text-base sm:text-lg md:text-[24px] xl:text-[24px] font-azbuka leading-[120%] uppercase max-w-[103px]">
                         {title}
@@ -128,7 +128,7 @@ export const YellowElipseCard = ({
                 alt={title}
                 width={162.7}
                 height={196.6}
-                className="z-2 md:w-[226.8px] md:h-auto lg:w-[286.8px] lg:h-[360.5px] xl:w-[286.8px] xl:h-[360.5px] object-cover absolute top-[-80px] md:top-[-110px] lg:top-[-190px] xl:top-[-190px] left-[148px] md:left-[130px] lg:left-[215px] xl:left-[215px]"
+                className="z-2 md:w-[226.8px] md:h-auto lg:w-[226.8px] lg:h-auto xl:w-[286.8px] xl:h-[360.5px] object-cover absolute top-[-80px] md:top-[-110px] lg:top-[-110px] xl:top-[-190px] left-[148px] md:left-[130px] lg:left-[130px] xl:left-[215px]"
             />
         </div>
     );
@@ -136,7 +136,7 @@ export const YellowElipseCard = ({
 
 export const PurpleNoiseCard = ({ title, image }: InterativeZonesCardProps) => {
     return (
-        <div className="overflow-hidden relative w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[489px] lg:h-[189px] xl:w-[489px] xl:h-[189px] bg-purple rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5">
+        <div className="overflow-hidden relative w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[350px] lg:h-[165px] xl:w-[489px] xl:h-[189px] bg-purple rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5">
             <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 xl:bottom-5 z-1">
                 <p className="text-base sm:text-lg md:text-[24px] xl:text-[24px] text-white font-azbuka leading-[120%] uppercase">
                     {title}
@@ -147,7 +147,7 @@ export const PurpleNoiseCard = ({ title, image }: InterativeZonesCardProps) => {
                 alt={title}
                 width={219}
                 height={209}
-                className="md:w-[323px] md:h-[308.6px] lg:w-[323px] lg:h-[308.6px] xl:w-[323px] xl:h-[308.6px] object-cover absolute z-1 top-[-62px] md:top-[-57px] lg:top-[-57px] xl:top-[-57px] left-[126px] md:left-[206px] lg:left-[206px] xl:left-[206px]"
+                className="md:w-[323px] md:h-[308.6px] lg:w-[230px] lg:h-auto xl:w-[323px] xl:h-[308.6px] object-cover absolute z-1 top-[-62px] md:top-[-57px] lg:top-[-40px] xl:top-[-57px] left-[126px] md:left-[206px] lg:left-[130px] xl:left-[206px]"
             />
             <Image
                 src="/images/ctaContactUs/noise.webp"
@@ -169,17 +169,17 @@ export const GrayCard = ({
             width: 243,
             height: 232,
             className:
-                "md:w-[323px] md:h-[308.6px] lg:w-[323px] lg:h-[308.6px] xl:w-[323px] xl:h-[308.6px] top-[-93px] md:top-[-133px] lg:top-[-133px] xl:top-[-133px] left-[115px] md:left-[115px] lg:left-[115px] xl:left-[115px]",
+                "md:w-[323px] md:h-[308.6px] lg:w-[230px] lg:h-auto xl:w-[323px] xl:h-[308.6px] top-[-93px] md:top-[-133px] lg:top-[-100px] xl:top-[-133px] left-[115px] md:left-[115px] lg:left-[130px] xl:left-[115px]",
         },
         small: {
             width: 158,
             height: 152,
             className:
-                "md:w-[323px] md:h-[308.6px] lg:w-[323px] lg:h-[308.6px] xl:w-[323px] xl:h-[308.6px] top-[-14px] md:top-[-143px] lg:top-[-143px] xl:top-[-143px] left-[186px] md:left-[185px] lg:left-[185px] xl:left-[185px]",
+                "md:w-[323px] md:h-[308.6px] lg:w-[230px] lg:h-auto xl:w-[323px] xl:h-[308.6px] top-[-14px] md:top-[-143px] lg:top-[-100px] xl:top-[-143px] left-[186px] md:left-[185px] lg:left-[130px] xl:left-[185px]",
         },
     };
     return (
-        <div className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[386px] lg:h-[201px] xl:w-[386px] xl:h-[201px] bg-gray-dark rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5">
+        <div className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[350px] lg:h-[165px] xl:w-[386px] xl:h-[201px] bg-gray-dark rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5">
             <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 xl:bottom-5 z-1">
                 <p className="text-base sm:text-lg md:text-[24px] xl:text-[24px] text-white font-azbuka leading-[120%] uppercase lg:max-w-[198px] xl:max-w-[198px]">
                     {title}
@@ -212,14 +212,14 @@ export const BlackCard = ({
         left: {
             imageSize: { width: 190, height: 181 },
             imageClassName:
-                "md:w-[323px] md:h-[308.6px] lg:w-[323px] lg:h-[308.6px] xl:w-[323px] xl:h-[308.6px] object-cover absolute top-[-16px] md:top-[-26.3px] lg:top-[-26.3px] xl:top-[-26.3px] left-[130px] md:left-[190px] lg:left-[190px] xl:left-[190px]",
+                "md:w-[230px] md:h-auto lg:w-[230px] lg:h-auto xl:w-[323px] xl:h-[308.6px] object-cover absolute top-[-16px] md:top-[-26.3px] lg:top-[-20px] xl:top-[-26.3px] left-[130px] md:left-[190px] lg:left-[130px] xl:left-[190px]",
             arrowClassName: "top-[-17px] left-[-8.97px] z-10 rotate-[-165deg]",
             textClassName: "bottom-3 sm:bottom-4 md:bottom-5 xl:bottom-5 z-1",
         },
         right: {
             imageSize: { width: 170, height: 162 },
             imageClassName:
-                "md:w-[272px] md:h-[260px] lg:w-[272px] lg:h-[260px] xl:w-[272px] xl:h-[260px] object-cover absolute top-[-26px] md:top-[-91px] lg:top-[-91px] xl:top-[-91px] left-[-32px] md:left-[175px] lg:left-[175px] xl:left-[175px]",
+                "md:w-[272px] md:h-[260px] lg:w-[200px] lg:h-auto xl:w-[272px] xl:h-[260px] object-cover absolute top-[-26px] md:top-[-91px] lg:top-[-60px] xl:top-[-91px] left-[-32px] md:left-[175px] lg:left-[150px] xl:left-[175px]",
             arrowClassName: "top-[-4px] right-[26px] z-10 rotate-[-32deg]",
             textClassName:
                 "bottom-3 right-4 md:right-5 md:bottom-5 xl:right-5 xl:bottom-5 z-1",
@@ -228,7 +228,7 @@ export const BlackCard = ({
 
     const variant = directionVariant[effectiveDirection];
     return (
-        <div className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[488px] lg:h-[201px] xl:w-[488px] xl:h-[201px] bg-black rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5">
+        <div className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[350px] lg:h-[165px] xl:w-[488px] xl:h-[201px] bg-black rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5">
             <div className={clsx("absolute", variant.textClassName)}>
                 <p className="text-base sm:text-lg md:text-[24px] xl:text-[24px] text-white font-azbuka leading-[120%] uppercase">
                     {title}
@@ -255,7 +255,7 @@ export const NoodleCard = ({ title, image }: InterativeZonesCardProps) => {
                 background:
                     "linear-gradient(164.01deg, #F6FF3A 7%, #F9FF8A 59.69%)",
             }}
-            className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[285px] lg:h-[409px] xl:w-[285px] xl:h-[409px] rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5"
+            className="relative overflow-hidden w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[250px] lg:h-[360px] xl:w-[285px] xl:h-[409px] rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5"
         >
             <div className="absolute bottom-3 right-4 sm:right-5 sm:bottom-4 md:right-5 md:bottom-5 xl:right-5 xl:bottom-8 z-1">
                 <p className="text-base sm:text-lg md:text-[24px] xl:text-[24px] font-azbuka leading-[120%] uppercase">
@@ -263,7 +263,7 @@ export const NoodleCard = ({ title, image }: InterativeZonesCardProps) => {
                 </p>
             </div>
 
-            <div className="w-202px h-193px z-2 md:w-[252px] md:h-[237px] lg:w-[404px] lg:h-[386px] xl:w-[404px] xl:h-[386px] absolute top-[-41px] md:top-[-75px] lg:top-[-75px] xl:top-[-75px] left-[-62px] md:left-[-38px] lg:left-[-139px] xl:left-[-139px]">
+            <div className="w-202px h-193px z-2 md:w-[252px] md:h-[237px] lg:w-[280px] lg:h-[270px] xl:w-[404px] xl:h-[386px] absolute top-[-41px] md:top-[-75px] lg:top-[-60px] xl:top-[-75px] left-[-62px] md:left-[-38px] lg:left-[-30px] xl:left-[-139px]">
                 <Image src={image} alt={title} fill className="object-cover" />
             </div>
             <Noodle2
@@ -288,13 +288,17 @@ export const PlaceholderCard = ({
     doubleWidth?: boolean;
     className?: string;
 }) => {
+    const isRowSpan = className.includes("row-span-2");
+
     return (
         <div
             className={clsx(
-                "relative bg-gray-light rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] flex items-center justify-center w-[312px] sm:w-[380px] md:w-[350px] lg:w-[386px] xl:w-[386px]",
+                "relative bg-gray-light rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] flex items-center justify-center w-[312px] sm:w-[380px] md:w-[350px] lg:w-[350px] xl:w-[386px]",
                 doubleWidth
                     ? "h-[calc(2*117px+16px)] sm:h-[calc(2*145px+16px)] md:h-[calc(2*165px+16px)] lg:h-[calc(2*189px+16px)] xl:h-[calc(2*189px+16px)]"
-                    : "h-[117px] sm:h-[145px] md:h-[165px] lg:h-[189px] xl:h-[189px]",
+                    : isRowSpan
+                      ? "h-[calc(2*165px+20px)] lg:h-[calc(2*165px+20px)] xl:h-[calc(2*189px+20px)]"
+                      : "h-[117px] sm:h-[145px] md:h-[165px] lg:h-[165px] xl:h-[189px]",
                 className
             )}
         >
