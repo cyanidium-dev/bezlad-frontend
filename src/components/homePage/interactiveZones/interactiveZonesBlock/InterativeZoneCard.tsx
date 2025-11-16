@@ -137,18 +137,14 @@ export const YellowElipseCard = ({
 export const PurpleNoiseCard = ({ title, image }: InterativeZonesCardProps) => {
     return (
         <div className="overflow-hidden relative w-[312px] h-[117px] sm:w-[380px] sm:h-[145px] md:w-[350px] md:h-[165px] lg:w-[350px] lg:h-[165px] xl:w-[489px] xl:h-[189px] bg-purple rounded-[14px] sm:rounded-[16px] md:rounded-[18px] xl:rounded-[18px] px-4 py-3 sm:px-5 sm:py-4 md:p-5 xl:p-5">
-            <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 xl:bottom-5 z-1">
+            <div className="absolute bottom-3 sm:bottom-4 md:bottom-5 xl:bottom-5 z-3">
                 <p className="text-base sm:text-lg md:text-[24px] xl:text-[24px] text-white font-azbuka leading-[120%] uppercase">
                     {title}
                 </p>
             </div>
-            <Image
-                src={image}
-                alt={title}
-                width={219}
-                height={209}
-                className="md:w-[323px] md:h-[308.6px] lg:w-[230px] lg:h-auto xl:w-[323px] xl:h-[308.6px] object-cover absolute z-1 top-[-62px] md:top-[-57px] lg:top-[-40px] xl:top-[-57px] left-[126px] md:left-[206px] lg:left-[130px] xl:left-[206px]"
-            />
+            <div className="absolute w-[219px] h-[209px] md:w-[323px] md:h-[308.6px] lg:w-[323px] lg:h-[308px] xl:w-[323px] xl:h-[308.6px] absolute z-1 top-[-62px] sm:top-[-36px] md:top-[-57px] lg:top-[-100px] xl:top-[-57px] left-[126px] sm:left-[192px] md:left-[206px] lg:left-[150px] xl:left-[206px]">
+                <Image src={image} alt={title} fill className="object-cover" />
+            </div>
             <Image
                 src="/images/ctaContactUs/noise.webp"
                 alt="noise"
@@ -263,7 +259,7 @@ export const NoodleCard = ({ title, image }: InterativeZonesCardProps) => {
                 </p>
             </div>
 
-            <div className="w-202px h-193px z-2 md:w-[252px] md:h-[237px] lg:w-[280px] lg:h-[270px] xl:w-[404px] xl:h-[386px] absolute top-[-41px] md:top-[-75px] lg:top-[-60px] xl:top-[-75px] left-[-62px] md:left-[-38px] lg:left-[-30px] xl:left-[-139px]">
+            <div className="w-[202px] h-[193px] z-2 md:w-[252px] md:h-[237px] lg:w-[280px] lg:h-[270px] xl:w-[404px] xl:h-[386px] absolute top-[-41px] md:top-[-75px] lg:top-[-60px] xl:top-[-75px] left-[-62px] md:left-[-38px] lg:left-[-30px] xl:left-[-139px]">
                 <Image src={image} alt={title} fill className="object-cover" />
             </div>
             <Noodle2
