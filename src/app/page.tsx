@@ -12,10 +12,9 @@ export default async function HomePage() {
     return (
         <>
             <Hero />
+            <InteractiveZones />
             <CTAOrder />
             <CTAContactUs />
-            <InteractiveZones />
         </>
     );
-
 }
