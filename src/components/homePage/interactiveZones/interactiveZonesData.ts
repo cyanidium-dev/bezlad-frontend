@@ -18,6 +18,7 @@ export interface InteractiveZoneItem {
     direction?: Direction;
     desktopDirection?: Direction;
     pictureSize?: PictureSize;
+    vertical?: boolean;
 }
 
 export const interactiveZonesData: InteractiveZoneItem[] = [
@@ -26,6 +27,7 @@ export const interactiveZonesData: InteractiveZoneItem[] = [
         title: "Магнітна стіна",
         image: "/images/interactiveZone/magnetWall.png",
         card: "purpleBlob",
+        vertical: true,
     },
     {
         id: 3,
@@ -88,5 +90,6 @@ export const interactiveZonesData: InteractiveZoneItem[] = [
         title: "Нудлс стіна",
         image: "/images/interactiveZone/noodlesWall.png",
         card: "yellowNoodle",
+        vertical: true,
     },
 ];

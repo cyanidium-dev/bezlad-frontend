@@ -6,13 +6,14 @@ export default function InteractiveZones() {
     return (
         <div className="py-25">
             <Container>
-                <SectionTitle className="mb-4.5">
-                    Інтерактивні зони
-                </SectionTitle>
-                <p className="mb-2 text-[16px] leading-[120%] font-light">
-                    Деревина, вода, пісок, рослини - тут про природу, гармонію,
-                    заземлення та спокій.
-                </p>
+                <div className="mb-22 lg:mb-[34px] flex flex-col lg:items-center lg:flex-row gap-4.5 lg:gap-8">
+                    <SectionTitle>Інтерактивні зони</SectionTitle>
+                    <p className="text-[16px] leading-[120%] font-light lg:max-w-[296px]">
+                        Деревина, вода, пісок,{" "}
+                        <br className="hidden lg:block" /> рослини - тут про
+                        природу, гармонію, заземлення та спокій.
+                    </p>
+                </div>
                 <InteractiveZonesBlock />
             </Container>
         </div>
