@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useCallback, useEffect, useRef } from "react";
+import { useMemo, useCallback, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { SwiperSlide } from "swiper/react";
 import { Swiper as SwiperClass } from "swiper/types";

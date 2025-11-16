@@ -327,7 +327,7 @@ export const NoodleCard = React.memo(
                 />
                 <Noodle
                     preserveAspectRatio="none"
-                    className="hidden lg:block absolute w-[336.7px] h-auto bottom-0 right-0 text-yellow-detail"
+                    className="hidden lg:block absolute w-[336.7px] h-auto -bottom-5 right-0 text-yellow-detail"
                 />
                 <div className="absolute hidden lg:block w-[309px] h-[121px] top-[324px] left-[78px]">
                     <div className="bg-yellow-light blur-[21.8px] w-full h-full" />
