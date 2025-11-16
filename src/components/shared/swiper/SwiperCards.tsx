@@ -19,6 +19,8 @@ interface SwiperCardsProps {
     isPagination?: boolean;
     autoplay?: SwiperOptions["autoplay"];
     cardsEffect?: boolean;
+    onSwiper?: (swiper: SwiperClass) => void;
+    paginationCount?: number;
 }
 
 export default function SwiperCards({
@@ -30,6 +32,8 @@ export default function SwiperCards({
     isPagination = false,
     autoplay = false,
     cardsEffect = false,
+    onSwiper,
+    paginationCount,
 }: SwiperCardsProps) {
     // Cards effect specific configuration
     const cardsEffectConfig: CardsEffectOptions | undefined = cardsEffect
@@ -234,8 +238,14 @@ export default function SwiperCards({
                 autoplay={autoplay}
                 showNavigation={false}
                 customPagination={isPagination}
+                paginationCount={paginationCount}
                 onInit={handleSwiperInit}
-                onSwiper={handleSwiperInit}
+                onSwiper={swiper => {
+                    handleSwiperInit(swiper);
+                    if (onSwiper) {
+                        onSwiper(swiper);
+                    }
+                }}
                 swiperProps={{
                     ...swiperProps,
                     modules: [

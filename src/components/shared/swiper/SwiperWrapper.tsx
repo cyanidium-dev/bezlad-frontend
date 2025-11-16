@@ -31,6 +31,8 @@ interface SwiperWrapperProps {
     onInit?: (swiper: SwiperClass) => void;
     // Custom pagination (dots) - when true, shows custom pagination instead of default
     customPagination?: boolean;
+    // Custom pagination count - if provided, limits the number of pagination dots
+    paginationCount?: number;
 }
 
 export default function SwiperWrapper({
@@ -47,6 +49,7 @@ export default function SwiperWrapper({
     showNavigation = true,
     onInit,
     customPagination = false,
+    paginationCount,
 }: SwiperWrapperProps) {
     const prevRef = useRef<HTMLButtonElement>(null);
     const nextRef = useRef<HTMLButtonElement>(null);
@@ -167,28 +170,37 @@ export default function SwiperWrapper({
 
             {customPagination && slidesCount > 0 && (
                 <div className="flex items-center justify-center gap-2 mt-6">
-                    {Array.from({ length: slidesCount }).map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => goToSlide(index)}
-                            className={clsx(
-                                "transition duration-300 cursor-pointer rounded-full w-4 h-4 lg:w-5 lg:h-5 p-[1.6px] lg:p-[2px] border",
-                                activeIndex === index
-                                    ? "border-purple"
-                                    : "border-gray-dark"
-                            )}
-                            aria-label={`Go to slide ${index + 1}`}
-                        >
-                            <div
+                    {Array.from({ length: slidesCount }).map((_, index) => {
+                        // Hide dots beyond index 2 on tablet (md), and beyond paginationCount on desktop (lg)
+                        const hideOnTablet = index >= 3; // Tablet shows 3 slides
+                        const hideOnDesktop = paginationCount
+                            ? index >= paginationCount
+                            : false;
+                        return (
+                            <button
+                                key={index}
+                                onClick={() => goToSlide(index)}
                                 className={clsx(
-                                    "w-full h-full rounded-full",
+                                    "transition duration-300 cursor-pointer rounded-full w-4 h-4 lg:w-5 lg:h-5 p-[1.6px] lg:p-[2px] border",
                                     activeIndex === index
-                                        ? "bg-purple"
-                                        : "bg-gray-dark"
+                                        ? "border-purple"
+                                        : "border-gray-dark",
+                                    hideOnTablet && "md:hidden lg:block",
+                                    hideOnDesktop && "lg:hidden"
                                 )}
-                            ></div>
-                        </button>
-                    ))}
+                                aria-label={`Go to slide ${index + 1}`}
+                            >
+                                <div
+                                    className={clsx(
+                                        "w-full h-full rounded-full",
+                                        activeIndex === index
+                                            ? "bg-purple"
+                                            : "bg-gray-dark"
+                                    )}
+                                ></div>
+                            </button>
+                        );
+                    })}
                 </div>
             )}
         </div>

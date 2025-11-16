@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useCallback } from "react";
 import { SwiperSlide } from "swiper/react";
 import SwiperCards from "@/components/shared/swiper/SwiperCards";
+import { Swiper as SwiperClass } from "swiper/types";
 import {
     interactiveZonesData,
     InteractiveZoneItem,
@@ -26,6 +27,35 @@ type DesktopSlideLayout = {
     fullHeightLeft?: number[]; // IDs that span full height on the left
 };
 
+// Tablet layout configuration (768px-1024px): 2x2 grid, 3 slides
+type TabletSlideLayout = {
+    grid: (number | null | "placeholder")[][]; // 2x2 grid: [[id1, id2], [id3, id4]] or [[id1, "placeholder"], [id2]]
+};
+
+const tabletLayouts: TabletSlideLayout[] = [
+    // Slide 1: IDs 1-4
+    {
+        grid: [
+            [1, 2],
+            [3, 4],
+        ],
+    },
+    // Slide 2: IDs 5-8
+    {
+        grid: [
+            [5, 6],
+            [7, 8],
+        ],
+    },
+    // Slide 3: IDs 9-10 with placeholder
+    {
+        grid: [
+            [9, "placeholder"], // First column: ID 9, second column: placeholder (spans 2 rows)
+            [10], // First column: ID 10
+        ],
+    },
+];
+
 const desktopLayouts: DesktopSlideLayout[] = [
     // Slide 1: IDs 1-5
     // ID 2 spans full height on left, rows on right: ID 3/1, ID 4/5
@@ -47,27 +77,6 @@ const desktopLayouts: DesktopSlideLayout[] = [
 ];
 
 export default function InteractiveZonesBlock() {
-    // Initialize with a check that works on both server and client
-    const [isDesktop, setIsDesktop] = useState(() => {
-        if (typeof window !== "undefined") {
-            return window.innerWidth >= 1024;
-        }
-        return false; // Default to mobile for SSR
-    });
-
-    useEffect(() => {
-        const checkScreenSize = () => {
-            setIsDesktop(window.innerWidth >= 1024);
-        };
-
-        // Check on mount (in case of SSR mismatch)
-        checkScreenSize();
-
-        // Listen for resize events
-        window.addEventListener("resize", checkScreenSize);
-        return () => window.removeEventListener("resize", checkScreenSize);
-    }, []);
-
     // Create a map of ID to item for quick lookup
     const itemsById = useMemo(() => {
         const map = new Map<number, InteractiveZoneItem>();
@@ -96,44 +105,93 @@ export default function InteractiveZonesBlock() {
         return chunks;
     }, []);
 
-    // Determine number of slides based on screen size
-    // Mobile has 4 slides (3 cards each), desktop has 2 slides
-    const slidesCount = isDesktop
-        ? desktopLayouts.length
-        : mobileGroupedCards.length;
+    // Use max count for slides
+    // Mobile has 4 slides (3 cards each), tablet has 3 slides (2x2 grid), desktop has 2 slides
+    const slidesCount = Math.max(
+        mobileGroupedCards.length,
+        tabletLayouts.length,
+        desktopLayouts.length
+    );
+
+    // Limit navigation based on screen size
+    const handleSwiperInit = useCallback(
+        (swiper: SwiperClass) => {
+            const limitNavigation = () => {
+                const width = window.innerWidth;
+                let maxSlides: number;
+
+                if (width >= 1024) {
+                    // Desktop: 2 slides
+                    maxSlides = desktopLayouts.length;
+                } else if (width >= 768) {
+                    // Tablet: 3 slides
+                    maxSlides = tabletLayouts.length;
+                } else {
+                    // Mobile: 4 slides
+                    maxSlides = mobileGroupedCards.length;
+                }
+
+                if (swiper.activeIndex >= maxSlides) {
+                    swiper.slideTo(maxSlides - 1);
+                }
+            };
+
+            const handleReachEnd = () => {
+                limitNavigation();
+            };
+
+            const handleResize = () => {
+                limitNavigation();
+            };
+
+            swiper.on("slideChange", limitNavigation);
+            swiper.on("reachEnd", handleReachEnd);
+            window.addEventListener("resize", handleResize);
+
+            // Cleanup will happen when component unmounts or swiper is destroyed
+            // The event listeners will be automatically cleaned up
+        },
+        [mobileGroupedCards.length]
+    );
 
     return (
         <SwiperCards
             breakpoints={{
                 0: {
                     slidesPerView: 1,
-                    spaceBetween: 16,
+                    spaceBetween: 18,
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 18,
                 },
                 1024: {
                     slidesPerView: 1,
-                    spaceBetween: 16,
+                    spaceBetween: 18,
                 },
             }}
             swiperClassName="pb-10 overflow-visible"
             wrapperClassName="overflow-visible"
             isPagination={true}
             loop={false}
+            onSwiper={handleSwiperInit}
+            paginationCount={desktopLayouts.length}
         >
-            {/* Combined mobile and desktop slides */}
+            {/* Combined mobile, tablet and desktop slides */}
             {Array.from({ length: slidesCount }).map((_, index) => {
-                const desktopLayout = isDesktop
-                    ? desktopLayouts[index]
-                    : undefined;
+                const desktopLayout = desktopLayouts[index];
+                const tabletLayout = tabletLayouts[index];
                 // For mobile, show 3 cards per slide (use original mobile groups)
-                const mobileGroup = !isDesktop
-                    ? mobileGroupedCards[index]
-                    : undefined;
+                const mobileGroup = mobileGroupedCards[index];
 
                 return (
-                    <SwiperSlide key={index} className="overflow-visible">
+                    <SwiperSlide
+                        key={index}
+                        className={`overflow-visible ${!desktopLayout ? "lg:hidden" : ""} ${!tabletLayout ? "md:hidden lg:block" : ""}`}
+                    >
                         {/* Mobile layout */}
                         {mobileGroup && (
-                            <div className="flex flex-col gap-5 overflow-visible lg:hidden">
+                            <div className="flex flex-col gap-5 overflow-visible md:hidden items-center">
                                 {(() => {
                                     const renderedItems: React.ReactNode[] = [];
                                     let i = 0;
@@ -181,6 +239,46 @@ export default function InteractiveZonesBlock() {
 
                                     return renderedItems;
                                 })()}
+                            </div>
+                        )}
+
+                        {/* Tablet layout (768px-1024px) */}
+                        {tabletLayout && (
+                            <div className="hidden md:grid lg:hidden overflow-visible grid-cols-2 gap-5 justify-center">
+                                {tabletLayout.grid.map((row, rowIdx) => (
+                                    <React.Fragment
+                                        key={`tablet-row-${index}-${rowIdx}`}
+                                    >
+                                        {row.map((id, colIdx) => {
+                                            if (id === "placeholder") {
+                                                return (
+                                                    <PlaceholderCard
+                                                        key={`tablet-${index}-${rowIdx}-${colIdx}`}
+                                                        doubleWidth={false}
+                                                        className="row-span-2"
+                                                    />
+                                                );
+                                            }
+                                            if (id === null) {
+                                                return null;
+                                            }
+                                            if (typeof id === "number") {
+                                                const item = itemsById.get(id);
+                                                if (item) {
+                                                    return (
+                                                        <div
+                                                            key={`tablet-${index}-${rowIdx}-${colIdx}`}
+                                                            className="flex justify-center"
+                                                        >
+                                                            {renderCard(item)}
+                                                        </div>
+                                                    );
+                                                }
+                                            }
+                                            return null;
+                                        })}
+                                    </React.Fragment>
+                                ))}
                             </div>
                         )}
 
