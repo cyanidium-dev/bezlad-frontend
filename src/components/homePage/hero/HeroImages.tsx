@@ -52,6 +52,7 @@ export default function HeroImages() {
         variants={fadeInAnimation({
           x: -20,
           scale: 0.95,
+          delay: 0.4,
         })}
         className="absolute top-[257px] lg:top-[397px] xl:top-[289px] right-[calc(50%-338px)] lg:right-[calc(50%-272px)] xl:right-[calc(50%-402px)]"
       >
