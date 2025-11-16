@@ -87,4 +87,14 @@
     .rotation {
         animation: rotation 1600ms linear infinite;
     }
+
+    .swiper-overflow-visible {
+        overflow: visible !important;
+    }
+    .swiper-overflow-visible .swiper-wrapper {
+        overflow: visible !important;
+    }
+    .swiper-overflow-visible .swiper-slide {
+        overflow: visible !important;
+    }
 }

@@ -1,131 +1,196 @@
-'use client';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { ReactNode, useRef, useEffect, useState } from 'react';
-import { Navigation, Pagination, Autoplay, EffectCards } from 'swiper/modules';
-import { Swiper } from 'swiper/react';
-import { SwiperOptions } from 'swiper/types';
-import ArrowIconFilled from '../icons/ArrowIconFilled';
-import clsx from 'clsx';
-import { twMerge } from 'tailwind-merge';
+"use client";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { ReactNode, useRef, useCallback, useState, useEffect } from "react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Swiper } from "swiper/react";
+import {
+    SwiperOptions,
+    Swiper as SwiperClass,
+    NavigationOptions,
+} from "swiper/types";
+import clsx from "clsx";
 
 interface SwiperWrapperProps {
-  children: ReactNode;
-  breakpoints: SwiperOptions['breakpoints'];
-  swiperClassName?: string;
-  wrapperClassName?: string;
-  buttonsWrapperClassName?: string;
-  loop?: boolean;
-  isPagination?: boolean;
-  autoplay?: SwiperOptions['autoplay'];
-  size?: number;
+    children: ReactNode;
+    breakpoints?: SwiperOptions["breakpoints"];
+    swiperClassName?: string;
+    wrapperClassName?: string;
+    buttonsWrapperClassName?: string;
+    loop?: boolean;
+    isPagination?: boolean;
+    autoplay?: SwiperOptions["autoplay"];
+    // Allow passing custom Swiper props
+    swiperProps?: Partial<SwiperOptions>;
+    // Expose swiper instance via callback
+    onSwiper?: (swiper: SwiperClass) => void;
+    // Allow disabling navigation buttons
+    showNavigation?: boolean;
+    // Custom onInit callback
+    onInit?: (swiper: SwiperClass) => void;
+    // Custom pagination (dots) - when true, shows custom pagination instead of default
+    customPagination?: boolean;
 }
 
 export default function SwiperWrapper({
-  children,
-  breakpoints,
-  swiperClassName = '',
-  wrapperClassName = '',
-  buttonsWrapperClassName = '',
-  loop = false,
-  isPagination = false,
-  autoplay = false,
-  size = 30,
+    children,
+    breakpoints,
+    swiperClassName = "",
+    wrapperClassName = "",
+    buttonsWrapperClassName = "",
+    loop = false,
+    isPagination = false,
+    autoplay = false,
+    swiperProps = {},
+    onSwiper,
+    showNavigation = true,
+    onInit,
+    customPagination = false,
 }: SwiperWrapperProps) {
-  const prevRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
-  const [swiperInstance, setSwiperInstance] = useState<any>(null);
-  const [isBeginning, setIsBeginning] = useState(true);
-  const [isEnd, setIsEnd] = useState(false);
+    const prevRef = useRef<HTMLButtonElement>(null);
+    const nextRef = useRef<HTMLButtonElement>(null);
+    const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(
+        null
+    );
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [slidesCount, setSlidesCount] = useState(0);
 
-  // Прив'язуємо кнопки навігації після рендеру
-  useEffect(() => {
-    if (
-      swiperInstance &&
-      prevRef.current &&
-      nextRef.current &&
-      swiperInstance.params.navigation
-    ) {
-      swiperInstance.params.navigation.prevEl = prevRef.current;
-      swiperInstance.params.navigation.nextEl = nextRef.current;
-      swiperInstance.navigation.destroy();
-      swiperInstance.navigation.init();
-      swiperInstance.navigation.update();
+    // Handle swiper instance setup
+    const handleSwiper = useCallback(
+        (swiper: SwiperClass) => {
+            setSwiperInstance(swiper);
+            if (onSwiper) {
+                onSwiper(swiper);
+            }
+        },
+        [onSwiper]
+    );
 
-      // початковий стан кнопок (у loop режимі завжди активні)
-      if (!loop) {
-        setIsBeginning(swiperInstance.isBeginning);
-        setIsEnd(swiperInstance.isEnd);
-      } else {
-        setIsBeginning(false);
-        setIsEnd(false);
-      }
+    // Handle slide change for custom pagination
+    const handleSlideChange = useCallback((swiper: SwiperClass) => {
+        setActiveIndex(swiper.realIndex ?? swiper.activeIndex);
+    }, []);
 
-      // оновлюємо стан кнопок при зміні слайду (інакше у loop не блокуємо)
-      swiperInstance.on('slideChange', () => {
-        if (!loop) {
-          setIsBeginning(swiperInstance.isBeginning);
-          setIsEnd(swiperInstance.isEnd);
+    useEffect(() => {
+        if (swiperInstance && customPagination) {
+            swiperInstance.on("slideChange", handleSlideChange);
+
+            return () => {
+                swiperInstance.off("slideChange", handleSlideChange);
+            };
         }
-      });
-    }
-  }, [swiperInstance]);
+    }, [swiperInstance, customPagination, handleSlideChange]);
 
-  // ефективні значення дизейблу для кнопок
-  const disablePrev = loop ? false : isBeginning;
-  const disableNext = loop ? false : isEnd;
+    const goToSlide = useCallback(
+        (index: number) => {
+            if (swiperInstance) {
+                swiperInstance.slideTo(index);
+            }
+        },
+        [swiperInstance]
+    );
 
-  return (
-    <div className={wrapperClassName}>
-      <Swiper
-        onSwiper={setSwiperInstance} // отримуємо екземпляр після рендеру
-        pagination={isPagination}
-        breakpoints={breakpoints}
-        loop={loop}
-        speed={1000}
-        autoplay={autoplay}
-        modules={[Navigation, Pagination, Autoplay]}
-        className={swiperClassName}
-      >
-        {children}
-      </Swiper>
+    return (
+        <div className={wrapperClassName}>
+            <Swiper
+                onSwiper={handleSwiper}
+                pagination={isPagination}
+                breakpoints={breakpoints}
+                loop={loop}
+                speed={1000}
+                autoplay={autoplay}
+                onBeforeInit={swiper => {
+                    // Ensure custom navigation elements are wired before init
+                    if (showNavigation && prevRef.current && nextRef.current) {
+                        if (typeof swiper.params.navigation === "boolean") {
+                            swiper.params.navigation = { enabled: true };
+                        }
+                        const navParams = swiper.params.navigation as
+                            | NavigationOptions
+                            | undefined;
+                        if (navParams && typeof navParams === "object") {
+                            // Type assertion needed because Swiper's types mark these as readonly
+                            // but they can be set during initialization
+                            (
+                                navParams as NavigationOptions & {
+                                    prevEl?: HTMLElement | null;
+                                    nextEl?: HTMLElement | null;
+                                }
+                            ).prevEl = prevRef.current;
+                            (
+                                navParams as NavigationOptions & {
+                                    prevEl?: HTMLElement | null;
+                                    nextEl?: HTMLElement | null;
+                                }
+                            ).nextEl = nextRef.current;
+                        }
+                    }
+                }}
+                onInit={swiper => {
+                    // Ensure navigation picks up refs if they were set late
+                    if (
+                        showNavigation &&
+                        prevRef.current &&
+                        nextRef.current &&
+                        swiper.navigation
+                    ) {
+                        swiper.navigation.update();
+                    }
+                    // Initialize custom pagination state
+                    if (customPagination) {
+                        setSlidesCount(swiper.slides.length);
+                        setActiveIndex(swiper.realIndex ?? swiper.activeIndex);
+                    }
+                    // Call custom onInit if provided
+                    if (onInit) {
+                        onInit(swiper);
+                    }
+                }}
+                className={swiperClassName}
+                {...swiperProps}
+                modules={[
+                    ...(showNavigation ? [Navigation] : []),
+                    ...(isPagination ? [Pagination] : []),
+                    ...(autoplay && !swiperProps.modules ? [Autoplay] : []),
+                    ...(swiperProps.modules || []),
+                ]}
+            >
+                {children}
+            </Swiper>
 
-      <div
-        className={`flex items-center lg:items-end justify-center gap-2.5 lg:gap-5 ${buttonsWrapperClassName}`}
-      >
-        <button
-          ref={prevRef}
-          disabled={disablePrev}
-          className={clsx(
-            `enabled:cursor-pointer w-[30px] h-[30px] lg:w-[54px] lg:h-[54px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
-          duration-300 xl:enabled:hover:brightness-[1.25] bg-green disabled:bg-white disabled:border disabled:border-green disabled:text-green`
-          )}
-        >
-          <ArrowIconFilled
-            className={clsx(
-              'w-[10px] h-[10px] lg:w-[22px] lg:h-[22px] rotate-180',
-              disablePrev ? 'text-green' : 'text-white'
+            {showNavigation && (
+                <div
+                    className={`flex items-center lg:items-end justify-center gap-2.5 lg:gap-5 ${buttonsWrapperClassName}`}
+                ></div>
             )}
-          />
-        </button>
 
-        <button
-          ref={nextRef}
-          disabled={disableNext}
-          className={clsx(
-            `enabled:cursor-pointer w-[30px] h-[30px] lg:w-[54px] lg:h-[54px] rounded-[10px] flex items-center justify-center pointer-events-auto transition-filter 
-          duration-300 xl:enabled:hover:brightness-[1.25] bg-green disabled:bg-white disabled:border disabled:border-green disabled:text-green`
-          )}
-        >
-          <ArrowIconFilled
-            className={clsx(
-              'w-[10px] h-[10px] lg:w-[22px] lg:h-[22px]',
-              disableNext ? 'text-green' : 'text-white'
+            {customPagination && slidesCount > 0 && (
+                <div className="flex items-center justify-center gap-2 mt-6">
+                    {Array.from({ length: slidesCount }).map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => goToSlide(index)}
+                            className={clsx(
+                                "transition duration-300 cursor-pointer rounded-full w-4 h-4 lg:w-5 lg:h-5 p-[1.6px] lg:p-[2px] border",
+                                activeIndex === index
+                                    ? "border-purple"
+                                    : "border-gray-dark"
+                            )}
+                            aria-label={`Go to slide ${index + 1}`}
+                        >
+                            <div
+                                className={clsx(
+                                    "w-full h-full rounded-full",
+                                    activeIndex === index
+                                        ? "bg-purple"
+                                        : "bg-gray-dark"
+                                )}
+                            ></div>
+                        </button>
+                    ))}
+                </div>
             )}
-          />
-        </button>
-      </div>
-    </div>
-  );
+        </div>
+    );
 }

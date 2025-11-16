@@ -115,8 +115,8 @@ export const YellowElipseCard = ({
     image,
 }: InterativeZonesCardProps) => {
     return (
-        <div className="relative w-fit h-fit">
-            <div className="overflow-hidden relative w-[312px] h-[117px] lg:w-[489px] lg:h-[189px] bg-yellow rounded-[14px] lg:rounded-[18px] px-4 py-3 lg:p-5">
+        <div className="relative w-fit h-fit overflow-visible">
+            <div className="relative w-[312px] h-[117px] lg:w-[489px] lg:h-[189px] bg-yellow rounded-[14px] lg:rounded-[18px] px-4 py-3 lg:p-5 overflow-hidden">
                 <div className="absolute bottom-3 lg:bottom-5">
                     <p className="text-base lg:text-[24px] font-azbuka leading-[120%] uppercase max-w-[103px]">
                         {title}
@@ -282,6 +282,31 @@ export const NoodleCard = ({ title, image }: InterativeZonesCardProps) => {
             <div className="absolute hidden lg:block w-[309px] h-[121px] top-[324px] left-[78px]">
                 <div className="bg-yellow-light blur-[21.8px] w-full h-full" />
             </div>
+        </div>
+    );
+};
+
+export const PlaceholderCard = ({
+    doubleWidth = false,
+}: {
+    doubleWidth?: boolean;
+}) => {
+    return (
+        <div
+            className={clsx(
+                "relative bg-gray-light rounded-[14px] lg:rounded-[18px] flex items-center justify-center w-[312px] lg:w-[386px]",
+                doubleWidth
+                    ? "h-[calc(2*117px+16px)] lg:h-[calc(2*189px+16px)]"
+                    : "h-[117px] lg:h-[189px]"
+            )}
+        >
+            <Image
+                src="/images/interactiveZone/placeholder.svg"
+                alt="Placeholder"
+                width={175}
+                height={257}
+                className="object-contain"
+            />
         </div>
     );
 };
