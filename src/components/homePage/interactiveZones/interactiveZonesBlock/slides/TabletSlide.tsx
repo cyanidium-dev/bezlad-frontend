@@ -1,7 +1,7 @@
 import React from "react";
 import { PlaceholderCard } from "../InterativeZoneCard";
 import type { InteractiveZoneItem } from "../../interactiveZonesData";
-import type { TabletSlideLayout } from "../layouts";
+import type { TabletSlideLayout } from "../slidesLayouts";
 import { renderCard } from "../cardMapper";
 
 type TabletSlideProps = {
@@ -35,7 +35,7 @@ export const TabletSlide = React.memo(
                                     return (
                                         <div
                                             key={`tablet-${slideIndex}-${rowIdx}-${colIdx}`}
-                                            className="flex justify-center"
+                                            className="flex justify-center overflow-visible"
                                         >
                                             {renderCard(item)}
                                         </div>

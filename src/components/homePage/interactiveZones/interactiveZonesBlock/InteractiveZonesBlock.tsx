@@ -15,7 +15,7 @@ import {
     SPACE_BETWEEN,
     BREAKPOINT_TABLET,
     BREAKPOINT_DESKTOP,
-} from "./layouts";
+} from "./slidesLayouts";
 import { MobileSlide } from "./slides/MobileSlide";
 import { TabletSlide } from "./slides/TabletSlide";
 import { DesktopSlide } from "./slides/DesktopSlide";

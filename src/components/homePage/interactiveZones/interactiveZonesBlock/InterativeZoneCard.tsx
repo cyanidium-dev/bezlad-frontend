@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import StarIcon from "@/components/shared/icons/StarIcon";
 import DashedArrow from "@/components/shared/icons/DashedArrow";
+import AnimatedAnimal from "@/components/shared/animatedAnimal/AnimatedAnimal";
 import { Noodle, Noodle2 } from "./cardDecorations/Noodle";
 import type { Direction, PictureSize } from "../interactiveZonesData";
 
@@ -129,7 +130,13 @@ PurpleBlobCard.displayName = "PurpleBlobCard";
 export const YellowElipseCard = React.memo(
     ({ title, image }: InterativeZonesCardProps) => {
         return (
-            <div className="relative w-fit h-fit overflow-visible">
+            <div
+                className="relative overflow-visible"
+                style={{
+                    width: "fit-content",
+                    minWidth: 0,
+                }}
+            >
                 <div
                     role="article"
                     aria-label={`Interactive zone: ${title}`}
@@ -144,13 +151,10 @@ export const YellowElipseCard = React.memo(
                         <div className="bg-yellow-light blur-[40.6624px] w-full h-full" />
                     </div>
                 </div>
-                <Image
-                    src={image}
-                    alt={title}
-                    width={162.7}
-                    height={196.6}
-                    loading="lazy"
-                    className="z-2 md:w-[226.8px] md:h-auto lg:w-[226.8px] lg:h-auto xl:w-[286.8px] xl:h-[360.5px] object-cover absolute top-[-80px] md:top-[-110px] lg:top-[-110px] xl:top-[-190px] left-[148px] md:left-[130px] lg:left-[130px] xl:left-[215px]"
+                <AnimatedAnimal
+                    svgPath={image}
+                    className="z-2 md:w-[226.8px] md:h-auto lg:w-[226.8px] lg:h-auto xl:w-[286.8px] xl:h-[360.5px] absolute top-[-80px] md:top-[-110px] lg:top-[-110px] xl:top-[-190px] left-[148px] md:left-[130px] lg:left-[130px] xl:left-[215px] pointer-events-none"
+                    maxPupilMovement={3}
                 />
             </div>
         );

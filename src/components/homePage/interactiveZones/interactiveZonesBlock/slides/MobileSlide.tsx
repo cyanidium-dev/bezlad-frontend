@@ -17,7 +17,10 @@ export const MobileSlide = React.memo(
             const item = items[i];
             if (item) {
                 renderedItems.push(
-                    <div key={`mobile-${slideIndex}-${i}`}>
+                    <div
+                        key={`mobile-${slideIndex}-${i}`}
+                        className="overflow-visible"
+                    >
                         {renderCard(item)}
                     </div>
                 );

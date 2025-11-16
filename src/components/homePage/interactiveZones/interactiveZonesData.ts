@@ -54,7 +54,7 @@ export const interactiveZonesData: InteractiveZoneItem[] = [
     {
         id: 1,
         title: "Стіна для малювання",
-        image: "/images/footer/drawing.webp",
+        image: "/images/animals/animalSmall.svg",
         card: "yellowElipse",
     },
     {
