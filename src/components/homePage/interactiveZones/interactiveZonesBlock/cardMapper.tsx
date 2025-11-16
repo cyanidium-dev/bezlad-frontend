@@ -32,7 +32,8 @@ export function getCardComponent(cardType: CardType): CardComponent {
     return cardComponentMap[cardType];
 }
 
-export function renderCard(item: InteractiveZoneItem) {
+// Memoized renderCard function
+export const renderCard = (item: InteractiveZoneItem) => {
     const CardComponent = getCardComponent(item.card);
     return (
         <CardComponent
@@ -44,4 +45,4 @@ export function renderCard(item: InteractiveZoneItem) {
             pictureSize={item.pictureSize}
         />
     );
-}
+};

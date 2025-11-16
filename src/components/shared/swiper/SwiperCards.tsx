@@ -46,11 +46,18 @@ export default function SwiperCards({
 
     const swiperRef = useRef<SwiperClass | null>(null);
 
-    // Handle initialization
-    const handleSwiperInit = useCallback((swiper: SwiperClass) => {
-        swiper.update();
-        swiperRef.current = swiper;
-    }, []);
+    // Handle initialization - consolidated to avoid duplicate calls
+    const handleSwiperInit = useCallback(
+        (swiper: SwiperClass) => {
+            swiper.update();
+            swiperRef.current = swiper;
+            // Call external onSwiper callback if provided
+            if (onSwiper) {
+                onSwiper(swiper);
+            }
+        },
+        [onSwiper]
+    );
 
     // Handle progress to update slide visibility
     const handleProgress = useCallback((swiper: SwiperClass) => {
@@ -240,12 +247,7 @@ export default function SwiperCards({
                 customPagination={isPagination}
                 paginationCount={paginationCount}
                 onInit={handleSwiperInit}
-                onSwiper={swiper => {
-                    handleSwiperInit(swiper);
-                    if (onSwiper) {
-                        onSwiper(swiper);
-                    }
-                }}
+                onSwiper={handleSwiperInit}
                 swiperProps={{
                     ...swiperProps,
                     modules: [
