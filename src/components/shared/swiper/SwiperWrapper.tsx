@@ -181,7 +181,7 @@ export default function SwiperWrapper({
                                 key={index}
                                 onClick={() => goToSlide(index)}
                                 className={clsx(
-                                    "transition duration-300 cursor-pointer rounded-full w-4 h-4 lg:w-5 lg:h-5 p-[1.6px] lg:p-[2px] border",
+                                    "transition duration-300 cursor-pointer rounded-full w-4 h-4 lg:w-5 lg:h-5 p-0.5 border",
                                     activeIndex === index
                                         ? "border-purple"
                                         : "border-gray-dark",
