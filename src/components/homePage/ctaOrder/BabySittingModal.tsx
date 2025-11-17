@@ -1,9 +1,9 @@
 "use client";
 import { useState, Dispatch, SetStateAction } from "react";
-import Modal from "../modals/Modal";
-import Backdrop from "../backdrop/Backdrop";
-import NotificationPopUp from "../notifications/NotificationPopUp";
-import BabySittingForm from "../forms/BabySittingForm";
+import Modal from "../../shared/modals/Modal";
+import Backdrop from "../../shared/backdrop/Backdrop";
+import NotificationPopUp from "../../shared/notifications/NotificationPopUp";
+import BabySittingForm from "../../shared/forms/BabySittingForm";
 
 interface BabySittingModalProps {
   isModalShown: boolean;
