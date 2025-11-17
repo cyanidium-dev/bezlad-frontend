@@ -3,7 +3,7 @@ import { useState, Dispatch, SetStateAction } from "react";
 import Modal from "../modals/Modal";
 import Backdrop from "../backdrop/Backdrop";
 import NotificationPopUp from "../notifications/NotificationPopUp";
-import CallBackForm from "../forms/OrderForm";
+import BabySittingForm from "../forms/BabySittingForm";
 
 interface BabySittingModalProps {
   isModalShown: boolean;
@@ -22,7 +22,7 @@ export default function BabySittingModal({
       <Modal
         isModalShown={isModalShown}
         setIsModalShown={setIsModalShown}
-        className="pb-5 lg:pb-[22px] pr-2 lg:px-8"
+        className="pb-5 lg:pb-[22px] pr-2 lg:pr-8"
       >
         <div
           className="flex-1 pr-3 overflow-y-auto scrollbar scrollbar-w-[3px] lg:scrollbar-w-[4px] scrollbar-thumb-rounded-full 
@@ -35,7 +35,7 @@ export default function BabySittingModal({
             Залиште заявку, і наш адміністратор підбере няню та підтвердить час
             супроводу вашої дитини.
           </p>
-          <CallBackForm
+          <BabySittingForm
             setIsError={setIsError}
             setIsNotificationShown={setIsNotificationShown}
             setIsModalShown={setIsModalShown}

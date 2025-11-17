@@ -93,7 +93,7 @@ export default function BabySittingForm({
               label="Телефон"
               inputType="tel"
             />
-            <CustomizedInput fieldName="date" label="Email" />
+            <CustomizedInput fieldName="date" label="Дата та час супроводу" />
             <CustomizedInput
               fieldName="message"
               label="Повідомлення"

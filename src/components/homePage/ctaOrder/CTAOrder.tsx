@@ -17,7 +17,7 @@ export default function CTAOrder() {
       className="relative max-w-[1280px] mt-25 lg:mt-[125px] mx-auto rounded-[32px] overflow-hidden bg-purple-ultra-light scroll-mt-[85px]"
     >
       <CTAOrderImages />
-      <Container className="relative z-20 pt-[46px] lg:pt-[58px] pb-[18px] lg:pb-[110px]">
+      <Container className="relative z-40 pt-[46px] lg:pt-[58px] pb-[18px] lg:pb-[110px]">
         <div className="lg:ml-[412px] xl:ml-[527px]">
           <motion.h2
             initial="hidden"

@@ -20,7 +20,7 @@ export const useBabySittingFormValidation = () => {
       )
       .required("Дане поле є обов'язковим до заповнення"),
 
-    date: yup.string().required("Дане поле є обов'язковим до заповнення"),
+    date: yup.string(),
 
     message: yup
       .string()
