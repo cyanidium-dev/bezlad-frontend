@@ -1,208 +1,102 @@
 "use client";
+import { SwiperClass } from "swiper/react";
 import "swiper/css";
-import "swiper/css/navigation";
+import "swiper/css/grid";
 import "swiper/css/pagination";
-import { ReactNode, useRef, useCallback, useState, useEffect } from "react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { Swiper } from "swiper/react";
-import {
-    SwiperOptions,
-    Swiper as SwiperClass,
-    NavigationOptions,
-} from "swiper/types";
 import clsx from "clsx";
+import { Children, useEffect, useCallback, useState } from "react";
+import { SwiperOptions } from "swiper/types";
+import dynamic from "next/dynamic";
+import { Keyboard } from "swiper/modules";
 
 interface SwiperWrapperProps {
-    children: ReactNode;
+    children: React.ReactNode;
+    slidesPerView?: number | "auto";
+    pagination?: boolean;
     breakpoints?: SwiperOptions["breakpoints"];
-    swiperClassName?: string;
-    wrapperClassName?: string;
-    buttonsWrapperClassName?: string;
-    loop?: boolean;
-    isPagination?: boolean;
-    autoplay?: SwiperOptions["autoplay"];
-    // Allow passing custom Swiper props
-    swiperProps?: Partial<SwiperOptions>;
-    // Expose swiper instance via callback
-    onSwiper?: (swiper: SwiperClass) => void;
-    // Allow disabling navigation buttons
-    showNavigation?: boolean;
-    // Custom onInit callback
-    onInit?: (swiper: SwiperClass) => void;
-    // Custom pagination (dots) - when true, shows custom pagination instead of default
-    customPagination?: boolean;
-    // Custom pagination count - if provided, limits the number of pagination dots
-    paginationCount?: number;
+    overflowVisible?: boolean;
 }
 
-export default function SwiperWrapper({
-    children,
-    breakpoints,
-    swiperClassName = "",
-    wrapperClassName = "",
-    buttonsWrapperClassName = "",
-    loop = false,
-    isPagination = false,
-    autoplay = false,
-    swiperProps = {},
-    onSwiper,
-    showNavigation = true,
-    onInit,
-    customPagination = false,
-    paginationCount,
-}: SwiperWrapperProps) {
-    const prevRef = useRef<HTMLButtonElement>(null);
-    const nextRef = useRef<HTMLButtonElement>(null);
-    const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(
-        null
-    );
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [slidesCount, setSlidesCount] = useState(0);
+export const SwiperWrapper = dynamic(
+    async () => {
+        const [{ Swiper }] = await Promise.all([import("swiper/react")]);
 
-    // Handle swiper instance setup
-    const handleSwiper = useCallback(
-        (swiper: SwiperClass) => {
-            setSwiperInstance(swiper);
-            if (onSwiper) {
-                onSwiper(swiper);
-            }
-        },
-        [onSwiper]
-    );
+        const Component = ({
+            children,
+            slidesPerView = "auto",
+            pagination = false,
+            breakpoints,
+            overflowVisible = false,
+        }: SwiperWrapperProps) => {
+            const [swiperInstance, setSwiperInstance] =
+                useState<SwiperClass | null>(null);
+            const [activeIndex, setActiveIndex] = useState(0);
+            const slidesCount = Children.count(children);
 
-    // Handle slide change for custom pagination
-    const handleSlideChange = useCallback((swiper: SwiperClass) => {
-        setActiveIndex(swiper.realIndex ?? swiper.activeIndex);
-    }, []);
+            // Handle slide change for custom pagination
+            const handleSlideChange = useCallback((swiper: SwiperClass) => {
+                setActiveIndex(swiper.realIndex ?? swiper.activeIndex);
+            }, []);
 
-    useEffect(() => {
-        if (swiperInstance && customPagination) {
-            swiperInstance.on("slideChange", handleSlideChange);
+            useEffect(() => {
+                if (swiperInstance && pagination) {
+                    swiperInstance.on("slideChange", handleSlideChange);
 
-            return () => {
-                swiperInstance.off("slideChange", handleSlideChange);
+                    return () => {
+                        swiperInstance.off("slideChange", handleSlideChange);
+                    };
+                }
+            }, [swiperInstance, pagination, handleSlideChange]);
+
+            const goToSlide = (index: number) => {
+                swiperInstance?.slideTo(index);
             };
-        }
-    }, [swiperInstance, customPagination, handleSlideChange]);
 
-    const goToSlide = useCallback(
-        (index: number) => {
-            if (swiperInstance) {
-                swiperInstance.slideTo(index);
-            }
-        },
-        [swiperInstance]
-    );
-
-    return (
-        <div className={wrapperClassName}>
-            <Swiper
-                onSwiper={handleSwiper}
-                pagination={isPagination}
-                breakpoints={breakpoints}
-                loop={loop}
-                speed={1000}
-                autoplay={autoplay}
-                onBeforeInit={swiper => {
-                    // Ensure custom navigation elements are wired before init
-                    if (showNavigation && prevRef.current && nextRef.current) {
-                        if (typeof swiper.params.navigation === "boolean") {
-                            swiper.params.navigation = { enabled: true };
-                        }
-                        const navParams = swiper.params.navigation as
-                            | NavigationOptions
-                            | undefined;
-                        if (navParams && typeof navParams === "object") {
-                            // Type assertion needed because Swiper's types mark these as readonly
-                            // but they can be set during initialization
-                            (
-                                navParams as NavigationOptions & {
-                                    prevEl?: HTMLElement | null;
-                                    nextEl?: HTMLElement | null;
+            return (
+                <>
+                    <Swiper
+                        onSwiper={setSwiperInstance}
+                        slidesPerView={slidesPerView}
+                        breakpoints={breakpoints}
+                        spaceBetween={30}
+                        className={overflowVisible ? "overflow-visible!" : ""}
+                        watchSlidesProgress={overflowVisible ? true : false}
+                        modules={[Keyboard]}
+                        keyboard={{
+                            enabled: true,
+                        }}
+                    >
+                        {children}
+                    </Swiper>
+                    {pagination && slidesCount > 0 && (
+                        <div className="flex items-center justify-center gap-2 md:gap-3 lg:gap-4.5 mt-6 lg:mt-[26px]">
+                            {Array.from({ length: slidesCount }).map(
+                                (_, index) => {
+                                    return (
+                                        <button
+                                            key={index}
+                                            onClick={() => goToSlide(index)}
+                                            className={clsx(
+                                                "transition duration-300 cursor-pointer rounded-full shrink-0 border-2 border-white w-4 h-4 lg:w-5 lg:h-5",
+                                                activeIndex === index
+                                                    ? "bg-purple shadow-[0_0_0_1px_#7c48cc]"
+                                                    : "bg-gray-dark shadow-[0_0_0_1px_#5a5a5a]"
+                                            )}
+                                            aria-label={`Go to slide ${index + 1}`}
+                                        ></button>
+                                    );
                                 }
-                            ).prevEl = prevRef.current;
-                            (
-                                navParams as NavigationOptions & {
-                                    prevEl?: HTMLElement | null;
-                                    nextEl?: HTMLElement | null;
-                                }
-                            ).nextEl = nextRef.current;
-                        }
-                    }
-                }}
-                onInit={swiper => {
-                    // Ensure navigation picks up refs if they were set late
-                    if (
-                        showNavigation &&
-                        prevRef.current &&
-                        nextRef.current &&
-                        swiper.navigation
-                    ) {
-                        swiper.navigation.update();
-                    }
-                    // Initialize custom pagination state
-                    if (customPagination) {
-                        setSlidesCount(swiper.slides.length);
-                        setActiveIndex(swiper.realIndex ?? swiper.activeIndex);
-                    }
-                    // Call custom onInit if provided
-                    if (onInit) {
-                        onInit(swiper);
-                    }
-                }}
-                className={swiperClassName}
-                {...swiperProps}
-                modules={[
-                    ...(showNavigation ? [Navigation] : []),
-                    ...(isPagination ? [Pagination] : []),
-                    ...(autoplay && !swiperProps.modules ? [Autoplay] : []),
-                    ...(swiperProps.modules || []),
-                ]}
-            >
-                {children}
-            </Swiper>
+                            )}
+                        </div>
+                    )}
+                </>
+            );
+        };
 
-            {showNavigation && (
-                <div
-                    className={`flex items-center lg:items-end justify-center gap-2.5 lg:gap-5 ${buttonsWrapperClassName}`}
-                ></div>
-            )}
-
-            {customPagination && slidesCount > 0 && (
-                <div className="flex items-center justify-center gap-2 md:gap-3 lg:gap-4.5 mt-6 lg:mt-[26px]">
-                    {Array.from({ length: slidesCount }).map((_, index) => {
-                        // Hide dots beyond index 2 on tablet (md), and beyond paginationCount on desktop (lg)
-                        const hideOnTablet = index >= 3; // Tablet shows 3 slides
-                        const hideOnDesktop = paginationCount
-                            ? index >= paginationCount
-                            : false;
-                        return (
-                            <button
-                                key={index}
-                                onClick={() => goToSlide(index)}
-                                className={clsx(
-                                    "transition duration-300 cursor-pointer rounded-full shrink-0 border-2 border-white w-4 h-4 lg:w-5 lg:h-5",
-                                    activeIndex === index
-                                        ? "bg-purple shadow-[0_0_0_1px_#7c48cc]"
-                                        : "bg-gray-dark shadow-[0_0_0_1px_#5a5a5a]",
-                                    hideOnTablet && "md:hidden lg:block",
-                                    hideOnDesktop && "lg:hidden"
-                                )}
-                                aria-label={`Go to slide ${index + 1}`}
-                            >
-                                <div
-                                    className={clsx(
-                                        "w-full h-full rounded-full",
-                                        activeIndex === index
-                                            ? "bg-purple"
-                                            : "bg-gray-dark"
-                                    )}
-                                ></div>
-                            </button>
-                        );
-                    })}
-                </div>
-            )}
-        </div>
-    );
-}
+        Component.displayName = "SwiperWrapper";
+        return Component;
+    },
+    {
+        ssr: false,
+    }
+);

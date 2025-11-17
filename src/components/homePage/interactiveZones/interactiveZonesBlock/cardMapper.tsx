@@ -8,6 +8,7 @@ import {
     BlackCard,
     NoodleCard,
     YellowBlobCard,
+    PlaceholderCard,
 } from "./InterativeZoneCard";
 import type { CardType, InteractiveZoneItem } from "../interactiveZonesData";
 
@@ -17,6 +18,8 @@ type CardComponent = ComponentType<{
     direction?: "left" | "right";
     desktopDirection?: "left" | "right";
     pictureSize?: "big" | "small";
+    vertical?: boolean;
+    desktopId?: number;
 }>;
 
 const cardComponentMap: Record<CardType, CardComponent> = {
@@ -28,6 +31,7 @@ const cardComponentMap: Record<CardType, CardComponent> = {
     black: BlackCard,
     yellowNoodle: NoodleCard,
     yellowBlob: YellowBlobCard,
+    placeholder: PlaceholderCard,
 };
 
 export function getCardComponent(cardType: CardType): CardComponent {
@@ -45,6 +49,8 @@ export const renderCard = (item: InteractiveZoneItem) => {
             direction={item.direction}
             desktopDirection={item.desktopDirection}
             pictureSize={item.pictureSize}
+            vertical={item.vertical}
+            desktopId={item.desktopId}
         />
     );
 };

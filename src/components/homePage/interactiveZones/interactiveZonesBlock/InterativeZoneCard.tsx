@@ -6,7 +6,7 @@ import React from "react";
 import StarIcon from "@/components/shared/icons/StarIcon";
 import DashedArrow from "@/components/shared/icons/DashedArrow";
 import AnimatedAnimal from "@/components/shared/animatedAnimal/AnimatedAnimal";
-import { Noodle, Noodle2 } from "./cardDecorations/Noodle";
+import { Noodle, Noodle2 } from "@/components/shared/icons/Noodle";
 import type { Direction, PictureSize } from "../interactiveZonesData";
 import { useScreenWidth } from "@/hooks/useScreenWidth";
 import { BREAKPOINT_DESKTOP } from "./slidesLayouts";
@@ -451,7 +451,7 @@ export const NoodleCard = React.memo(
 NoodleCard.displayName = "NoodleCard";
 
 export const PlaceholderCard = React.memo(
-    ({ className = "" }: { className?: string }) => {
+    ({ title, image }: InterativeZonesCardProps) => {
         return (
             <div
                 className={clsx(
@@ -459,10 +459,11 @@ export const PlaceholderCard = React.memo(
                     COMMON_CARD_ROUNDED,
                     "flex items-center justify-center",
                     COMMON_CARD_BASE,
-                    "lg:w-[330px] lg:h-[165px] xl:w-[386px] xl:h-[189px]",
-                    className
+                    "lg:w-[330px] lg:h-[165px] xl:w-[386px] xl:h-[189px]"
                 )}
             >
+                <p className="sr-only">And more...</p>
+
                 <Image
                     src="/images/interactiveZone/placeholder.svg"
                     alt="Placeholder"
