@@ -41,7 +41,7 @@ export default function CTAOrder() {
             className="max-w-[463px] lg:max-w-[300px] mb-[281px] lg:mb-11"
           >
             Наші турботливі та уважні няні допоможуть дитині адаптуватися й
-            відчути себе у цілковитій безпеці
+            відчути себе у цілковитій безпеці.
           </motion.p>
           <motion.div
             initial="hidden"

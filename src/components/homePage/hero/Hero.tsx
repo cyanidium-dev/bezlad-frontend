@@ -110,7 +110,7 @@ export default function Hero() {
               className="hidden lg:block max-w-[168px] text-white text-[14px] font-normal leading-[120%]"
             >
               Натуральність замість штучності.  Розвиток замість метушні.  Тиша
-              замість шуму
+              замість шуму.
             </motion.p>
           </div>
           <BenefitsList />
