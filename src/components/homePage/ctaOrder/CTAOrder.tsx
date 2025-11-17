@@ -3,6 +3,7 @@ import Container from "@/components/shared/container/Container";
 import CTAOrderImages from "./CTAOrderImages";
 import * as motion from "motion/react-client";
 import { fadeInAnimation, headerVariants } from "@/utils/animationVariants";
+import BabySittingApplication from "@/components/shared/babySittingApplication/BabySittingApplication";
 
 export default function CTAOrder() {
   return (
@@ -43,17 +44,7 @@ export default function CTAOrder() {
             Наші турботливі та уважні няні допоможуть дитині адаптуватися й
             відчути себе у цілковитій безпеці.
           </motion.p>
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            exit="exit"
-            viewport={{ once: true, amount: 0.8 }}
-            variants={fadeInAnimation({ scale: 0.9, delay: 0.8 })}
-          >
-            <MainButton className="h-[66px] sm:max-w-[303px] sm:mx-auto lg:mx-0">
-              Забронювати послуги няні
-            </MainButton>
-          </motion.div>
+          <BabySittingApplication />
         </div>
       </Container>
     </motion.section>
