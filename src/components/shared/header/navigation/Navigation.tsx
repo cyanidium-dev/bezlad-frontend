@@ -27,10 +27,11 @@ export default function Navigation({
                     <li key={item.href}>
                         <Link
                             onClick={() => {
-                                if (setIsHeaderMenuOpened) setIsHeaderMenuOpened(false);
+                                if (setIsHeaderMenuOpened)
+                                    setIsHeaderMenuOpened(false);
                             }}
                             href={`/${item.href}`}
-                            className="text-black font-azbuka uppercase text-4 leading-[120%] xl:hover:text-purple xl:focus-visible:text-purple transition duration-300 ease-in-out"
+                            className="cursor-pointer text-black font-azbuka uppercase text-4 leading-[120%] xl:hover:text-purple xl:focus-visible:text-purple transition duration-300 ease-in-out"
                         >
                             {item.label}
                         </Link>
