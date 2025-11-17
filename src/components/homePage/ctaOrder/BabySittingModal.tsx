@@ -1,20 +1,19 @@
 "use client";
 import { useState, Dispatch, SetStateAction } from "react";
-import Modal from "../modals/Modal";
-import Backdrop from "../backdrop/Backdrop";
-import NotificationPopUp from "../notifications/NotificationPopUp";
-import CallBackForm from "../forms/OrderForm";
-import OrderForm from "../forms/OrderForm";
+import Modal from "../../shared/modals/Modal";
+import Backdrop from "../../shared/backdrop/Backdrop";
+import NotificationPopUp from "../../shared/notifications/NotificationPopUp";
+import BabySittingForm from "../../shared/forms/BabySittingForm";
 
-interface OrderModalProps {
+interface BabySittingModalProps {
   isModalShown: boolean;
   setIsModalShown: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function OrderModal({
+export default function BabySittingModal({
   isModalShown,
   setIsModalShown,
-}: OrderModalProps) {
+}: BabySittingModalProps) {
   const [isNotificationShown, setIsNotificationShown] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -30,13 +29,13 @@ export default function OrderModal({
               scrollbar-track-rounded-full scrollbar-thumb-purple scrollbar-track-purple/10"
         >
           <h2 className="mb-4 font-azbuka text-[24px] lg:text-[35px] font-normal leading-[120%] text-center uppercase">
-            Забронюйте відвідування
+            Бронювання послуг няні
           </h2>
           <p className="mb-7 lg:mb-4 text-[14px] font-normal leading-[120%] text-center">
-            Ми замінили шум і хаос на пісок, воду, зелень і гармонію, де дітям
-            цікаво, а батькам — спокійно
+            Залиште заявку, і наш адміністратор підбере няню та підтвердить час
+            супроводу вашої дитини.
           </p>
-          <OrderForm
+          <BabySittingForm
             setIsError={setIsError}
             setIsNotificationShown={setIsNotificationShown}
             setIsModalShown={setIsModalShown}
@@ -50,7 +49,7 @@ export default function OrderModal({
         description={
           isError
             ? "Спробуйте відправити форму пізніше або зателефонуйте нам."
-            : "Ми отримали вашу оплату. Найближчим часом ми зв’яжемось із вами, щоб підтвердити деталі візиту."
+            : "Найближчим часом ми зв’яжемось із вами, щоб підтвердити деталі візиту."
         }
         isPopUpShown={isNotificationShown}
         setIsPopUpShown={setIsNotificationShown}
