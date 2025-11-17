@@ -19,15 +19,12 @@ export const useOrderFormValidation = () => {
         (value) => !!value && value.startsWith("+38 (0")
       )
       .required("Дане поле є обов'язковим до заповнення"),
-    email: yup
-      .string()
-      .matches(emailRegex, "Введіть валідний email")
-      .required("Дане поле є обов'язковим до заповнення"),
+    email: yup.string().matches(emailRegex, "Введіть валідний email"),
+
     message: yup
       .string()
       .min(2, "Повинно містити від 2 до 400 символів")
-      .max(400, "Повинно містити від 2 до 400 символів")
-      .required("Дане поле є обов'язковим до заповнення"),
+      .max(400, "Повинно містити від 2 до 400 символів"),
   });
 
   return callBackFormValidationSchema;

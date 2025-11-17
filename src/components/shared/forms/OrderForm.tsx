@@ -87,7 +87,7 @@ export default function OrderForm({
     >
       {({ dirty, isValid }) => (
         <Form className={`${className}`}>
-          <div className="flex flex-col w-full gap-y-3 lg:gap-y-3.5 mb-[22px] lg:mb-[26px]">
+          <div className="flex flex-col w-full gap-y-3 lg:gap-y-3.5 mb-4 lg:mb-[26px]">
             <CustomizedInput fieldName="name" label="Імʼя" />
             <CustomizedInput
               fieldName="phone"
@@ -99,14 +99,19 @@ export default function OrderForm({
               label="Email"
               inputType="email"
             />
-            <CustomizedInput fieldName="message" label="Побажання" />
+            <CustomizedInput
+              fieldName="message"
+              label="Побажання"
+              as="textarea"
+              fieldClassName="h-[83px] lg:h-[110px]"
+            />
           </div>
           <MainButton
             type="submit"
             disabled={!(dirty && isValid) || isLoading}
             isLoading={isLoading}
             loadingText="Надсилання..."
-            className="h-14 px-5 lg:px-5 text-[14px] lg:text-[16px] font-medium"
+            className="h-14 px-5 lg:px-5 text-[14px] lg:text-[16px]"
           >
             Забронювати відвідування
           </MainButton>
