@@ -1,5 +1,3 @@
-"use client";
-import { useState } from "react";
 import MainButton from "@/components/shared/buttons/MainButton";
 import Container from "@/components/shared/container/Container";
 import BenefitsList from "./BenefitsList";
@@ -7,17 +5,10 @@ import HeroImages from "./HeroImages";
 import AnimatedAnimal from "@/components/shared/animatedAnimal/AnimatedAnimal";
 import * as motion from "motion/react-client";
 import { fadeInAnimation } from "@/utils/animationVariants";
-import OrderModal from "@/components/shared/orderApplication/OrderModal";
 
 export default function Hero() {
-  const [isModalShown, setIsModalShown] = useState(true);
-
   return (
     <section className="relative max-w-7xl mx-auto">
-      <OrderModal
-        isModalShown={isModalShown}
-        setIsModalShown={setIsModalShown}
-      />
       <motion.div
         initial="hidden"
         whileInView="visible"

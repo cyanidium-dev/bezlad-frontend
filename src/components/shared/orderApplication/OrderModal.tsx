@@ -14,7 +14,7 @@ export default function OrderModal({
   isModalShown,
   setIsModalShown,
 }: OrderModalProps) {
-  const [isNotificationShown, setIsNotificationShown] = useState(true);
+  const [isNotificationShown, setIsNotificationShown] = useState(false);
   const [isError, setIsError] = useState(false);
 
   return (
@@ -48,7 +48,7 @@ export default function OrderModal({
         }
         description={
           isError
-            ? "Спробуйте відправити форму пізніше"
+            ? "Спробуйте відправити форму пізніше або зателефонуйте нам."
             : "Ми отримали вашу оплату. Найближчим часом ми зв’яжемось із вами, щоб підтвердити деталі візиту."
         }
         isPopUpShown={isNotificationShown}
