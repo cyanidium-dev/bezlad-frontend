@@ -10,18 +10,18 @@ import StarIcon from "../icons/StarIcon";
 import Link from "next/link";
 
 export default function Header() {
-    const { scrollYProgress } = useScroll();
-    const [scrollProgress, setScrollProgress] = useState(0);
+    const { scrollY } = useScroll();
+    const [scrollPosition, setScrollPosition] = useState(0);
 
-    useMotionValueEvent(scrollYProgress, "change", latest => {
-        setScrollProgress(latest);
+    useMotionValueEvent(scrollY, "change", latest => {
+        setScrollPosition(latest);
     });
 
     return (
         <header
             className={clsx(
                 "fixed  left-0 right-0 z-50 py-2 transition-top duration-300 ease-in-out",
-                scrollProgress > 0.1
+                scrollPosition > 50
                     ? "backdrop-blur-[38px] top-0"
                     : "top-[25px]"
             )}
