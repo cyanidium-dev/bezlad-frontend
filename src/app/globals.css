@@ -7,19 +7,21 @@
 @theme inline {
   --breakpoint-xs: 27rem;
 
-  --color-black: #1e1e1e;
   --color-white: #ffffff;
   --color-gray: #f2f2f2;
+  --color-gray-dark: #5a5a5a;
+  --color-black: #1e1e1e;
+  --color-yellow-light: #fcffc1;
+  --color-yellow-gradient-end: #f9ff8a;
   --color-yellow: #f8ff66;
-  --color-purple: #7c48cc;
-  --color-purple-light: #d5b5ff;
+  --color-yellow-detail: #ecf26f;
+  --color-yellow-gradient-start: #f6ff3a;
   --color-purple-ultra-light: #ece4f9;
+  --color-purple-light: #d5b5ff;
+  --color-purple-blob: #8852de;
+  --color-purple: #7c48cc;
   --color-purple-dark: #7b48cc;
-
-    --color-purple-blob: #8852de;
-    --color-yellow-light: #fcffc1;
-    --color-yellow-detail: #ecf26f;
-    --color-gray-dark: #5a5a5a;
+ 
 
     --font-raleway: var(--font-raleway), sans-serif;
     --font-azbuka: var(--font-azbuka), sans-serif;

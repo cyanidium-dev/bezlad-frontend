@@ -47,9 +47,9 @@ export const desktopLayouts: DesktopSlideLayout[] = [
             [11, 10, 4], // Bottom row: ID 11, ID 10, ID 4 (3 cards)
         ],
     },
-    // Slide 2: ID 9 vertical on left, top row: id8/id5, bottom row: id7/id6
+    // Slide 2: ID 9 vertical on right, top row: id8/id5, bottom row: id7/id6
     {
-        fullHeightLeft: [9], // ID 9 spans full height on the left
+        fullWidthRight: [9], // ID 9 spans full height on the right
         rows: [
             [8, 5], // Top row: ID 8, ID 5
             [7, 6], // Bottom row: ID 7, ID 6

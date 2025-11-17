@@ -169,7 +169,7 @@ export default function SwiperWrapper({
             )}
 
             {customPagination && slidesCount > 0 && (
-                <div className="flex items-center justify-center gap-2 mt-6">
+                <div className="flex items-center justify-center gap-2 md:gap-3 lg:gap-4.5 mt-6 lg:mt-[26px]">
                     {Array.from({ length: slidesCount }).map((_, index) => {
                         // Hide dots beyond index 2 on tablet (md), and beyond paginationCount on desktop (lg)
                         const hideOnTablet = index >= 3; // Tablet shows 3 slides

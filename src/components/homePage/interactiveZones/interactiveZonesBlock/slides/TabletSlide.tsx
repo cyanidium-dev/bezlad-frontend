@@ -21,7 +21,6 @@ export const TabletSlide = React.memo(
                                 return (
                                     <PlaceholderCard
                                         key={`tablet-${slideIndex}-${rowIdx}-${colIdx}`}
-                                        doubleWidth={false}
                                     />
                                 );
                             }

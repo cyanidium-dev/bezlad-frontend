@@ -8,7 +8,7 @@ export default function InteractiveZones() {
     return (
         <section className="py-25">
             <Container>
-                <div className="mb-22 md:mb-26 lg:mb-8.5 flex flex-col lg:items-center lg:flex-row gap-4.5 lg:gap-8">
+                <div className="mb-22 md:mb-26 lg:mb-8.5 sm:mb-[150px] flex flex-col lg:items-center lg:flex-row gap-4.5 lg:gap-8">
                     <SectionTitle>Інтерактивні зони</SectionTitle>
                     <motion.p
                         initial="hidden"

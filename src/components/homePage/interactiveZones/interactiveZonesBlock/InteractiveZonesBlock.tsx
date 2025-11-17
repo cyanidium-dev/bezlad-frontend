@@ -175,7 +175,7 @@ export default function InteractiveZonesBlock() {
                     spaceBetween: SPACE_BETWEEN,
                 },
             }}
-            swiperClassName="pb-10 overflow-visible"
+            swiperClassName="overflow-visible"
             wrapperClassName="overflow-visible"
             isPagination={true}
             loop={false}

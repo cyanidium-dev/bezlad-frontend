@@ -19,18 +19,17 @@ export const MobileSlide = React.memo(
                 renderedItems.push(
                     <div
                         key={`mobile-${slideIndex}-${i}`}
-                        className="overflow-visible"
+                        className="overflow-visible w-full"
                     >
                         {renderCard(item)}
                     </div>
                 );
                 i++;
             } else {
-                // Render single height placeholder for each null
+                // Render placeholder for each null
                 renderedItems.push(
                     <PlaceholderCard
                         key={`placeholder-${slideIndex}-${i}`}
-                        doubleWidth={false}
                     />
                 );
                 i++;
