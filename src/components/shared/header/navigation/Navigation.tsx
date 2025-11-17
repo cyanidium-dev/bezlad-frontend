@@ -1,14 +1,19 @@
+"use client";
+import { Dispatch, SetStateAction } from "react";
 import { navList } from "./navList";
 import { twMerge } from "tailwind-merge";
+import Link from "next/link";
 
 interface NavigationProps {
     className?: string;
     variant?: "default" | "burger";
+    setIsHeaderMenuOpened?: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function Navigation({
     className,
     variant = "default",
+    setIsHeaderMenuOpened,
 }: NavigationProps) {
     return (
         <nav className={className}>
@@ -20,12 +25,15 @@ export default function Navigation({
             >
                 {navList.map(item => (
                     <li key={item.href}>
-                        <a
-                            href={item.href}
+                        <Link
+                            onClick={() => {
+                                if (setIsHeaderMenuOpened) setIsHeaderMenuOpened(false);
+                            }}
+                            href={`/${item.href}`}
                             className="text-black font-azbuka uppercase text-4 leading-[120%] xl:hover:text-purple xl:focus-visible:text-purple transition duration-300 ease-in-out"
                         >
                             {item.label}
-                        </a>
+                        </Link>
                     </li>
                 ))}
             </ul>

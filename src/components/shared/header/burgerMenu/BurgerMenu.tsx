@@ -23,21 +23,24 @@ export default function BurgerMenu({
                 isHeaderMenuOpened
                     ? "translate-x-0 opacity-100 no-doc-scroll"
                     : "translate-x-full opacity-0"
-            } absolute top-0 right-0 z-50 w-screen h-dvh tab:w-[514px] bg-white 
+            } fixed top-0 left-0 right-0 z-[60] h-dvh tab:w-[514px] tab:left-auto bg-white 
       transition duration-600 overflow-hidden`}
         >
-            <div className="relative container flex flex-col items-center max-w-full py-14 px-[60px] xl:px-[98px]">
-                <div className="z-10">
-                    <CloseButton
-                        setIsHeaderMenuOpened={setIsHeaderMenuOpened}
-                    />
-                    <ContactUsHeader
-                        setIsHeaderMenuOpened={setIsHeaderMenuOpened}
-                    />
-                    <Navigation
-                        className="block w-full mx-auto max-w-[240px]"
-                        variant="burger"
-                    />
+            <div className="h-full overflow-y-auto">
+                <div className="relative container flex flex-col items-center max-w-full py-14 px-[60px] xl:px-[98px]">
+                    <div className="z-10">
+                        <CloseButton
+                            setIsHeaderMenuOpened={setIsHeaderMenuOpened}
+                        />
+                        <ContactUsHeader
+                            setIsHeaderMenuOpened={setIsHeaderMenuOpened}
+                        />
+                        <Navigation
+                            className="block w-full mx-auto max-w-[240px]"
+                            variant="burger"
+                            setIsHeaderMenuOpened={setIsHeaderMenuOpened}
+                        />
+                    </div>
                 </div>
             </div>
             <motion.div

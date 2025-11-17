@@ -1,16 +1,15 @@
 export const navList = [
     {
         label: "Ціни",
-        href: "#prices",
+        href: "#price-list",
     },
     {
         label: "Переваги",
         href: "#advantages",
-  
     },
     {
         label: "Послуги няні",
-        href: "#services",
+        href: "#cta-order",
     },
     {
         label: "Галерея",

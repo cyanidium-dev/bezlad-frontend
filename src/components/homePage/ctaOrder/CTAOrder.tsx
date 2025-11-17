@@ -7,12 +7,13 @@ import { fadeInAnimation, headerVariants } from "@/utils/animationVariants";
 export default function CTAOrder() {
   return (
     <motion.section
+      id="cta-order"
       initial="hidden"
       whileInView="visible"
       exit="exit"
       viewport={{ once: true, amount: 0.1 }}
       variants={headerVariants}
-      className="relative max-w-[1280px] mt-25 lg:mt-[125px] mx-auto rounded-[32px] overflow-hidden bg-purple-ultra-light"
+      className="relative max-w-[1280px] mt-25 lg:mt-[125px] mx-auto rounded-[32px] overflow-hidden bg-purple-ultra-light scroll-mt-[85px]"
     >
       <CTAOrderImages />
       <Container className="relative z-20 pt-[46px] lg:pt-[58px] pb-[18px] lg:pb-[110px]">
