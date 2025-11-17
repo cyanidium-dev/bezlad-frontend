@@ -2,7 +2,7 @@
 import { useState, Dispatch, SetStateAction } from "react";
 import Modal from "../modals/Modal";
 import Backdrop from "../backdrop/Backdrop";
-// import NotificationPopUp from "../notifications/NotificationPopUp";
+import NotificationPopUp from "../notifications/NotificationPopUp";
 import CallBackForm from "../forms/OrderForm";
 
 interface OrderModalProps {
@@ -14,7 +14,7 @@ export default function OrderModal({
   isModalShown,
   setIsModalShown,
 }: OrderModalProps) {
-  const [isNotificationShown, setIsNotificationShown] = useState(false);
+  const [isNotificationShown, setIsNotificationShown] = useState(true);
   const [isError, setIsError] = useState(false);
 
   return (
@@ -42,14 +42,18 @@ export default function OrderModal({
           />
         </div>
       </Modal>
-      {/* <NotificationPopUp
-        title={isError ? t("error.title") : t("success.title")}
+      <NotificationPopUp
+        title={
+          isError ? "На жаль, щось пішло не так" : "Дякуємо за бронювання!"
+        }
         description={
-          isError ? t("error.description") : t("success.description")
+          isError
+            ? "Спробуйте відправити форму пізніше"
+            : "Ми отримали вашу оплату. Найближчим часом ми зв’яжемось із вами, щоб підтвердити деталі візиту."
         }
         isPopUpShown={isNotificationShown}
         setIsPopUpShown={setIsNotificationShown}
-      /> */}
+      />
       <Backdrop
         isVisible={isModalShown || isNotificationShown}
         onClick={() => {
