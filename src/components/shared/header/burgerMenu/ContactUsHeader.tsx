@@ -15,7 +15,7 @@ export default function ContactUsHeader({
                 Хочете дізнатися більше про наш простір?
             </h2>
             <p className="mb-8 font-azbuka text-[16px] leading-[120%] text-center">
-                Залиште свої дані та менеджер зв’яжеться з вами вже прямо зараз
+                Залиште свої дані, та менеджер зв’яжеться з вами вже прямо зараз
             </p>
             <MainButton
                 variant="outline"
