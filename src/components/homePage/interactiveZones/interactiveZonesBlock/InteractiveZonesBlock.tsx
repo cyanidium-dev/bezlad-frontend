@@ -116,7 +116,11 @@ function InteractiveZonesBlock() {
     }, [slides, breakpoint]);
 
     return (
-        <SwiperWrapper pagination={true} overflowVisible={true}>
+        <SwiperWrapper
+            pagination={true}
+            overflowVisible={true}
+            spaceBetween={30}
+        >
             {renderSlides}
         </SwiperWrapper>
     );

@@ -15,6 +15,7 @@ interface SwiperWrapperProps {
     pagination?: boolean;
     breakpoints?: SwiperOptions["breakpoints"];
     overflowVisible?: boolean;
+    spaceBetween?: number;
 }
 
 export const SwiperWrapper = dynamic(
@@ -27,6 +28,7 @@ export const SwiperWrapper = dynamic(
             pagination = false,
             breakpoints,
             overflowVisible = false,
+            spaceBetween = 20,
         }: SwiperWrapperProps) => {
             const [swiperInstance, setSwiperInstance] =
                 useState<SwiperClass | null>(null);
@@ -58,7 +60,7 @@ export const SwiperWrapper = dynamic(
                         onSwiper={setSwiperInstance}
                         slidesPerView={slidesPerView}
                         breakpoints={breakpoints}
-                        spaceBetween={30}
+                        spaceBetween={spaceBetween}
                         className={overflowVisible ? "overflow-visible!" : ""}
                         watchSlidesProgress={overflowVisible ? true : false}
                         modules={[Keyboard]}
