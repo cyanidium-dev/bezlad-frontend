@@ -61,6 +61,7 @@ export const SwiperWrapper = dynamic(
                         slidesPerView={slidesPerView}
                         breakpoints={breakpoints}
                         spaceBetween={spaceBetween}
+                        speed={1000}
                         className={overflowVisible ? "overflow-visible!" : ""}
                         watchSlidesProgress={overflowVisible ? true : false}
                         modules={[Keyboard]}
