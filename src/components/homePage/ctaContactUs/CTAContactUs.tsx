@@ -42,7 +42,7 @@ export default function CTAContactUs() {
             initial="hidden"
             whileInView="visible"
             exit="exit"
-            viewport={{ once: true, amount: 0.8 }}
+            viewport={{ once: true, amount: 0.1 }}
             variants={fadeInAnimation({ scale: 0.9, delay: 0.8 })}
           >
             <MainButton className="h-[54px] xs:max-w-[301px] xs:mx-auto md:mx-0 text-[12px] font-normal leading-[120%]">
