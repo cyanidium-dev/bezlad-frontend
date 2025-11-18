@@ -29,13 +29,6 @@ const azbuka = localFont({
     fallback: ["Arial", "sans-serif"],
 });
 
-const montserrat = Montserrat({
-    variable: "--font-montserrat",
-    subsets: ["latin"],
-    weight: ["600"],
-    display: "swap",
-});
-
 export const metadata: Metadata = {
     title: "Безлад: безпечний простір природної гри з інтерактивними зонами",
     description:
@@ -47,15 +40,15 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return (
-        <html lang="uk" className="scroll-smooth">
-            <body
-                className={`${raleway.variable} ${azbuka.variable} ${montserrat.variable} flex min-h-screen flex-col text-[16px] font-normal leading-[120%] antialiased`}
-            >
-                <Header />
-                <main className="flex-1"> {children}</main>
-                <Footer />
-            </body>
-        </html>
-    );
+  return (
+    <html lang="uk" className="scroll-smooth">
+      <body
+        className={`${raleway.variable} ${azbuka.variable} flex min-h-screen flex-col text-[16px] font-normal leading-[120%] antialiased`}
+      >
+        <Header />
+        <main className="flex-1 overflow-hidden"> {children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
 }

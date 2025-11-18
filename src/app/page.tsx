@@ -8,21 +8,25 @@ import Gallery from "@/components/homePage/gallery/Gallery";
 import { ALL_SERVICES_QUERY, GALLERY_IMAGES } from "@/lib/queries";
 import { fetchSanityData } from "@/utils/fetchSanityData";
 import InteractiveZones from "@/components/homePage/interactiveZones/InteractiveZones";
+import { Suspense } from "react";
+import Loader from "@/components/shared/loader/Loader";
 
 export default async function HomePage() {
-    const services = await fetchSanityData(ALL_SERVICES_QUERY);
-    const gallery = await fetchSanityData(GALLERY_IMAGES);
+  const services = await fetchSanityData(ALL_SERVICES_QUERY);
+  const gallery = await fetchSanityData(GALLERY_IMAGES);
 
-    return (
-        <>
-            <Hero />
-            <InteractiveZones />
-            <PriceList services={services} />
-            <Advantages />
-            <Gallery />
-            <CTAOrder />
-            <Faq />
-            <CTAContactUs />
-        </>
-    );
+  return (
+    <>
+      <Hero />
+      <InteractiveZones />
+      <PriceList services={services}/>
+      <Advantages />
+      <Suspense fallback={<Loader />}>
+        <Gallery gallery={gallery} />
+      </Suspense>
+      <CTAOrder />
+      <Faq />
+      <CTAContactUs />
+    </>
+  );
 }

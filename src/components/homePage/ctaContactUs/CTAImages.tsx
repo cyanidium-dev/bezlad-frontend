@@ -27,7 +27,7 @@ export default function CTAImages() {
           initial="hidden"
           whileInView="visible"
           exit="exit"
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.3 }}
           variants={fadeInAnimation({ delay: 1, scale: 0.95 })}
           className="absolute md:hidden -top-9 right-[-22px]"
         >
