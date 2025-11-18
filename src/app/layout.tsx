@@ -40,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk">
+    <html lang="uk" className="scroll-smooth">
       <body
         className={`${raleway.variable} ${azbuka.variable} flex min-h-screen flex-col text-[16px] font-normal leading-[120%] antialiased`}
       >

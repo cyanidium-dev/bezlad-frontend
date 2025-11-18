@@ -1,7 +1,6 @@
 "use client";
 import * as motion from "motion/react-client";
 import { fadeInAnimation } from "@/utils/animationVariants";
-import Image from "next/image";
 import { useScreenWidth } from "@/hooks/useScreenWidth";
 import AnimatedAnimal from "../animatedAnimal/AnimatedAnimal";
 

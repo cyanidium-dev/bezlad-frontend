@@ -5,6 +5,7 @@ import HeroImages from "./HeroImages";
 import AnimatedAnimal from "@/components/shared/animatedAnimal/AnimatedAnimal";
 import * as motion from "motion/react-client";
 import { fadeInAnimation } from "@/utils/animationVariants";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -76,7 +77,7 @@ export default function Hero() {
               className="lg:absolute top-[157px] right-[196px] max-w-[230px] lg:max-w-[218px] mb-4 lg:mb-0 text-[14px] font-normal leading-[120%]"
             >
               Ми замінили шум і хаос на пісок, воду, зелень і гармонію. У нас
-              дітям цікаво, а батькам - спокійно
+              дітям цікаво, а батькам - спокійно.
             </motion.p>
             <motion.div
               initial="hidden"
@@ -89,9 +90,11 @@ export default function Hero() {
                 delay: 0.8,
               })}
             >
-              <MainButton className="max-w-[346px] mx-auto lg:mx-0 h-[66px] lg:mb-[110px]">
-                Забронювати відвідування
-              </MainButton>
+              <Link href="#price-list">
+                <MainButton className="max-w-[346px] mx-auto lg:mx-0 h-[66px] lg:mb-[110px]">
+                  Забронювати відвідування
+                </MainButton>
+              </Link>
             </motion.div>
             <motion.p
               initial="hidden"
@@ -107,7 +110,7 @@ export default function Hero() {
               className="hidden lg:block max-w-[168px] text-white text-[14px] font-normal leading-[120%]"
             >
               Натуральність замість штучності.  Розвиток замість метушні.  Тиша
-              замість шуму
+              замість шуму.
             </motion.p>
           </div>
           <BenefitsList />
