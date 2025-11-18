@@ -24,7 +24,7 @@ export default function SpecialCard() {
                             Пільговий вхід для дітей військовослужбовців
                         </p>
                         <Image
-                            src="/images/priceList/starsBG.svg"
+                            src="/images/priceList/starsBg.svg"
                             alt="Stars"
                             fill
                             className="absolute inset-0"

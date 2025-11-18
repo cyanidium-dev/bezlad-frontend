@@ -51,16 +51,14 @@ export default function PriceListCard({
                     {brokenTitle}
                 </h3>
                 <p className="font-bold font-montserrat text-[48px] leading-[120%] uppercase text-white mb-7 flex items-baseline">
-                    {`${price}`}
-                    <span className="text-[36px] leading-[120%]">
-                        {` `}
-                        <span className="text-[14px] font-azbuka leading-[120%]">
-                            грн
-                        </span>
+                    {`${price} `}
+
+                    <span className="text-[14px] font-azbuka leading-[120%]">
+                        {`грн`}
                     </span>
                 </p>
                 <p className="text-[14px] leading-[120%] text-white flex items-center gap-3.5 mb-7.5">
-                    <span className="w-3.5 h-3.5 bg-white rounded-full grow-0" />
+                    <span className="w-3.5 h-3.5 bg-white rounded-full shrink-0" />
                     {description}
                 </p>
                 <a href={paymentUrl}>
