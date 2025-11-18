@@ -1,6 +1,6 @@
 import FaqItem from "./FaqItem";
 import * as motion from "motion/react-client";
-import { listVariants } from "@/utils/animationVariants";
+import { headerVariants } from "@/utils/animationVariants";
 
 export default function FaqList() {
   const faqList = [
@@ -44,8 +44,8 @@ export default function FaqList() {
       initial="hidden"
       whileInView="visible"
       exit="exit"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={listVariants({ staggerChildren: 0.3, delayChildren: 0.6 })}
+      viewport={{ once: true, amount: 0.1 }}
+      variants={headerVariants}
       className="flex flex-col gap-3.5 lg:gap-6"
     >
       {faqList.map((faqItem, idx) => (

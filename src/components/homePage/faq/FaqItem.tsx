@@ -1,7 +1,5 @@
 "use client";
 import { useState } from "react";
-import * as motion from "motion/react-client";
-import { listItemVariantsLeft } from "@/utils/animationVariants";
 import StarIcon from "@/components/shared/icons/StarIcon";
 
 interface FaqItemProps {
@@ -16,12 +14,7 @@ export default function FaqItem({ faqItem }: FaqItemProps) {
   const { question, answer } = faqItem;
 
   return (
-    <motion.li
-      viewport={{ once: true, amount: 0.2 }}
-      variants={listItemVariantsLeft}
-      onClick={toggleShowMore}
-      className={`relative group cursor-pointer`}
-    >
+    <li onClick={toggleShowMore} className={`relative group cursor-pointer`}>
       <div
         className={`relative flex items-center gap-6 justify-between px-5 lg:px-8 py-5.5 lg:py-6.5
             rounded-full bg-white/6 shadow-[inset_0px_4px_12px_rgba(255,255,255,0.06)] backdrop-blur-[38px] xl:group-hover:bg-purple-ultra-light 
@@ -65,7 +58,7 @@ export default function FaqItem({ faqItem }: FaqItemProps) {
             style={{
               background:
                 "linear-gradient(129.84deg, #000000 27.26%, #FFFFFF 97.59%)",
-              padding: "1px",
+              padding: "0.8px",
               WebkitMask:
                 "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
               WebkitMaskComposite: "xor",
@@ -74,6 +67,6 @@ export default function FaqItem({ faqItem }: FaqItemProps) {
           />
         </div>
       </div>
-    </motion.li>
+    </li>
   );
 }
