@@ -160,7 +160,6 @@ export const SwiperWrapper = dynamic(
                         )}
                         wrapperClass={clsx(navigation ? "pb-19" : "")}
                         modules={[Keyboard, Navigation]}
-                        navigation={navigation ? {} : false}
                         keyboard={{
                             enabled: true,
                         }}
