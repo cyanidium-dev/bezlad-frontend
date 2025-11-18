@@ -35,7 +35,7 @@ function PriceListBlock({ services }: { services: Service[] }) {
                         staggerChildren: 0.3,
                         delayChildren: 0.2,
                     })}
-                    className="relative z-2 w-full flex flex-col items-center gap-5 mb-[75px]"
+                    className="relative z-2 w-full flex flex-col items-center gap-5 mb-[75px] mx-auto"
                 >
                     <AnimatedArrow className="md:hidden text-white absolute w-[195px] h-auto scale-y-[-1] left-1/2 translate-x-[57px] rotate-[-8deg] top-[-73px]" />
                     {services.map((service, index) => (
