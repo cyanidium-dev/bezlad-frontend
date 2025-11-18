@@ -23,7 +23,7 @@ export default function Header() {
   return (
     <header
       className={clsx(
-        "fixed  left-0 right-0 z-30 py-2 transition-top duration-300 ease-in-out",
+        "fixed left-0 right-0 z-30 py-2 transition-top duration-300 ease-in-out",
         scrollPosition > 50 ? "backdrop-blur-[38px] top-0" : "top-[25px]"
       )}
     >
@@ -35,7 +35,7 @@ export default function Header() {
           <div className="flex items-center lg:gap-6 space-between gap-4.5">
             <Navigation className="hidden lg:block" />
             <StarIcon className="hidden lg:block text-black" />
-            <Link href="#price-list">
+            <Link href="/#price-list">
               <MainButton
                 className="w-[175px] h-[43px] lg:w-[219px] lg:h-13.5 text-[10px] leading-[120%] lg:text-[12px]"
                 variant="outline"
