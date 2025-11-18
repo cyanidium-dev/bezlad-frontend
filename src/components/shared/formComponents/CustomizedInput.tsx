@@ -57,7 +57,7 @@ export default function CustomizedInput({
               id: inputId,
               className: twMerge(
                 clsx(
-                  `relative flex items-center w-full h-[50px] lg:h-[60px] px-4 py-3.5 lg:py-4.5 text-[14px] lg:text-[16px] font-normal leading-[120%] border-1 rounded-[16px] lg:rounded-[20px] outline-none resize-none transition duration-300 ease-out ${
+                  `relative flex items-center w-full h-[50px] lg:h-[60px] px-4 py-[16px] lg:py-[19px] text-[14px] lg:text-[16px] font-normal leading-[120%] border-1 rounded-[16px] lg:rounded-[20px] outline-none resize-none transition duration-300 ease-out ${
                     meta.touched && meta.error
                       ? "border-red-500"
                       : "border-black"
