@@ -3,17 +3,17 @@ import { useState, Dispatch, SetStateAction } from "react";
 import Modal from "../modals/Modal";
 import Backdrop from "../backdrop/Backdrop";
 import NotificationPopUp from "../notifications/NotificationPopUp";
-import OrderForm from "../forms/OrderForm";
+import ContactUsForm from "@/components/shared/forms/ContactUsForm";
 
-interface OrderModalProps {
+interface ContactUsModalProps {
   isModalShown: boolean;
   setIsModalShown: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function OrderModal({
+export default function ContactUsModal({
   isModalShown,
   setIsModalShown,
-}: OrderModalProps) {
+}: ContactUsModalProps) {
   const [isNotificationShown, setIsNotificationShown] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -29,13 +29,12 @@ export default function OrderModal({
               scrollbar-track-rounded-full scrollbar-thumb-purple scrollbar-track-purple/10"
         >
           <h2 className="mb-4 font-azbuka text-[24px] lg:text-[35px] font-normal leading-[120%] text-center uppercase">
-            Забронюйте відвідування
+            Маєте питання чи хочете дізнатися більше про наш простір?
           </h2>
           <p className="mb-7 lg:mb-4 text-[14px] font-normal leading-[120%] text-center">
-            Ми замінили шум і хаос на пісок, воду, зелень і гармонію, де дітям
-            цікаво, а батькам — спокійно
+            Заповніть форму — і ми зв’яжемось із вами найближчим часом.
           </p>
-          <OrderForm
+          <ContactUsForm
             setIsError={setIsError}
             setIsNotificationShown={setIsNotificationShown}
             setIsModalShown={setIsModalShown}
@@ -44,12 +43,12 @@ export default function OrderModal({
       </Modal>
       <NotificationPopUp
         title={
-          isError ? "На жаль, щось пішло не так" : "Дякуємо за бронювання!"
+          isError ? "На жаль, щось пішло не так" : "Ваше повідомлення надіслано"
         }
         description={
           isError
             ? "Спробуйте відправити форму пізніше або зателефонуйте нам."
-            : "Ми отримали вашу оплату. Найближчим часом ми зв’яжемось із вами, щоб підтвердити деталі візиту."
+            : "Ми отримали ваше повідомлення і зв’яжемось із вами найближчим часом."
         }
         isPopUpShown={isNotificationShown}
         setIsPopUpShown={setIsNotificationShown}

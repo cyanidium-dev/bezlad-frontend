@@ -35,12 +35,15 @@ export default function Header() {
           <div className="flex items-center lg:gap-6 space-between gap-4.5">
             <Navigation className="hidden lg:block" />
             <StarIcon className="hidden lg:block text-black" />
-            <MainButton
-              className="w-[175px] h-[43px] lg:w-[219px] lg:h-13.5 text-[10px] leading-[120%] lg:text-[12px]"
-              variant="outline"
-            >
-              Забронювати відвідування
-            </MainButton>
+            <Link href="#price-list">
+              <MainButton
+                className="w-[175px] h-[43px] lg:w-[219px] lg:h-13.5 text-[10px] leading-[120%] lg:text-[12px]"
+                variant="outline"
+              >
+                Забронювати відвідування
+              </MainButton>
+            </Link>
+
             <BurgerButton setIsHeaderMenuOpened={setIsHeaderMenuOpened} />
             <BurgerMenu
               isHeaderMenuOpened={isHeaderMenuOpened}

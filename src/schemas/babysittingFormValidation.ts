@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { formPhoneRegex, nameRegex, emailRegex } from "../regex/regex";
+import { formPhoneRegex, nameRegex } from "../regex/regex";
 
 export const useBabySittingFormValidation = () => {
   const babySittingFormValidationSchema = yup.object().shape({
