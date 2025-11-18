@@ -32,7 +32,7 @@ export default function InteractiveZones() {
                     initial="hidden"
                     whileInView="visible"
                     exit="exit"
-                    viewport={{ once: true, amount: 0.8 }}
+                    viewport={{ once: true, amount: 0.1 }}
                     variants={fadeInAnimation({
                         x: 40,
                         scale: 0.95,
