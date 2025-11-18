@@ -3,6 +3,7 @@ import SectionTitle from "@/components/shared/titles/SectionTitle";
 import { GalleryImages } from "@/types/gallery";
 import Image from "next/image";
 import { urlForSanityImage } from "@/utils/getUrlForSanityImage";
+import AnimatedArrow from "@/components/shared/animatedArrow/AnimatedArrow";
 
 interface GalleryProps {
   gallery: GalleryImages;
@@ -34,7 +35,10 @@ export default function Gallery({ gallery }: GalleryProps) {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-3.5 md:gap-5 w-full">
+        <div className="relative flex flex-col md:flex-row gap-3.5 md:gap-5 w-full">
+          <div className="absolute z-10 top-[-20px] md:top-auto md:bottom-0 left-[-66px] md:left-auto md:right-[-119px] xl:right-[-59px] w-[143px] h-auto rotate-[154deg] md:rotate-[-16.98deg]">
+            <AnimatedArrow className="w-[143px] h-auto" />
+          </div>
           <div className="relative w-full md:w-[calc(42%-13.33px)] h-[275px] md:h-[451px] rounded-[10px] md:rounded-[16px] overflow-hidden shrink-0">
             <Image
               src={urlForSanityImage(photo2).fit("crop").url()}
@@ -85,7 +89,7 @@ export default function Gallery({ gallery }: GalleryProps) {
               />
               <span className="hidden md:block absolute z-10 top-5 left-5 rounded-full size-8 bg-purple" />
             </div>
-            <p>
+            <p className="md:max-w-[325px]">
               Тут діти торкаються піску, спостерігають за водою, будують,
               фантазують, сміються. Кожен кадр — це маленька історія відкриттів
               без поспіху й шуму.
