@@ -5,23 +5,15 @@ import { SwiperWrapper } from "@/components/shared/swiper/SwiperWrapper";
 import { SwiperSlide } from "swiper/react";
 import { useScreenWidth } from "@/hooks/useScreenWidth";
 import { motion } from "framer-motion";
-import { listVariants, listItemVariantsLeft } from "@/utils/animationVariants";
+import { listVariants, listItemVariants } from "@/utils/animationVariants";
 import AnimatedArrow from "@/components/shared/animatedArrow/AnimatedArrow";
 import SpecialCard from "./SpecialCard";
-import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 function PriceListBlock({ services }: { services: Service[] }) {
     const screenWidth = useScreenWidth();
-    const [isMobileView, setIsMobileView] = useState(false);
 
-    useEffect(() => {
-        setIsMobileView(screenWidth < 768);
-    }, [screenWidth]);
-
-    if (!services || !Array.isArray(services) || services.length === 0) {
-        return null;
-    }
+    const isMobileView = screenWidth < 768;
 
     if (isMobileView) {
         return (
@@ -39,7 +31,7 @@ function PriceListBlock({ services }: { services: Service[] }) {
                 >
                     <AnimatedArrow className="md:hidden text-white absolute w-[195px] h-auto scale-y-[-1] left-1/2 translate-x-[57px] rotate-[-8deg] top-[-73px]" />
                     {services.map((service, index) => (
-                        <motion.div key={index} variants={listItemVariantsLeft}>
+                        <motion.div key={index} variants={listItemVariants}>
                             <PriceListCard key={index} {...service} />
                         </motion.div>
                     ))}
@@ -55,12 +47,13 @@ function PriceListBlock({ services }: { services: Service[] }) {
             whileInView="visible"
             exit="exit"
             viewport={{ once: true, amount: 0.1 }}
-            variants={listItemVariantsLeft}
+            variants={listVariants()}
             className="relative z-2 w-full flex items-start justify-end-safe gap-5"
         >
             <AnimatedArrow className="text-white absolute top-[-144px] left-[45%] w-[295px] h-auto scale-y-[-1] rotate-[-8deg]" />
             <SwiperWrapper
                 slidesPerView="auto"
+                slidesPerGroup={1}
                 spaceBetween={20}
                 navigation={true}
             >

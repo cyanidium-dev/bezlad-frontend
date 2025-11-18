@@ -6,7 +6,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/shared/header/Header";
 import Footer from "@/components/shared/footer/Footer";
-import { Montserrat } from "next/font/google";
 
 const raleway = Raleway({
     variable: "--font-raleway",

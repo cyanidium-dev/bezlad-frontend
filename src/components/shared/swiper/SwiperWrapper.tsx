@@ -19,6 +19,7 @@ interface SwiperWrapperProps {
     breakpoints?: SwiperOptions["breakpoints"];
     overflowVisible?: boolean;
     spaceBetween?: number;
+    slidesPerGroup?: number;
 }
 
 export const SwiperWrapper = dynamic(
@@ -34,6 +35,7 @@ export const SwiperWrapper = dynamic(
             breakpoints,
             overflowVisible = false,
             spaceBetween = 20,
+            slidesPerGroup = 1,
         }: SwiperWrapperProps) => {
             const swiperInstanceRef = useRef<SwiperClass | null>(null);
             const [activeIndex, setActiveIndex] = useState(0);
@@ -72,11 +74,15 @@ export const SwiperWrapper = dynamic(
                 const swiperInstance = swiperInstanceRef.current;
                 if (
                     swiperInstance &&
+                    navigation &&
                     prevRef.current &&
-                    nextRef.current &&
-                    swiperInstance.params.navigation &&
-                    typeof swiperInstance.params.navigation === "object"
+                    nextRef.current
                 ) {
+                    // Initialize navigation if not already set
+                    if (!swiperInstance.params.navigation) {
+                        swiperInstance.params.navigation = {};
+                    }
+
                     // Type guard ensures navigation is NavigationOptions, not boolean
                     const navigationParams = swiperInstance.params
                         .navigation as NavigationOptions;
@@ -96,14 +102,20 @@ export const SwiperWrapper = dynamic(
                     }
 
                     // оновлюємо стан кнопок при зміні слайду (інакше у loop не блокуємо)
-                    swiperInstance.on("slideChange", () => {
+                    const handleSlideChange = () => {
                         if (!loop) {
                             setIsBeginning(swiperInstance.isBeginning);
                             setIsEnd(swiperInstance.isEnd);
                         }
-                    });
+                    };
+
+                    swiperInstance.on("slideChange", handleSlideChange);
+
+                    return () => {
+                        swiperInstance.off("slideChange", handleSlideChange);
+                    };
                 }
-            }, [loop]);
+            }, [loop, navigation]);
 
             // ефективні значення дизейблу для кнопок
             const disablePrev = loop ? false : isBeginning;
@@ -137,13 +149,18 @@ export const SwiperWrapper = dynamic(
                             setIsLocked(swiper.isLocked);
                         }}
                         slidesPerView={slidesPerView}
+                        slidesPerGroup={slidesPerGroup}
                         breakpoints={breakpoints}
                         spaceBetween={spaceBetween}
                         speed={1000}
                         loop={loop}
-                        className={overflowVisible ? "overflow-visible!" : ""}
-                        watchSlidesProgress={overflowVisible ? true : false}
+                        watchSlidesProgress={true}
+                        className={clsx(
+                            overflowVisible ? "overflow-visible!" : ""
+                        )}
+                        wrapperClass={clsx(navigation ? "pb-19" : "")}
                         modules={[Keyboard, Navigation]}
+                        navigation={navigation ? {} : false}
                         keyboard={{
                             enabled: true,
                         }}
@@ -170,7 +187,7 @@ export const SwiperWrapper = dynamic(
                             </div>
                         )}
                         {navigation && !isLocked && (
-                            <div className="w-full flex items-center justify-center gap-[35px] mt-6 mb-0.5">
+                            <div className="absolute z-10 bottom-0 left-1/2 -translate-x-1/2 w-fit flex items-center justify-center gap-[35px]">
                                 <button
                                     ref={prevRef}
                                     disabled={disablePrev}

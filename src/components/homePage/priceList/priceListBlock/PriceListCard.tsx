@@ -12,15 +12,13 @@ export default function PriceListCard({
     image,
 }: Service) {
     const brokenTitle = breakWords(title);
-    const imageUrl = image ? urlForSanityImage(image).url() : "";
+    const imageUrl = urlForSanityImage(image).url();
     return (
         <div
-            className="relative flex flex-col items-center justify-center w-[312px] md:w-[285px] rounded-[15px] bg-white/6 overflow-hidden"
             style={{
                 willChange: "transform, backdrop-filter",
-                backdropFilter: "blur(18px)",
-                WebkitBackdropFilter: "blur(18px)",
             }}
+            className="relative flex flex-col items-center justify-center w-[312px] md:w-[285px] rounded-[15px] bg-white/6 overflow-hidden backdrop-blur-[18px] webkit-backdrop-blur-[18px] p-0.5"
         >
             {/* Gradient border layer */}
             <div
@@ -48,7 +46,9 @@ export default function PriceListCard({
                     />
                 </div>
                 <h3 className="font-azbuka text-[24px] leading-[120%] uppercase text-white flex flex-col mb-7">
-                    {brokenTitle}
+                    {brokenTitle.map((word, index) => (
+                        <span key={index}>{word}</span>
+                    ))}
                 </h3>
                 <p className="font-bold font-montserrat text-[48px] leading-[120%] uppercase text-white mb-7 flex items-baseline">
                     {`${price} `}

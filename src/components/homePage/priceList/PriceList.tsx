@@ -9,6 +9,10 @@ import PriceListBlock from "./priceListBlock/PriceListBlock";
 import { Service } from "@/types/service";
 
 export default function PriceList({ services }: { services: Service[] }) {
+    if (!services || !Array.isArray(services) || services.length === 0) {
+        return null;
+    }
+
     return (
         <motion.section
             initial="hidden"
@@ -17,7 +21,7 @@ export default function PriceList({ services }: { services: Service[] }) {
             viewport={{ once: true, amount: 0.1 }}
             variants={headerVariants}
             id="price-list"
-            className="relative max-w-7xl mx-auto pt-10 pb-18.5 lg:pt-11 lg:pb-[43px] scroll-mt-[85px] bg-purple rounded-4xl overflow-hidden"
+            className="relative max-w-7xl mx-auto pt-10 pb-18.5 lg:pt-11 md:pb-[43px] scroll-mt-[85px] bg-purple rounded-4xl overflow-hidden"
         >
             <PriceListImages />
             <Container className="relative">

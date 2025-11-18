@@ -6,7 +6,9 @@ export default function SpecialCard() {
         <div className="relative w-[312px] md:w-[285px] flex flex-col items-center justify-center shrink-0 mx-auto md:mx-0">
             <div className="relative z-2 w-full h-full bg-white rounded-[15px] px-5 pb-5 pt-5.5 overflow-hidden">
                 <h3 className="font-azbuka text-[20px] leading-[120%] uppercase flex flex-col mb-[19px]">
-                    {breakWords("Спеціальні пропозиції")}
+                    {breakWords("Спеціальні пропозиції").map((word, index) => (
+                        <span key={index}>{word}</span>
+                    ))}
                 </h3>
                 <div className="absolute top-[-7px] right-[-15px] md:right-[-42px] pointer-events-none">
                     <Image
