@@ -90,7 +90,7 @@ export default function Hero() {
                 delay: 0.8,
               })}
             >
-              <Link href="#price-list">
+              <Link href="/#price-list">
                 <MainButton className="max-w-[346px] mx-auto lg:mx-0 h-[66px] lg:mb-[110px]">
                   Забронювати відвідування
                 </MainButton>

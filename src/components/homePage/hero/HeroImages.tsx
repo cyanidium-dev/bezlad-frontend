@@ -25,6 +25,7 @@ export default function HeroImages() {
           className="absolute top-[247px] lg:top-[323px] right-[125px] lg:right-[73px] rotate-[-5deg] w-[333px] lg:w-[533px] h-auto"
         />
       </motion.div>
+      
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -44,6 +45,7 @@ export default function HeroImages() {
           }}
         />
       </motion.div>
+
       <motion.div
         initial="hidden"
         whileInView="visible"
