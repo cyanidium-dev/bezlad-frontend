@@ -1,8 +1,8 @@
 import SectionTitle from "@/components/shared/titles/SectionTitle";
 import Container from "@/components/shared/container/Container";
-import InteractiveZonesBlock from "./interactiveZonesBlock/InteractiveZonesBlock";
 import { fadeInAnimation } from "@/utils/animationVariants";
 import * as motion from "motion/react-client";
+import { InteractiveZonesBlockDynamic } from "./interactiveZonesBlock/InteractiveZonesBlock";
 
 export default function InteractiveZones() {
     return (
@@ -39,7 +39,7 @@ export default function InteractiveZones() {
                         delay: 0.8,
                     })}
                 >
-                    <InteractiveZonesBlock />
+                    <InteractiveZonesBlockDynamic />
                 </motion.div>
             </Container>
         </section>

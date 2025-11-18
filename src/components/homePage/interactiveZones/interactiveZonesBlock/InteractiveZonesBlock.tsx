@@ -15,8 +15,9 @@ import { SwiperWrapper } from "@/components/shared/swiper/SwiperWrapper";
 import { useScreenWidth } from "@/hooks/useScreenWidth";
 import { renderCard } from "./cardMapper";
 import { getSlides } from "./helpers";
+import dynamic from "next/dynamic";
 
-export default function InteractiveZonesBlock() {
+function InteractiveZonesBlock() {
     const screenWidth = useScreenWidth();
 
     const breakpoint: "desktop" | "tablet" | "mobile" =
@@ -120,3 +121,12 @@ export default function InteractiveZonesBlock() {
         </SwiperWrapper>
     );
 }
+
+export default InteractiveZonesBlock;
+
+export const InteractiveZonesBlockDynamic = dynamic(
+    () => Promise.resolve(InteractiveZonesBlock),
+    {
+        ssr: false,
+    }
+);
