@@ -6,7 +6,7 @@ import Image from "next/image";
 import Rights from "./Rights";
 import RulesButton from "./RulesButton";
 import * as motion from "motion/react-client";
-import { fadeInAnimation } from "@/utils/animationVarints";
+import { fadeInAnimation } from "@/utils/animationVariants";
 import FooterText from "./FooterText";
 import PublicOfferButton from "./PublicOfferButton";
 import SectionTitle from "../titles/SectionTitle";

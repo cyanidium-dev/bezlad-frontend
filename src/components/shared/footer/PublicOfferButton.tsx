@@ -1,6 +1,6 @@
 "use client";
 import * as motion from "motion/react-client";
-import { fadeInAnimation } from "@/utils/animationVarints";
+import { fadeInAnimation } from "@/utils/animationVariants";
 import Link from "next/link";
 
 interface PublicOfferButtonProps {

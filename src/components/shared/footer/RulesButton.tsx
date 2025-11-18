@@ -3,7 +3,7 @@ import { useState } from "react";
 import RulesPopup from "./RulesPopup";
 import Backdrop from "../backdrop/Backdrop";
 import * as motion from "motion/react-client";
-import { fadeInAnimation } from "@/utils/animationVarints";
+import { fadeInAnimation } from "@/utils/animationVariants";
 
 interface RulesButtonProps {
     className?: string;

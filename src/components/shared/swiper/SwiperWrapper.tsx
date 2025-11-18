@@ -4,15 +4,18 @@ import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 import clsx from "clsx";
-import { Children, useEffect, useCallback, useState } from "react";
-import { SwiperOptions } from "swiper/types";
+import { Children, useEffect, useCallback, useState, useRef } from "react";
+import { NavigationOptions, SwiperOptions } from "swiper/types";
 import dynamic from "next/dynamic";
-import { Keyboard } from "swiper/modules";
+import { Keyboard, Navigation } from "swiper/modules";
+import CircledArrowIcon from "../icons/CircledArrowIcon";
 
 interface SwiperWrapperProps {
     children: React.ReactNode;
     slidesPerView?: number | "auto";
     pagination?: boolean;
+    navigation?: boolean;
+    loop?: boolean;
     breakpoints?: SwiperOptions["breakpoints"];
     overflowVisible?: boolean;
     spaceBetween?: number;
@@ -26,14 +29,23 @@ export const SwiperWrapper = dynamic(
             children,
             slidesPerView = "auto",
             pagination = false,
+            navigation = false,
+            loop = false,
             breakpoints,
             overflowVisible = false,
             spaceBetween = 20,
         }: SwiperWrapperProps) => {
-            const [swiperInstance, setSwiperInstance] =
-                useState<SwiperClass | null>(null);
+            const swiperInstanceRef = useRef<SwiperClass | null>(null);
             const [activeIndex, setActiveIndex] = useState(0);
             const slidesCount = Children.count(children);
+
+            const prevRef = useRef<HTMLButtonElement>(null);
+            const nextRef = useRef<HTMLButtonElement>(null);
+
+            const [isBeginning, setIsBeginning] = useState(true);
+            const [isEnd, setIsEnd] = useState(false);
+
+            const [isLocked, setIsLocked] = useState(false);
 
             // Handle slide change for custom pagination
             const handleSlideChange = useCallback((swiper: SwiperClass) => {
@@ -41,6 +53,7 @@ export const SwiperWrapper = dynamic(
             }, []);
 
             useEffect(() => {
+                const swiperInstance = swiperInstanceRef.current;
                 if (swiperInstance && pagination) {
                     swiperInstance.on("slideChange", handleSlideChange);
 
@@ -48,50 +61,151 @@ export const SwiperWrapper = dynamic(
                         swiperInstance.off("slideChange", handleSlideChange);
                     };
                 }
-            }, [swiperInstance, pagination, handleSlideChange]);
+            }, [pagination, handleSlideChange]);
 
             const goToSlide = (index: number) => {
-                swiperInstance?.slideTo(index);
+                swiperInstanceRef.current?.slideTo(index);
             };
+
+            // Прив'язуємо кнопки навігації після рендеру
+            useEffect(() => {
+                const swiperInstance = swiperInstanceRef.current;
+                if (
+                    swiperInstance &&
+                    prevRef.current &&
+                    nextRef.current &&
+                    swiperInstance.params.navigation &&
+                    typeof swiperInstance.params.navigation === "object"
+                ) {
+                    // Type guard ensures navigation is NavigationOptions, not boolean
+                    const navigationParams = swiperInstance.params
+                        .navigation as NavigationOptions;
+                    navigationParams.prevEl = prevRef.current;
+                    navigationParams.nextEl = nextRef.current;
+                    swiperInstance.navigation.destroy();
+                    swiperInstance.navigation.init();
+                    swiperInstance.navigation.update();
+
+                    // початковий стан кнопок (у loop режимі завжди активні)
+                    if (!loop) {
+                        setIsBeginning(swiperInstance.isBeginning);
+                        setIsEnd(swiperInstance.isEnd);
+                    } else {
+                        setIsBeginning(false);
+                        setIsEnd(false);
+                    }
+
+                    // оновлюємо стан кнопок при зміні слайду (інакше у loop не блокуємо)
+                    swiperInstance.on("slideChange", () => {
+                        if (!loop) {
+                            setIsBeginning(swiperInstance.isBeginning);
+                            setIsEnd(swiperInstance.isEnd);
+                        }
+                    });
+                }
+            }, [loop]);
+
+            // ефективні значення дизейблу для кнопок
+            const disablePrev = loop ? false : isBeginning;
+            const disableNext = loop ? false : isEnd;
+
+            // Check if swiper is locked and update the state
+            useEffect(() => {
+                const swiper = swiperInstanceRef.current;
+                if (!swiper) return;
+
+                const updateLockState = () => {
+                    setIsLocked(swiper.isLocked);
+                };
+
+                swiper.on("resize", updateLockState);
+                swiper.on("update", updateLockState);
+                swiper.on("slideChange", updateLockState);
+
+                return () => {
+                    swiper.off("resize", updateLockState);
+                    swiper.off("update", updateLockState);
+                    swiper.off("slideChange", updateLockState);
+                };
+            }, []);
 
             return (
                 <>
                     <Swiper
-                        onSwiper={setSwiperInstance}
+                        onSwiper={swiper => {
+                            swiperInstanceRef.current = swiper;
+                            setIsLocked(swiper.isLocked);
+                        }}
                         slidesPerView={slidesPerView}
                         breakpoints={breakpoints}
                         spaceBetween={spaceBetween}
                         speed={1000}
+                        loop={loop}
                         className={overflowVisible ? "overflow-visible!" : ""}
                         watchSlidesProgress={overflowVisible ? true : false}
-                        modules={[Keyboard]}
+                        modules={[Keyboard, Navigation]}
                         keyboard={{
                             enabled: true,
                         }}
                     >
+                        {pagination && slidesCount > 0 && (
+                            <div className="flex items-center justify-center gap-2 md:gap-3 lg:gap-4.5 mt-6 lg:mt-[26px]">
+                                {Array.from({ length: slidesCount }).map(
+                                    (_, index) => {
+                                        return (
+                                            <button
+                                                key={index}
+                                                onClick={() => goToSlide(index)}
+                                                className={clsx(
+                                                    "transition duration-300 cursor-pointer rounded-full shrink-0 border-2 border-white w-4 h-4 lg:w-5 lg:h-5",
+                                                    activeIndex === index
+                                                        ? "bg-purple shadow-[0_0_0_1px_#7c48cc]"
+                                                        : "bg-gray-dark shadow-[0_0_0_1px_#5a5a5a]"
+                                                )}
+                                                aria-label={`Go to slide ${index + 1}`}
+                                            ></button>
+                                        );
+                                    }
+                                )}
+                            </div>
+                        )}
+                        {navigation && !isLocked && (
+                            <div className="w-full flex items-center justify-center gap-[35px] mt-6 mb-0.5">
+                                <button
+                                    ref={prevRef}
+                                    disabled={disablePrev}
+                                    className="enabled:cursor-pointer w-[50px] h-[50px] rounded-full flex items-center justify-center pointer-events-auto transition-filter 
+          duration-300 xl:enabled:hover:brightness-[1.25] bg-white disabled:bg-transparent disabled:border-11 disabled:border-transparent disabled:shadow-[0_0_0_1.5px_#ffffff]"
+                                >
+                                    <CircledArrowIcon
+                                        className={clsx(
+                                            "w-[28px] h-[28px]",
+                                            disablePrev
+                                                ? "text-white"
+                                                : "text-purple"
+                                        )}
+                                    />
+                                </button>
+
+                                <button
+                                    ref={nextRef}
+                                    disabled={disableNext}
+                                    className="enabled:cursor-pointer w-[50px] h-[50px] rounded-full flex items-center justify-center pointer-events-auto transition-filter 
+          duration-300 xl:enabled:hover:brightness-[1.25] bg-white disabled:bg-transparent disabled:border-11 disabled:border-transparent disabled:shadow-[0_0_0_1.5px_#ffffff]"
+                                >
+                                    <CircledArrowIcon
+                                        className={clsx(
+                                            "w-[28px] h-[28px] rotate-180",
+                                            disableNext
+                                                ? "text-white"
+                                                : "text-purple"
+                                        )}
+                                    />
+                                </button>
+                            </div>
+                        )}
                         {children}
                     </Swiper>
-                    {pagination && slidesCount > 0 && (
-                        <div className="flex items-center justify-center gap-2 md:gap-3 lg:gap-4.5 mt-6 lg:mt-[26px]">
-                            {Array.from({ length: slidesCount }).map(
-                                (_, index) => {
-                                    return (
-                                        <button
-                                            key={index}
-                                            onClick={() => goToSlide(index)}
-                                            className={clsx(
-                                                "transition duration-300 cursor-pointer rounded-full shrink-0 border-2 border-white w-4 h-4 lg:w-5 lg:h-5",
-                                                activeIndex === index
-                                                    ? "bg-purple shadow-[0_0_0_1px_#7c48cc]"
-                                                    : "bg-gray-dark shadow-[0_0_0_1px_#5a5a5a]"
-                                            )}
-                                            aria-label={`Go to slide ${index + 1}`}
-                                        ></button>
-                                    );
-                                }
-                            )}
-                        </div>
-                    )}
                 </>
             );
         };

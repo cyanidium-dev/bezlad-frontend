@@ -13,16 +13,16 @@ export default async function HomePage() {
     const services = await fetchSanityData(ALL_SERVICES_QUERY);
     const gallery = await fetchSanityData(GALLERY_IMAGES);
 
-  return (
-    <>
-      <Hero />
-      <InteractiveZones />
-      <PriceList />
-      <Advantages />
-      <Gallery />
-      <CTAOrder />
-      <Faq />
-      <CTAContactUs />
-    </>
-  );
+    return (
+        <>
+            <Hero />
+            <InteractiveZones />
+            <PriceList services={services} />
+            <Advantages />
+            <Gallery />
+            <CTAOrder />
+            <Faq />
+            <CTAContactUs />
+        </>
+    );
 }
