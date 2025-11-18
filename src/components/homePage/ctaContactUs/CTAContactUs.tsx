@@ -21,7 +21,7 @@ export default function CTAContactUs() {
         exit="exit"
         viewport={{ once: true, amount: 0.1 }}
         variants={headerVariants}
-        className="relative max-w-7xl mx-auto mt-25 lg:mt-[132px] bg-purple-ultra-light rounded-4xl overflow-hidden"
+        className="relative max-w-7xl mx-auto bg-purple-ultra-light rounded-4xl overflow-hidden"
       >
         <CTAImages />
         <Container className="relative z-10 pt-[58px] md:pt-[74px] pb-5 md:pb-[87px]">
