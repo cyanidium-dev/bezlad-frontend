@@ -1,8 +1,8 @@
 "use client";
 import { useState, Dispatch, SetStateAction } from "react";
-import Modal from "../../shared/modals/Modal";
-import Backdrop from "../../shared/backdrop/Backdrop";
-import NotificationPopUp from "../../shared/notifications/NotificationPopUp";
+import Modal from "../modals/Modal";
+import Backdrop from "../backdrop/Backdrop";
+import NotificationPopUp from "../notifications/NotificationPopUp";
 import ContactUsForm from "@/components/shared/forms/ContactUsForm";
 
 interface ContactUsModalProps {

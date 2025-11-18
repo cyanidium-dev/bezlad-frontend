@@ -8,7 +8,7 @@ import Container from "@/components/shared/container/Container";
 import SectionTitle from "@/components/shared/titles/SectionTitle";
 import CTAImages from "./CTAImages";
 import AnimatedArrow from "../../shared/animatedArrow/AnimatedArrow";
-import ContactUsModal from "./ContactUsModal";
+import ContactUsModal from "../../shared/contactUsModal/ContactUsModal";
 
 export default function CTAContactUs() {
   const [isModalShown, setIsModalShown] = useState(false);
