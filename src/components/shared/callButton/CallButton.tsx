@@ -14,7 +14,7 @@ export default function CallButton() {
         type="button"
         aria-label="call button"
         className="group flex items-center justify-center cursor-pointer size-11 lg:size-14 rounded-full 
-      bg-purple xl:hover:brightness-125 xl:hover:-translate-y-1 transition duration-300 ease-in-out 
+      bg-purple xl:hover:brightness-125 xl:hover:-translate-y-1 active:scale-95 transition duration-300 ease-in-out will-change-transform
      "
       >
         <div className="absolute inset-0 -z-10 rounded-full xl:group-hover:translate-y-1 xl:group-hover:bg-purple/50 blur-md transition duration-300 ease-in-out" />
@@ -25,7 +25,7 @@ export default function CallButton() {
         type="button"
         aria-label="call button"
         className="group flex items-center justify-center cursor-pointer size-11 lg:size-14 rounded-full 
-      bg-blue-400 xl:hover:brightness-125 xl:hover:-translate-y-1 transition duration-300 ease-in-out 
+      bg-blue-400 xl:hover:brightness-125 xl:hover:-translate-y-1 active:scale-95 transition duration-300 ease-in-out will-change-transform
      "
       >
         <div className="absolute inset-0 -z-10 rounded-full xl:group-hover:translate-y-1 xl:group-hover:bg-blue/400 blur-md transition duration-300 ease-in-out" />
@@ -36,7 +36,7 @@ export default function CallButton() {
         type="button"
         aria-label="call button"
         className="group flex items-center justify-center cursor-pointer size-[52px] lg:size-[68px] rounded-full 
-      bg-black xl:hover:brightness-125 xl:hover:-translate-y-1 transition duration-300 ease-in-out 
+      bg-black xl:hover:brightness-125 xl:hover:-translate-y-1 active:scale-95 transition duration-300 ease-in-out will-change-transform
      "
       >
         <div className="absolute inset-0 -z-10 rounded-full xl:group-hover:translate-y-1 xl:group-hover:bg-black/50 blur-md transition duration-300 ease-in-out" />
