@@ -59,13 +59,30 @@ export default function RootLayout({
     return (
         <html lang="uk" className="scroll-smooth">
             <head>
-                {/* Preconnect to Sanity CDN for faster image loading */}
                 <link
                     rel="preconnect"
                     href="https://cdn.sanity.io"
                     crossOrigin="anonymous"
                 />
                 <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+                <link
+                    rel="preload"
+                    href="/images/hero/dashedLine.svg"
+                    as="image"
+                    fetchPriority="high"
+                />
+                <link
+                    rel="preload"
+                    href="/images/animals/animal.svg"
+                    as="image"
+                    fetchPriority="high"
+                />
+                <link
+                    rel="preload"
+                    href="/images/animals/animalYellow.svg"
+                    as="image"
+                    fetchPriority="high"
+                />
             </head>
             <body
                 className={`${raleway.variable} ${azbuka.variable} ${montserrat.variable} flex min-h-screen flex-col text-[16px] font-normal leading-[120%] antialiased`}
