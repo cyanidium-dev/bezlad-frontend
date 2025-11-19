@@ -42,7 +42,7 @@ export default function CallButton() {
       viewport={{ once: true, amount: 0.1 }}
       variants={headerVariants}
       ref={containerRef}
-      className="fixed z-100 bottom-34 lg:bottom-14 right-6
+      className="fixed z-40 bottom-34 lg:bottom-14 right-6
       sm:right-[calc(max(0px,(100vw-640px)/2)+1.5rem)]
       md:right-[calc(max(0px,(100vw-48rem)/2)+1.5rem)]
       lg:right-[calc(max(0px,(100vw-64rem)/2)+2rem)]
