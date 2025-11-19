@@ -1,9 +1,18 @@
 import { breakWords } from "@/utils/breakWords";
 import Image from "next/image";
+import * as motion from "motion/react-client";
+import { fadeInAnimation } from "@/utils/animationVariants";
 
 export default function SpecialCard() {
     return (
-        <div className="relative w-full sm:w-[285px] h-full flex flex-col items-center justify-center shrink-0 mx-auto md:mx-0">
+        <motion.div
+            initial="hidden"
+            whileInView="visible"
+            exit="exit"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={fadeInAnimation({ y: 20, delay: 0.6 })}
+            className="relative w-full sm:w-[285px] h-full flex flex-col items-center justify-center shrink-0 mx-auto md:mx-0"
+        >
             <div className="relative z-2 w-full h-full bg-white rounded-[15px] px-5 pb-5 pt-5.5 overflow-hidden">
                 <h3 className="font-azbuka text-[20px] leading-[120%] uppercase flex flex-col mb-[19px]">
                     {breakWords("Спеціальні пропозиції").map((word, index) => (
@@ -43,6 +52,6 @@ export default function SpecialCard() {
                 </ul>
             </div>
             <div className="w-[78%] sm:w-[244px] h-[332px] bg-purple-light rounded-[15px] absolute bottom-[calc(100%/2-8px)] left-[calc(100%/2-4px)] -translate-x-1/2 translate-y-1/2 z-1 rotate-[10.77deg] md:left-0 md:bottom-[10px] md:translate-x-0 md:translate-y-0 md:origin-bottom-left" />
-        </div>
+        </motion.div>
     );
 }
