@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import PhoneIcon from "../icons/PhoneIcon";
 import TelegramIcon from "../icons/TelegramIcon";
+import { PHONE, TELEGRAM_URL } from "@/constants/constants";
 
 export default function CallButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,34 +43,42 @@ export default function CallButton() {
       flex flex-col items-center gap-3"
     >
       {/* Синя кнопка (Telegram) - зверху */}
-      <button
-        type="button"
-        aria-label="telegram button"
-        onClick={() => {
-          setIsOpen(false);
-        }}
-        className={`group flex items-center justify-center cursor-pointer size-11 lg:size-14 rounded-full 
-      bg-blue-400 xl:hover:brightness-125 active:scale-95 transition-all duration-300 ease-in-out will-change-transform
-      ${isOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"}`}
-      >
-        <div className="absolute inset-0 -z-10 rounded-full xl:group-hover:translate-y-1 xl:group-hover:bg-blue-400/60 blur-md transition duration-300 ease-in-out" />
-        <TelegramIcon className="size-6 lg:size-8 text-white" />
-      </button>
+      <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer nofollow">
+        <button
+          type="button"
+          aria-label="telegram button"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+          className={`group flex items-center justify-center cursor-pointer size-11 lg:size-14 rounded-full 
+      bg-blue-400 xl:hover:brightness-110 active:scale-95 transition-all duration-300 ease-in-out will-change-transform
+      ${isOpen ? "opacity-100 scale-100 translate-y-0 translate-x-0 pointer-events-auto delay-100" : "opacity-0 scale-70 translate-y-2 -translate-x-5 pointer-events-none delay-100"}`}
+        >
+          <div className="absolute inset-0 -z-10 rounded-full xl:group-hover:translate-y-1 xl:group-hover:bg-blue-400/60 blur-md transition duration-300 ease-in-out" />
+          <TelegramIcon className="size-6 lg:size-8 text-white" />
+        </button>
+      </a>
 
       {/* Фіолетова кнопка - посередині */}
-      <button
-        type="button"
-        aria-label="call button"
-        onClick={() => {
-          setIsOpen(false);
-        }}
-        className={`group flex items-center justify-center cursor-pointer size-11 lg:size-14 rounded-full 
-      bg-purple xl:hover:brightness-125 active:scale-95 transition-all duration-300 ease-in-out will-change-transform
-      ${isOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"}`}
+      <a
+        href={`tel:${PHONE}`}
+        target="_blank"
+        rel="noopener noreferrer nofollow"
       >
-        <div className="absolute inset-0 -z-10 rounded-full xl:group-hover:translate-y-1 xl:group-hover:bg-purple/60 blur-md transition duration-300 ease-in-out" />
-        <PhoneIcon className="size-6 lg:size-8 text-white" />
-      </button>
+        <button
+          type="button"
+          aria-label="call button"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+          className={`group flex items-center justify-center cursor-pointer size-11 lg:size-14 rounded-full 
+      bg-purple xl:hover:brightness-110 active:scale-95 transition-all duration-300 ease-in-out will-change-transform
+      ${isOpen ? "opacity-100 scale-100 translate-y-0 translate-x-0 pointer-events-auto" : "opacity-0 scale-70 translate-y-2 -translate-x-5 pointer-events-none"}`}
+        >
+          <div className="absolute inset-0 -z-10 rounded-full xl:group-hover:translate-y-1 xl:group-hover:bg-purple/60 blur-md transition duration-300 ease-in-out" />
+          <PhoneIcon className="size-6 lg:size-8 text-white" />
+        </button>
+      </a>
 
       {/* Чорна головна кнопка - внизу */}
       <button
