@@ -1,14 +1,11 @@
 "use client";
-import { SwiperClass } from "swiper/react";
-import "swiper/css";
-import "swiper/css/grid";
-import "swiper/css/pagination";
+import type { SwiperClass } from "swiper/react";
 import clsx from "clsx";
 import { Children, useEffect, useCallback, useState, useRef } from "react";
 import { NavigationOptions, SwiperOptions } from "swiper/types";
 import dynamic from "next/dynamic";
-import { Keyboard, Navigation } from "swiper/modules";
 import CircledArrowIcon from "../icons/CircledArrowIcon";
+import "./swiper-styles.css";
 
 interface SwiperWrapperProps {
     children: React.ReactNode;
@@ -24,7 +21,10 @@ interface SwiperWrapperProps {
 
 export const SwiperWrapper = dynamic(
     async () => {
-        const [{ Swiper }] = await Promise.all([import("swiper/react")]);
+        const [{ Swiper }, { Keyboard, Navigation }] = await Promise.all([
+            import("swiper/react"),
+            import("swiper/modules"),
+        ]);
 
         const Component = ({
             children,
