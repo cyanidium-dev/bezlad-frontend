@@ -11,7 +11,6 @@ export default function PriceListImages() {
                         src="/images/ctaContactUs/noise.webp"
                         fill
                         alt="noise"
-                        loading="lazy"
                         className="object-cover opacity-20"
                     />
                 </div>
@@ -28,7 +27,6 @@ export default function PriceListImages() {
                         alt="leaves"
                         width={321}
                         height={389.61}
-                        loading="lazy"
                         className="md:h-[514px] md:w-[424px]"
                     />
                 </motion.div>

@@ -13,7 +13,6 @@ export default function CTAImages() {
           src="/images/ctaContactUs/noise.webp"
           fill
           alt="noise"
-          loading="lazy"
           className="object-cover"
         />
       </div>
@@ -22,7 +21,6 @@ export default function CTAImages() {
           src="/images/ctaContactUs/boy.webp"
           fill
           alt="boy"
-          loading="lazy"
           className="relative z-5 object-cover rounded-2xl"
         />
         <motion.div
@@ -38,7 +36,6 @@ export default function CTAImages() {
             alt="leaves"
             width="179"
             height="139"
-            loading="lazy"
           />
         </motion.div>
         <motion.div
@@ -54,7 +51,6 @@ export default function CTAImages() {
             alt="leaves"
             width="179"
             height="139"
-            loading="lazy"
           />
         </motion.div>
         <motion.div
@@ -70,7 +66,6 @@ export default function CTAImages() {
             alt="leaves"
             width="261"
             height="290"
-            loading="lazy"
             className="hidden md:block w-[180px] lg:w-[261px] h-auto object-cover"
           />
         </motion.div>

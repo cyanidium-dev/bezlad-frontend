@@ -101,7 +101,6 @@ export const GlassCard = React.memo(
                         alt={title}
                         width={variant.imageSize.width}
                         height={variant.imageSize.height}
-                        loading="lazy"
                         className={clsx(
                             "object-cover absolute",
                             variant.imageClassName
@@ -138,7 +137,6 @@ export const PurpleBlobCard = React.memo(
                         src={image}
                         alt={title}
                         fill
-                        loading="lazy"
                         className="object-cover"
                     />
                 </div>
@@ -149,14 +147,12 @@ export const PurpleBlobCard = React.memo(
                     src="/images/interactiveZone/blobsHorizontal.svg"
                     alt="blobs horizontal"
                     fill
-                    loading="lazy"
                     className="absolute inset-0 pointer-events-none lg:hidden"
                 />
                 <Image
                     src="/images/interactiveZone/blobsVertical.svg"
                     alt="blobs vertical"
                     fill
-                    loading="lazy"
                     className="absolute inset-0 pointer-events-none lg:block hidden"
                 />
             </div>
@@ -236,7 +232,6 @@ export const PurpleNoiseCard = React.memo(
                         src={image}
                         alt={title}
                         fill
-                        loading="lazy"
                         className="object-cover"
                     />
                 </div>
@@ -244,7 +239,6 @@ export const PurpleNoiseCard = React.memo(
                     src="/images/interactiveZone/noise.webp"
                     alt="noise"
                     fill
-                    loading="lazy"
                     className="absolute inset-0  pointer-events-none object-cover"
                 />
             </div>
@@ -317,7 +311,6 @@ export const GrayCard = React.memo(
                         alt={title}
                         width={picVariant[pictureSize].width}
                         height={picVariant[pictureSize].height}
-                        loading="lazy"
                         className={clsx(
                             pictureSize === "small"
                                 ? "xl:left-[100px] object-cover w-[158px] h-[152px] md:w-[323px] md:h-[308.6px] lg:w-[180px] lg:h-auto xl:w-[349px] xl:h-[288px]"
@@ -394,7 +387,6 @@ export const BlackCard = React.memo(
                     alt={title}
                     width={variant.imageSize.width}
                     height={variant.imageSize.height}
-                    loading="lazy"
                     className={clsx("object-cover", variant.imageClassName)}
                 />
                 <div className={clsx("absolute", variant.arrowClassName)}>
@@ -432,7 +424,6 @@ export const NoodleCard = React.memo(
                         src={image}
                         alt={title}
                         fill
-                        loading="lazy"
                         className="object-cover"
                     />
                 </div>
@@ -472,7 +463,6 @@ export const PlaceholderCard = React.memo(
                     alt="Placeholder"
                     width={104}
                     height={164}
-                    loading="lazy"
                     className="w-[104px] h-[164px] md:h-[204px] md:w-auto object-contain z-10 absolute top-[-31px] left-1/2 -translate-x-1/2"
                 />
             </div>
@@ -508,7 +498,6 @@ export const YellowBlobCard = React.memo(
                         src={image}
                         alt={title}
                         fill
-                        loading="lazy"
                         className="object-cover"
                     />
                 </div>
@@ -524,7 +513,6 @@ export const YellowBlobCard = React.memo(
                     src="/images/interactiveZone/yellowBlobs.svg"
                     alt="yellow blob"
                     fill
-                    loading="lazy"
                     className="absolute inset-0 pointer-events-none "
                 />
             </div>

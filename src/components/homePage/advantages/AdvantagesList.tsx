@@ -39,7 +39,6 @@ export default function AdvantagesList() {
                         src="/images/advantages/library.webp"
                         alt="library"
                         fill
-                        loading="lazy"
                         className="object-cover absolute inset-0"
                     />
                 </motion.div>
@@ -92,7 +91,6 @@ export default function AdvantagesList() {
                         src="/images/advantages/surveillance.webp"
                         alt="surveillance"
                         fill
-                        loading="lazy"
                         className="object-cover absolute inset-0"
                     />
                 </motion.div>
@@ -146,7 +144,6 @@ export default function AdvantagesList() {
                         src="/images/advantages/cafe.webp"
                         alt="cafe"
                         fill
-                        loading="lazy"
                         className="object-cover absolute inset-0"
                     />
                 </motion.div>

@@ -78,7 +78,6 @@ export default function Footer() {
                         alt="Безлад"
                         width={267}
                         height={153.46}
-                        loading="lazy"
                         className="block lg:hidden "
                     />
                 </motion.div>
@@ -95,7 +94,6 @@ export default function Footer() {
                         alt="Безлад"
                         width={328.5}
                         height={218.2}
-                        loading="lazy"
                         className="hidden lg:block"
                     />
                 </motion.div>

@@ -43,7 +43,6 @@ export default function PriceListCard({
                         alt={title}
                         width={200}
                         height={200}
-                        loading="lazy"
                         className="w-full h-full object-cover"
                     />
                 </div>

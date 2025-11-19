@@ -48,7 +48,6 @@ export default function NotificationPopUp({
             src="/images/notifications/bucket.svg"
             width="269"
             height="388"
-            loading="lazy"
             className="w-[183px] lg:w-[258px] h-auto"
             alt="bucket"
           />
