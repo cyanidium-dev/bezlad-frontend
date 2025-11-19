@@ -42,7 +42,7 @@ export default function SpecialCard() {
                     </li>
                 </ul>
             </div>
-            <div className="w-[244px] h-[332px] bg-purple-light rounded-[15px] absolute bottom-[calc(100%/2-8px)] left-[calc(100%/2-4px)] -translate-x-1/2 translate-y-1/2 z-1 rotate-[10.77deg] md:left-0 md:bottom-[10px] md:translate-x-0 md:translate-y-0 md:origin-bottom-left" />
+            <div className="w-[78%] sm:w-[244px] h-[332px] bg-purple-light rounded-[15px] absolute bottom-[calc(100%/2-8px)] left-[calc(100%/2-4px)] -translate-x-1/2 translate-y-1/2 z-1 rotate-[10.77deg] md:left-0 md:bottom-[10px] md:translate-x-0 md:translate-y-0 md:origin-bottom-left" />
         </div>
     );
 }

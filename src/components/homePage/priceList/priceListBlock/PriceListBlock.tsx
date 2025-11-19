@@ -10,20 +10,14 @@ import AnimatedArrow from "@/components/shared/animatedArrow/AnimatedArrow";
 import SpecialCard from "./SpecialCard";
 import dynamic from "next/dynamic";
 import Pagination from "@/components/shared/pagination/Pagination";
-import { useMemo, useRef } from "react";
+import { useRef } from "react";
 
 function PriceListBlock({ services }: { services: Service[] }) {
     const screenWidth = useScreenWidth();
 
     const isMobileView = screenWidth < 640;
 
-    const itemsPerPage = useMemo(() => {
-        if (screenWidth < 520) {
-            return 3;
-        } else {
-            return 6;
-        }
-    }, [screenWidth]);
+    const itemsPerPage = 3;
 
     const sectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -48,7 +42,7 @@ function PriceListBlock({ services }: { services: Service[] }) {
                         useItemsPerPage={() => itemsPerPage}
                         scrollTargetRef={sectionRef}
                         renderItems={currentItems => (
-                            <ul className="flex flex-col flex-wrap xsm:grid xsm:grid-cols-2 items-center gap-5 w-full">
+                            <ul className="flex flex-col flex-wrap items-center gap-5 w-full">
                                 {currentItems.map((service, index) => (
                                     <motion.li
                                         initial="hidden"
