@@ -24,6 +24,7 @@ export default function ConfirmationImages() {
           alt="dashed line"
           width="533"
           height="303"
+          loading="lazy"
           className="absolute top-[19px] lg:top-[149px] left-[410px] lg:right-[73px] w-[533px] h-auto rotate-[14.38deg] lg:rotate-[42deg]"
         />
       </motion.div>
@@ -106,6 +107,7 @@ export default function ConfirmationImages() {
           alt="stars"
           width="116"
           height="134"
+          loading="lazy"
           className="w-[116px] h-auto"
         />
       </motion.div>
@@ -127,6 +129,7 @@ export default function ConfirmationImages() {
           alt="bucket"
           width="269"
           height="388"
+          loading="lazy"
           className="w-[193px] lg:w-[258px] h-auto"
         />
       </motion.div>

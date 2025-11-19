@@ -66,6 +66,7 @@ export default function BurgerMenu({
                         alt="leaves"
                         width={552.57}
                         height={475.75}
+                        loading="lazy"
                         className="object-cover"
                     />
                     <AnimatedArrow className="w-[237.43px] h-[133.81px] absolute bottom-[130px] left-1/2 translate-x-[calc(-50%+75px)] text-black scale-y-[-1] rotate-110" />

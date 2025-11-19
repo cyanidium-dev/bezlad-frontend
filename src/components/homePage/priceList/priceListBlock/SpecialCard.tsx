@@ -25,6 +25,7 @@ export default function SpecialCard() {
                         alt="Special Card"
                         width={231}
                         height={154}
+                        loading="lazy"
                     />
                     <div className="hidden sm:block absolute w-[203px] h-[133px] right-[-65px] top-[80px] bg-white blur-[18.05px]" />
                 </div>
@@ -38,6 +39,7 @@ export default function SpecialCard() {
                             src="/images/priceList/starsBg.svg"
                             alt="Stars"
                             fill
+                            loading="lazy"
                             className="absolute inset-0 object-cover"
                         />
                     </li>
