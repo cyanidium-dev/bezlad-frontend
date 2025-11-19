@@ -10,6 +10,7 @@ export default function AdvantagesImages() {
                     src="/images/ctaContactUs/noise.webp"
                     fill
                     alt="noise"
+                    loading="lazy"
                     className="object-cover opacity-40"
                 />
             </div>
@@ -25,6 +26,7 @@ export default function AdvantagesImages() {
                     src="/images/advantages/flowersGray.webp"
                     fill
                     alt="flowersGray"
+                    loading="lazy"
                     className="object-cover"
                 />
             </motion.div>
@@ -40,6 +42,7 @@ export default function AdvantagesImages() {
                     src="/images/advantages/flowersMob.webp"
                     fill
                     alt="flowersMob"
+                    loading="lazy"
                     className="object-cover"
                 />
             </motion.div>
@@ -55,6 +58,7 @@ export default function AdvantagesImages() {
                     src="/images/advantages/flowersDesk.webp"
                     fill
                     alt="flowersDesk"
+                    loading="lazy"
                     className="object-cover"
                 />
             </motion.div>

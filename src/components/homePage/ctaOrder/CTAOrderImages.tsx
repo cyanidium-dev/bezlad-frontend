@@ -8,6 +8,7 @@ export default function CTAOrderImages() {
           src="/images/ctaOrder/noise.webp"
           alt="noise"
           fill
+          loading="lazy"
           className="object-cover"
         />
       </div>
@@ -16,6 +17,7 @@ export default function CTAOrderImages() {
           src="/images/ctaOrder/pattern.webp"
           alt="pattern"
           fill
+          loading="lazy"
           className="object-cover"
         />
       </div>
@@ -35,6 +37,7 @@ export default function CTAOrderImages() {
           alt="mom with boy"
           width={607}
           height={429}
+          loading="lazy"
           className="w-[607px] lg:w-[931px] h-auto object-cover"
         />
       </div>
@@ -44,6 +47,7 @@ export default function CTAOrderImages() {
           alt="bucket"
           width="394"
           height="480"
+          loading="lazy"
           className="w-[283px] lg:w-[394px] h-auto object-cover"
         />
       </div>

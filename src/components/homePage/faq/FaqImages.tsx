@@ -18,6 +18,7 @@ export default function FaqImages() {
           alt="flowers"
           width="907"
           height="712"
+          loading="lazy"
           className="w-[619px] lg:w-[907px] h-auto"
         />
       </motion.div>
@@ -35,6 +36,7 @@ export default function FaqImages() {
           alt="flowers"
           width="993"
           height="826"
+          loading="lazy"
           className="w-[950px] lg:w-[993px] h-auto"
         />
       </motion.div>
@@ -52,6 +54,7 @@ export default function FaqImages() {
           alt="flowers"
           width="1143"
           height="1074"
+          loading="lazy"
           className="w-[1143px] h-auto"
         />
       </motion.div>

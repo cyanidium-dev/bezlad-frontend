@@ -35,6 +35,7 @@ export default function Gallery({ gallery }: GalleryProps) {
                         alt="flowers"
                         width={908}
                         height={959}
+                        loading="lazy"
                         className="object-cover"
                     />
                 </motion.div>
@@ -59,6 +60,7 @@ export default function Gallery({ gallery }: GalleryProps) {
                             src={urlForSanityImage(photo1).fit("crop").url()}
                             alt="photo1"
                             fill
+                            loading="lazy"
                             className="object-cover rounded-[16px]"
                         />
                         <div className="absolute -z-10 top-0 left-2 w-[calc(100%)] h-[154px] rounded-[16px] bg-purple overflow-hidden rotate-[3.67deg]" />
@@ -86,6 +88,7 @@ export default function Gallery({ gallery }: GalleryProps) {
                             src={urlForSanityImage(photo2).fit("crop").url()}
                             alt="photo1"
                             fill
+                            loading="lazy"
                             className="object-cover"
                         />
                         <span className="absolute z-10 top-3 md:top-5 right-6.5 md:right-5 rounded-full size-5 md:size-8 bg-yellow" />
@@ -110,6 +113,7 @@ export default function Gallery({ gallery }: GalleryProps) {
                                     .url()}
                                 alt="photo1"
                                 fill
+                                loading="lazy"
                                 className="object-cover"
                             />
                             <span className="hidden md:block absolute z-10 bottom-4 left-4 rounded-full size-8 bg-black" />
@@ -121,6 +125,7 @@ export default function Gallery({ gallery }: GalleryProps) {
                                     .url()}
                                 alt="photo1"
                                 fill
+                                loading="lazy"
                                 className="object-cover"
                             />
                             <span className="hidden md:block absolute z-10 top-4 right-4 rounded-full size-8 bg-yellow" />
@@ -146,6 +151,7 @@ export default function Gallery({ gallery }: GalleryProps) {
                                     .url()}
                                 alt="photo1"
                                 fill
+                                loading="lazy"
                                 className="object-cover rounded-[16px]"
                             />
                             <div className="absolute -z-10 top-0 left-[-18px] w-[calc(100%+36px)] h-[154px] rounded-[16px] bg-purple overflow-hidden rotate-[-4.29deg]" />
@@ -157,6 +163,7 @@ export default function Gallery({ gallery }: GalleryProps) {
                                     .url()}
                                 alt="photo1"
                                 fill
+                                loading="lazy"
                                 className="object-cover rounded-[16px]"
                             />
                             <span className="hidden md:block absolute z-10 top-5 left-5 rounded-full size-8 bg-purple" />
