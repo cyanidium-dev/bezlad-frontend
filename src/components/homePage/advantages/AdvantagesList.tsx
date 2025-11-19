@@ -17,7 +17,7 @@ export default function AdvantagesList() {
                     variants={fadeInAnimation({
                         x: 30,
                         scale: 0.9,
-                        delay: 0.8,
+                        delay: 0.6,
                     })}
                     className="text-base sm:text-[20px] lg:text-[32px] leading-[120%] uppercase font-azbuka absolute right-[-77px] top-[6px] rotate-[13.5deg] sm:rotate-0 sm:right-auto sm:top-[-65px] sm:left-[65px] md:left-[120px] lg:left-[40px] lg:top-[-80px] xl:top-[-110px]"
                 >
@@ -31,7 +31,7 @@ export default function AdvantagesList() {
                     variants={fadeInAnimation({
                         x: -30,
                         scale: 0.9,
-                        delay: 0.3,
+                        delay: 0.2,
                     })}
                     className="relative w-full h-full rounded-full overflow-hidden"
                 >
@@ -51,7 +51,7 @@ export default function AdvantagesList() {
                         x: 30,
                         y: 30,
                         scale: 0.9,
-                        delay: 0.5,
+                        delay: 0.4,
                     })}
                     className="absolute inset-0"
                 >
@@ -68,7 +68,7 @@ export default function AdvantagesList() {
                         x: 30,
                         y: -30,
                         scale: 0.9,
-                        delay: 1.5,
+                        delay: 0.8,
                     })}
                     className="z-3 text-[14px] sm:text-[20px] lg:text-[32px] leading-[120%] uppercase font-azbuka absolute left-[-107px] top-[56px] rotate-[-54deg] sm:rotate-0 sm:top-[-80px] sm:left-[100px] lg:left-auto lg:top-auto lg:bottom-[-90px] lg:right-[-300px] xl:right-[-173px] xl:bottom-[-105px]"
                 >
@@ -83,7 +83,7 @@ export default function AdvantagesList() {
                         x: 30,
                         y: -30,
                         scale: 0.9,
-                        delay: 0.9,
+                        delay: 0.4,
                     })}
                     className="relative w-full h-full rounded-full overflow-hidden z-2"
                 >
@@ -104,7 +104,7 @@ export default function AdvantagesList() {
                         y: -30,
                         x: 30,
                         scale: 0.9,
-                        delay: 1.3,
+                        delay: 0.6,
                     })}
                     className="absolute inset-0"
                 >
@@ -121,7 +121,7 @@ export default function AdvantagesList() {
                         x: 30,
                         y: -30,
                         scale: 0.9,
-                        delay: 1.8,
+                        delay: 1,
                     })}
                     className="text-base sm:text-[24px] leading-[120%] uppercase font-azbuka absolute right-[-66px] top-[48px] rotate-[36.5deg] sm:rotate-0 sm:top-auto sm:bottom-[-38px] sm:right-[-145px] lg:rotate-0 lg:right-auto lg:left-[-41px] lg:top-[-60px] xl:top-[-70px]"
                 >
@@ -136,7 +136,7 @@ export default function AdvantagesList() {
                         x: 30,
                         y: -30,
                         scale: 0.9,
-                        delay: 1.4,
+                        delay: 0.6,
                     })}
                     className="relative w-full h-full rounded-full overflow-hidden"
                 >
@@ -156,7 +156,7 @@ export default function AdvantagesList() {
                         x: 30,
                         y: -30,
                         scale: 0.9,
-                        delay: 1.6,
+                        delay: 0.8,
                     })}
                     className="absolute inset-0"
                 >
@@ -174,7 +174,7 @@ export default function AdvantagesList() {
                 variants={fadeInAnimation({
                     x: 30,
                     scale: 0.9,
-                    delay: 2,
+                    delay: 1.2,
                 })}
                 className="relative w-[243px] sm:w-full mx-auto lg:w-[25%] h-[113px] sm:h-[124px] md:h-[154px] lg:h-[124px] xl:h-[154px] rounded-full bg-yellow flex items-center justify-center px-[86px]"
             >

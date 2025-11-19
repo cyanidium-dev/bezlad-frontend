@@ -34,7 +34,7 @@ export default function Advantages() {
                         y: 20,
                         x: -20,
                         scale: 0.95,
-                        delay: 2.4,
+                        delay: 1.2,
                     })}
                     className="text-black text-base font-light leading-[120%] mt-[46px] lg:mt-[62px] max-w-[380px]"
                 >
