@@ -15,16 +15,16 @@ export default function Advantages() {
             viewport={{ once: true, amount: 0.1 }}
             variants={headerVariants}
             id="advantages"
-            className="relative max-w-7xl mx-auto pt-[74px] pb-[56px] lg:pt-11 md:pb-[43px] scroll-mt-[85px] bg-gray-light rounded-4xl overflow-hidden"
+            className="relative max-w-7xl mx-auto pt-[74px] pb-[56px] lg:pt-[66px] lg:pb-[73px] scroll-mt-[85px] bg-gray-light rounded-4xl overflow-hidden"
         >
             <AdvantagesImages />
             <Container className="relative">
-                <SectionTitle className="relative mb-[82px] max-w-[300px] lg:max-w-[450px] lg:ml-auto text-[32px] leading-[150%] lg:text-[48px] lg:leading-[150%] lg:text-right">
+                <SectionTitle className="relative mb-[82px] lg:mb-[42px] max-w-[300px] lg:max-w-[450px] lg:ml-auto text-[32px] leading-[150%] lg:text-[48px] lg:leading-[150%]">
                     Ми подбали і про дітей, і про батьків
-                    <StarIcon className="w-[62px] h-[62px] text-black absolute top-1/2 -translate-y-1/2 right-[-65px] xs:right-[-100px] z-20" />
+                    <StarIcon className="w-[62px] h-[62px] lg:w-[35px] lg:h-[35px] text-black absolute top-1/2 -translate-y-1/2 right-[-65px] xs:right-[-100px] lg:right-unset lg:left-[-69px] z-20" />
                 </SectionTitle>
                 <AdvantagesList />
-                <p className="text-black text-base font-light leading-[120%] mt-[46px]">
+                <p className="text-black text-base font-light leading-[120%] mt-[46px] lg:mt-[62px] max-w-[380px]">
                     Відеоспостереження, бібліотека, кавʼярня з легкими
                     перекусами - ми подумали про комфорт, безпеку й розвиток
                 </p>
