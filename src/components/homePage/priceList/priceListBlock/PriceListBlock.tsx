@@ -75,23 +75,25 @@ function PriceListBlock({ services }: { services: Service[] }) {
             exit="exit"
             viewport={{ once: true, amount: 0.1 }}
             variants={listVariants()}
-            className="relative z-2 w-full flex items-start justify-end-safe gap-5"
+            className="relative z-2 w-full flex items-start justify-between gap-5"
         >
             <AnimatedArrow className="text-white absolute top-[-144px] left-[45%] w-[295px] h-auto scale-y-[-1] rotate-[-8deg]" />
-            <SwiperWrapper
-                slidesPerView="auto"
-                slidesPerGroup={1}
-                spaceBetween={20}
-                navigation={true}
-            >
-                {services &&
-                    Array.isArray(services) &&
-                    bigServices.map((service, index) => (
-                        <SwiperSlide key={index} className="w-fit!">
-                            <PriceListCard {...service} />
-                        </SwiperSlide>
-                    ))}
-            </SwiperWrapper>
+            <div className="md:max-w-[285px] lg:max-w-[590px] xl:max-w-[895px] w-full">
+                <SwiperWrapper
+                    slidesPerView="auto"
+                    slidesPerGroup={1}
+                    spaceBetween={20}
+                    navigation={true}
+                >
+                    {services &&
+                        Array.isArray(services) &&
+                        bigServices.map((service, index) => (
+                            <SwiperSlide key={index} className="w-fit!">
+                                <PriceListCard {...service} />
+                            </SwiperSlide>
+                        ))}
+                </SwiperWrapper>
+            </div>
             <SpecialCard />
         </motion.div>
     );
