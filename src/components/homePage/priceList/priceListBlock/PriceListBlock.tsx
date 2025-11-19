@@ -77,7 +77,7 @@ function PriceListBlock({ services }: { services: Service[] }) {
             whileInView="visible"
             exit="exit"
             viewport={{ once: true, amount: 0.1 }}
-            variants={listVariants()}
+            variants={listItemVariants}
             className="relative z-2 w-full flex items-start justify-between gap-5"
         >
             <AnimatedArrow className="text-white absolute top-[-144px] left-[45%] w-[295px] h-auto scale-y-[-1] rotate-[-8deg]" />

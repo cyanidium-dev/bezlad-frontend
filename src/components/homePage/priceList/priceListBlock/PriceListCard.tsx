@@ -14,12 +14,7 @@ export default function PriceListCard({
     const brokenTitle = breakWords(title);
     const imageUrl = urlForSanityImage(image).url();
     return (
-        <div
-            style={{
-                willChange: "transform, backdrop-filter",
-            }}
-            className="relative flex flex-col items-center justify-center w-full xl:w-[285px] md:h-[336px] rounded-[15px] bg-white/6 overflow-hidden backdrop-blur-[18px] webkit-backdrop-blur-[18px] p-0.5"
-        >
+        <div className="relative flex flex-col items-center justify-center w-full xl:w-[285px] md:h-[336px] rounded-[15px] bg-white/6 overflow-hidden backdrop-blur-[18px] webkit-backdrop-blur-[18px] p-0.5 will-change-transform will-change-backdrop-filter">
             {/* Gradient border layer */}
             <div
                 className="absolute z-10 inset-0 rounded-[15px] pointer-events-none"
