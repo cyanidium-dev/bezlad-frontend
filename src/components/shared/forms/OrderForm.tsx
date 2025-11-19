@@ -41,8 +41,6 @@ export default function OrderForm({
 
   const validationSchema = useOrderFormValidation();
 
-  console.log(paymentUrl);
-
   const submitForm = async (
     values: ValuesOrderFormType,
     formikHelpers: FormikHelpers<ValuesOrderFormType>

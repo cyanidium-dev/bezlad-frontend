@@ -15,8 +15,6 @@ export default async function HomePage() {
   const services = await fetchSanityData(ALL_SERVICES_QUERY);
   const gallery = await fetchSanityData(GALLERY_IMAGES);
 
-  console.log(services);
-
   return (
     <>
       <Hero />
