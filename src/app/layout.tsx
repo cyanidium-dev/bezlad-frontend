@@ -52,32 +52,10 @@ export default function RootLayout({
     return (
         <html lang="uk" className="scroll-smooth">
             <head>
-                {/* Preconnect to external domains */}
                 <link rel="preconnect" href="https://cdn.sanity.io" />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link
-                    rel="preconnect"
-                    href="https://fonts.gstatic.com"
-                    crossOrigin="anonymous"
-                />
-                <link rel="preconnect" href="https://api.telegram.org" />
-
-                {/* Preload hero images */}
                 <link
                     rel="preload"
                     href="/images/hero/dashedLine.svg"
-                    as="image"
-                    fetchPriority="high"
-                />
-                <link
-                    rel="preload"
-                    href="/images/animals/animal.svg"
-                    as="image"
-                    fetchPriority="high"
-                />
-                <link
-                    rel="preload"
-                    href="/images/animals/animalYellow.svg"
                     as="image"
                     fetchPriority="high"
                 />
