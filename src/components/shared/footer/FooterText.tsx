@@ -13,8 +13,8 @@ export default function FooterText({ className }: FooterTextProps) {
 
   const getVariants = () => {
     return width >= 1024
-      ? fadeInAnimation({ delay: 1.8, x: -20 })
-      : fadeInAnimation({ delay: 1.8, y: 20 });
+      ? fadeInAnimation({ delay: 0.8, x: -20 })
+      : fadeInAnimation({ delay: 0.8, y: 20 });
   };
 
   return (
@@ -36,8 +36,8 @@ export default function FooterText({ className }: FooterTextProps) {
           <motion.div
             variants={
               width >= 1024
-                ? fadeInAnimation({ delay: 2.1, x: -20 })
-                : fadeInAnimation({ delay: 2.1, y: 20 })
+                ? fadeInAnimation({ delay: 1, x: -20 })
+                : fadeInAnimation({ delay: 1, y: 20 })
             }
             initial="hidden"
             whileInView="visible"

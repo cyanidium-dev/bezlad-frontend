@@ -10,6 +10,8 @@ import StarIcon from "../icons/StarIcon";
 import Link from "next/link";
 import BurgerButton from "./burgerMenu/BurgerButton";
 import BurgerMenu from "./burgerMenu/BurgerMenu";
+import * as motion from "motion/react-client";
+import { headerVariants } from "@/utils/animationVariants";
 
 export default function Header() {
   const { scrollY } = useScroll();
@@ -21,10 +23,17 @@ export default function Header() {
   });
 
   return (
-    <header
+    <motion.header
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={headerVariants}
       className={clsx(
-        "fixed left-0 right-0 z-30 py-2 transition-top duration-300 ease-in-out",
-        scrollPosition > 50 ? "backdrop-blur-[38px] top-0" : "top-[25px]"
+        "fixed left-0 right-0 z-30 py-2 transition-top duration-300 ease-in-out rounded-full",
+        scrollPosition > 50
+          ? "bg-white/25 shadow-[inset_0px_4px_12.6px_rgba(255,255,255,0.25)] backdrop-blur-[38px] top-0"
+          : "top-[25px]"
       )}
     >
       <Container className="w-full pr-[19px]">
@@ -52,6 +61,6 @@ export default function Header() {
           </div>
         </div>
       </Container>
-    </header>
+    </motion.header>
   );
 }

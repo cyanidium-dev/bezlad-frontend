@@ -55,7 +55,7 @@ export default function CTAOrder() {
               whileInView="visible"
               exit="exit"
               viewport={{ once: true, amount: 0.8 }}
-              variants={fadeInAnimation({ scale: 0.9, delay: 0.8 })}
+              variants={fadeInAnimation({ scale: 0.9, delay: 0.6 })}
             >
               <MainButton
                 className="h-[66px] sm:max-w-[303px] sm:mx-auto lg:mx-0"
