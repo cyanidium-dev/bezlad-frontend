@@ -9,16 +9,26 @@ import { listVariants, listItemVariants } from "@/utils/animationVariants";
 import AnimatedArrow from "@/components/shared/animatedArrow/AnimatedArrow";
 import SpecialCard from "./SpecialCard";
 import dynamic from "next/dynamic";
+import Pagination from "@/components/shared/pagination/Pagination";
+import { useRef } from "react";
+import { useItemsPerPage } from "@/hooks/useItemsPerPage";
 
 function PriceListBlock({ services }: { services: Service[] }) {
     const screenWidth = useScreenWidth();
 
     const isMobileView = screenWidth < 768;
 
+    const itemsPerPage = useItemsPerPage();
+
+    const sectionRef = useRef<HTMLDivElement | null>(null);
+
+    const bigServices = [...services, services[0]];
+
     if (isMobileView) {
         return (
             <>
                 <motion.div
+                    ref={sectionRef}
                     initial="hidden"
                     whileInView="visible"
                     exit="exit"
@@ -30,11 +40,28 @@ function PriceListBlock({ services }: { services: Service[] }) {
                     className="relative z-2 w-full flex flex-col items-center gap-5 mb-[75px] mx-auto"
                 >
                     <AnimatedArrow className="md:hidden text-white absolute w-[195px] h-auto scale-y-[-1] left-1/2 translate-x-[57px] rotate-[-8deg] top-[-73px]" />
-                    {services.map((service, index) => (
-                        <motion.div key={index} variants={listItemVariants}>
-                            <PriceListCard key={index} {...service} />
-                        </motion.div>
-                    ))}
+                    <Pagination
+                        items={bigServices}
+                        useItemsPerPage={() => itemsPerPage}
+                        scrollTargetRef={sectionRef}
+                        renderItems={currentItems => (
+                            <ul className="flex flex-col flex-wrap items-center gap-5 w-full">
+                                {currentItems.map((service, index) => (
+                                    <motion.li
+                                        initial="hidden"
+                                        whileInView="visible"
+                                        exit="exit"
+                                        viewport={{ once: true, amount: 0.1 }}
+                                        variants={listItemVariants}
+                                        key={`${service?.title}-${index}`}
+                                        className="w-full h-auto"
+                                    >
+                                        <PriceListCard {...service} />
+                                    </motion.li>
+                                ))}
+                            </ul>
+                        )}
+                    />
                 </motion.div>
                 <SpecialCard />
             </>
@@ -59,7 +86,7 @@ function PriceListBlock({ services }: { services: Service[] }) {
             >
                 {services &&
                     Array.isArray(services) &&
-                    services.map((service, index) => (
+                    bigServices.map((service, index) => (
                         <SwiperSlide key={index} className="w-fit!">
                             <PriceListCard {...service} />
                         </SwiperSlide>
