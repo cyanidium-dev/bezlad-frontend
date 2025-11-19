@@ -11,8 +11,7 @@ export default function PriceListImages() {
                         src="/images/ctaContactUs/noise.webp"
                         fill
                         alt="noise"
-                        className="object-cover mix-blend-overlay opacity-40"
-                        unoptimized
+                        className="object-cover opacity-20"
                     />
                 </div>
                 <motion.div
