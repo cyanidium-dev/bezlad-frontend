@@ -67,7 +67,7 @@ export default function HeroImages() {
           fetchPriority="high"
         />
         <AnimatedArrow
-          delay={0.6}
+          delay={0.4}
           className="absolute -z-10 top-[156px] xl:top-[220px] left-[-64px] lg:left-[-80px] xl:left-[-170px] w-[135px] lg:w-[218px] xl:w-[288px] h-auto rotate-[-65deg] lg:rotate-[-5deg] scale-y-[-1] lg:scale-y-[1]"
         />
       </motion.div>
