@@ -16,7 +16,7 @@ interface ContactsProps {
 export default function Contacts({ className }: ContactsProps) {
     return (
         <motion.address
-            variants={listVariants({ delayChildren: 1 })}
+            variants={listVariants({ delayChildren: 0.4 })}
             initial="hidden"
             whileInView="visible"
             exit="exit"
