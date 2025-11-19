@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
       // Відправка повідомлення через Telegram
       await axios({
         method: "post",
-        url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/telegram`,
+        url: `${process.env.NEXT_PUBLIC_SITE_URL}/api/telegram`,
         data: statusMessage,
         headers: {
           "Content-Type": "application/json",
