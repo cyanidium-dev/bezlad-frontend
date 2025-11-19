@@ -22,8 +22,6 @@ function PriceListBlock({ services }: { services: Service[] }) {
 
     const sectionRef = useRef<HTMLDivElement | null>(null);
 
-    const bigServices = [...services, services[0]];
-
     if (isMobileView) {
         return (
             <>
@@ -41,7 +39,7 @@ function PriceListBlock({ services }: { services: Service[] }) {
                 >
                     <AnimatedArrow className="md:hidden text-white absolute w-[195px] h-auto scale-y-[-1] left-1/2 translate-x-[57px] rotate-[-8deg] top-[-73px]" />
                     <Pagination
-                        items={bigServices}
+                        items={services}
                         useItemsPerPage={() => itemsPerPage}
                         scrollTargetRef={sectionRef}
                         renderItems={currentItems => (
@@ -87,7 +85,7 @@ function PriceListBlock({ services }: { services: Service[] }) {
                 >
                     {services &&
                         Array.isArray(services) &&
-                        bigServices.map((service, index) => (
+                        services.map((service, index) => (
                             <SwiperSlide key={index} className="w-fit!">
                                 <PriceListCard {...service} />
                             </SwiperSlide>

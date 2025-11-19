@@ -190,7 +190,7 @@ export const SwiperWrapper = dynamic(
                                 <button
                                     ref={prevRef}
                                     disabled={disablePrev}
-                                    className="enabled:cursor-pointer w-[50px] h-[50px] rounded-full flex items-center justify-center pointer-events-auto transition-filter 
+                                    className="shrink-0 enabled:cursor-pointer w-[50px] h-[50px] rounded-full flex items-center justify-center pointer-events-auto transition-filter 
           duration-300 xl:enabled:hover:brightness-[1.25] bg-white disabled:bg-transparent disabled:border-11 disabled:border-transparent disabled:shadow-[0_0_0_1.5px_#ffffff]"
                                 >
                                     <CircledArrowIcon
@@ -206,7 +206,7 @@ export const SwiperWrapper = dynamic(
                                 <button
                                     ref={nextRef}
                                     disabled={disableNext}
-                                    className="enabled:cursor-pointer w-[50px] h-[50px] rounded-full flex items-center justify-center pointer-events-auto transition-filter 
+                                    className="shrink-0 enabled:cursor-pointer w-[50px] h-[50px] rounded-full flex items-center justify-center pointer-events-auto transition-filter 
           duration-300 xl:enabled:hover:brightness-[1.25] bg-white disabled:bg-transparent disabled:border-11 disabled:border-transparent disabled:shadow-[0_0_0_1.5px_#ffffff]"
                                 >
                                     <CircledArrowIcon
