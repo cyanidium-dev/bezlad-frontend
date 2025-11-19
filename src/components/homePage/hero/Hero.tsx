@@ -18,8 +18,9 @@ export default function Hero() {
         variants={fadeInAnimation({
           x: 120,
           scale: 0.85,
-          delay: 0.8,
-          duration: 1.6,
+          delay: 0.6,
+          duration: 1,
+          opacity: 0.01,
         })}
         className="absolute top-2 right-[calc(50%-264px)] lg:right-[-138px]"
       >
@@ -43,6 +44,7 @@ export default function Hero() {
                 x: -50,
                 y: 50,
                 scale: 0.93,
+                opacity: 0.01,
               })}
               className="max-w-[313px] lg:max-w-[841px] mb-4.5 font-azbuka text-[36px] lg:text-[81px] font-normal leading-[120%] uppercase"
             >
@@ -58,6 +60,7 @@ export default function Hero() {
                 x: -20,
                 scale: 0.95,
                 delay: 0.4,
+                opacity: 0.01,
               })}
               className="mb-64 lg:mb-9.5 font-azbuka text-[16px] lg:text-[32px] font-normal leading-[120%] uppercase"
             >
@@ -73,6 +76,7 @@ export default function Hero() {
                 x: 20,
                 scale: 0.95,
                 delay: 0.4,
+                opacity: 0.01,
               })}
               className="lg:absolute top-[157px] right-[196px] max-w-[230px] lg:max-w-[218px] mb-4 lg:mb-0 text-[14px] font-normal leading-[120%]"
             >
@@ -88,6 +92,7 @@ export default function Hero() {
                 x: -20,
                 scale: 0.95,
                 delay: 0.8,
+                opacity: 0.01,
               })}
             >
               <Link href="/#price-list">
@@ -106,6 +111,7 @@ export default function Hero() {
                 x: -20,
                 scale: 0.95,
                 delay: 0.8,
+                opacity: 0.01,
               })}
               className="hidden lg:block max-w-[168px] text-white text-[14px] font-normal leading-[120%]"
             >
