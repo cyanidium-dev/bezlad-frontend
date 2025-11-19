@@ -5,6 +5,7 @@ import * as motion from "motion/react-client";
 import AdvantagesImages from "./AdvantagesImages";
 import StarIcon from "@/components/shared/icons/StarIcon";
 import AdvantagesList from "./AdvantagesList";
+import { fadeInAnimation } from "@/utils/animationVariants";
 
 export default function Advantages() {
     return (
@@ -24,10 +25,22 @@ export default function Advantages() {
                     <StarIcon className="w-[62px] h-[62px] lg:w-[35px] lg:h-[35px] text-black absolute top-1/2 -translate-y-1/2 right-[-65px] xs:right-[-100px] lg:right-unset lg:left-[-69px] z-20" />
                 </SectionTitle>
                 <AdvantagesList />
-                <p className="text-black text-base font-light leading-[120%] mt-[46px] lg:mt-[62px] max-w-[380px]">
+                <motion.p
+                    initial="hidden"
+                    whileInView="visible"
+                    exit="exit"
+                    viewport={{ once: true, amount: 0.1 }}
+                    variants={fadeInAnimation({
+                        y: 20,
+                        x: -20,
+                        scale: 0.95,
+                        delay: 0.3,
+                    })}
+                    className="text-black text-base font-light leading-[120%] mt-[46px] lg:mt-[62px] max-w-[380px]"
+                >
                     Відеоспостереження, бібліотека, кавʼярня з легкими
                     перекусами - ми подумали про комфорт, безпеку й розвиток
-                </p>
+                </motion.p>
             </Container>
         </motion.section>
     );
