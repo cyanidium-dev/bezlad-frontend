@@ -50,7 +50,12 @@ export default function CallButton() {
       flex flex-col items-center gap-3"
     >
       {/* Синя кнопка (Telegram) - зверху */}
-      <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer nofollow">
+      <a
+        href={TELEGRAM_URL}
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        className={`block transition duration-300 ease-in-out will-change-transform delay-100 ${isOpen ? "opacity-100 scale-100 translate-y-0 translate-x-0 pointer-events-auto" : "opacity-0 scale-70 translate-y-2 -translate-x-5 pointer-events-none"}`}
+      >
         <button
           type="button"
           aria-label="telegram button"
@@ -58,8 +63,8 @@ export default function CallButton() {
             setIsOpen(false);
           }}
           className={`group flex items-center justify-center cursor-pointer size-11 lg:size-14 rounded-full 
-      bg-blue-400 xl:hover:brightness-110 active:scale-95 transition-all duration-300 ease-in-out will-change-transform
-      ${isOpen ? "opacity-100 scale-100 translate-y-0 translate-x-0 pointer-events-auto delay-100" : "opacity-0 scale-70 translate-y-2 -translate-x-5 pointer-events-none delay-100"}`}
+      bg-blue-400 xl:hover:brightness-110 active:scale-95 transition duration-300 ease-in-out will-change-transform
+     `}
         >
           <div className="absolute inset-0 -z-10 rounded-full xl:group-hover:translate-y-1 xl:group-hover:bg-blue-400/60 blur-md transition duration-300 ease-in-out" />
           <TelegramIcon className="size-6 lg:size-8 text-white" />
@@ -71,6 +76,7 @@ export default function CallButton() {
         href={`tel:${PHONE}`}
         target="_blank"
         rel="noopener noreferrer nofollow"
+        className={`block transition duration-300 ease-in-out will-change-transform ${isOpen ? "opacity-100 scale-100 translate-y-0 translate-x-0 pointer-events-auto" : "opacity-0 scale-70 translate-y-2 -translate-x-5 pointer-events-none"}`}
       >
         <button
           type="button"
@@ -79,8 +85,8 @@ export default function CallButton() {
             setIsOpen(false);
           }}
           className={`group flex items-center justify-center cursor-pointer size-11 lg:size-14 rounded-full 
-      bg-purple xl:hover:brightness-110 active:scale-95 transition-all duration-300 ease-in-out will-change-transform
-      ${isOpen ? "opacity-100 scale-100 translate-y-0 translate-x-0 pointer-events-auto" : "opacity-0 scale-70 translate-y-2 -translate-x-5 pointer-events-none"}`}
+      bg-purple xl:hover:brightness-110 active:scale-95 transition duration-300 ease-in-out will-change-transform
+      `}
         >
           <div className="absolute inset-0 -z-10 rounded-full xl:group-hover:translate-y-1 xl:group-hover:bg-purple/60 blur-md transition duration-300 ease-in-out" />
           <PhoneIcon className="size-6 lg:size-8 text-white" />
@@ -93,7 +99,7 @@ export default function CallButton() {
         aria-label="toggle call buttons"
         onClick={toggleMenu}
         className="group relative flex items-center justify-center cursor-pointer size-[52px] lg:size-[68px] rounded-full 
-      bg-black xl:hover:brightness-125 xl:hover:-translate-y-1 active:scale-95 transition-all duration-300 ease-in-out will-change-transform"
+      bg-black xl:hover:brightness-125 xl:hover:-translate-y-1 active:scale-95 transition duration-300 ease-in-out will-change-transform"
       >
         <div className="absolute inset-0 -z-10 rounded-full xl:group-hover:translate-y-1 xl:group-hover:bg-black/50 blur-md transition duration-300 ease-in-out" />
         <PhoneIcon className="size-7 lg:size-9 text-white" />
