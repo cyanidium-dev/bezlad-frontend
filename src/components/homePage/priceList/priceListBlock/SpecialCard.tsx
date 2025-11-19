@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function SpecialCard() {
     return (
-        <div className="relative w-[312px] md:w-[285px] flex flex-col items-center justify-center shrink-0 mx-auto md:mx-0">
+        <div className="relative w-full md:w-[285px] flex flex-col items-center justify-center shrink-0 mx-auto md:mx-0">
             <div className="relative z-2 w-full h-full bg-white rounded-[15px] px-5 pb-5 pt-5.5 overflow-hidden">
                 <h3 className="font-azbuka text-[20px] leading-[120%] uppercase flex flex-col mb-[19px]">
                     {breakWords("Спеціальні пропозиції").map((word, index) => (
@@ -19,7 +19,7 @@ export default function SpecialCard() {
                     />
                     <div className="hidden md:block absolute w-[203px] h-[133px] right-[-65px] top-[80px] bg-white blur-[18.05px]" />
                 </div>
-                <ul className="text-[14px] leading-[120%] flex flex-col gap-2 md:gap-2.5 relative z-3">
+                <ul className="text-[14px] xs:text-[16px] leading-[120%] flex flex-col gap-2 md:gap-2.5 relative z-3">
                     <li className="relative h-[73px] flex items-center bg-yellow rounded-[12px] px-3 lg:px-4">
                         <p className="flex items-center gap-3.5 z-1 tracking-[-0.02em]">
                             <span className="w-3.5 h-3.5 bg-black rounded-full shrink-0" />
@@ -29,7 +29,7 @@ export default function SpecialCard() {
                             src="/images/priceList/starsBg.svg"
                             alt="Stars"
                             fill
-                            className="absolute inset-0"
+                            className="absolute inset-0 object-cover"
                         />
                     </li>
                     <li className="flex items-center gap-3.5 text-white h-[43px] bg-purple-light rounded-[12px] tracking-[-0.02em] px-3 lg:px-4">

@@ -1,30 +1,8 @@
 "use client";
 import { useState, ReactNode, RefObject } from "react";
-
 import clsx from "clsx";
 import CircledArrowIcon from "../icons/CircledArrowIcon";
 
-/**
- * CLIENT-SIDE PAGINATION COMPONENT
- *
- * This component implements client-side pagination, meaning it receives ALL items
- * as a prop and handles pagination logic entirely in the browser.
- *
- * How it works:
- * 1. Receives the complete array of items (all fetched from server)
- * 2. Uses React state to track current page (starts at page 1)
- * 3. Calculates which items to display using Array.slice()
- * 4. Scrolls to target element when page changes
- *
- * IMPORTANT: This is NOT server-side pagination. All items must be loaded
- * into memory before this component can paginate them. For large datasets,
- * consider implementing server-side pagination instead.
- *
- * Note: Page state is NOT persisted in URL. Page resets to 1 on refresh.
- * Pages are not shareable/bookmarkable. For URL-based pagination, use query params.
- *
- * Usage: Currently used only in BlogList component for blog posts.
- */
 interface PaginationProps<T> {
     items: T[];
     renderItems: (items: T[]) => ReactNode;
@@ -40,12 +18,9 @@ export default function Pagination<T>({
     scrollTargetRef,
     className = "",
 }: PaginationProps<T>) {
-    // Use React state to track current page (starts at 1)
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = useItemsPerPage();
-    // Calculate total pages based on all items (client-side calculation)
     const totalPages = Math.ceil(items.length / itemsPerPage);
-    // CLIENT-SIDE SLICING: Extract only the items for current page from the full array
     const currentItems = items.slice(
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage
@@ -56,7 +31,6 @@ export default function Pagination<T>({
 
         setCurrentPage(page);
 
-        // Scroll to target element after state update
         requestAnimationFrame(() => {
             scrollTargetRef?.current?.scrollIntoView({
                 block: "start",
@@ -66,7 +40,7 @@ export default function Pagination<T>({
 
     return (
         <>
-            <div key={currentPage} className={`${className}`}>
+            <div key={currentPage} className={`${className} w-full`}>
                 {renderItems(currentItems)}
             </div>
             {totalPages > 1 && (

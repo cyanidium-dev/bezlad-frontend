@@ -10,15 +10,20 @@ import AnimatedArrow from "@/components/shared/animatedArrow/AnimatedArrow";
 import SpecialCard from "./SpecialCard";
 import dynamic from "next/dynamic";
 import Pagination from "@/components/shared/pagination/Pagination";
-import { useRef } from "react";
-import { useItemsPerPage } from "@/hooks/useItemsPerPage";
+import { useMemo, useRef } from "react";
 
 function PriceListBlock({ services }: { services: Service[] }) {
     const screenWidth = useScreenWidth();
 
     const isMobileView = screenWidth < 768;
 
-    const itemsPerPage = useItemsPerPage();
+    const itemsPerPage = useMemo(() => {
+        if (screenWidth < 640) {
+            return 3;
+        } else {
+            return 6;
+        }
+    }, [screenWidth]);
 
     const sectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -43,7 +48,7 @@ function PriceListBlock({ services }: { services: Service[] }) {
                         useItemsPerPage={() => itemsPerPage}
                         scrollTargetRef={sectionRef}
                         renderItems={currentItems => (
-                            <ul className="flex flex-col flex-wrap items-center gap-5 w-full">
+                            <ul className="flex flex-col flex-wrap sm:grid sm:grid-cols-2 items-center gap-5 w-full">
                                 {currentItems.map((service, index) => (
                                     <motion.li
                                         initial="hidden"
@@ -76,22 +81,32 @@ function PriceListBlock({ services }: { services: Service[] }) {
             className="relative z-2 w-full flex items-start justify-between gap-5"
         >
             <AnimatedArrow className="text-white absolute top-[-144px] left-[45%] w-[295px] h-auto scale-y-[-1] rotate-[-8deg]" />
-            <div className="md:max-w-[285px] lg:max-w-[590px] xl:max-w-[895px] w-full">
-                <SwiperWrapper
-                    slidesPerView="auto"
-                    slidesPerGroup={1}
-                    spaceBetween={20}
-                    navigation={true}
-                >
-                    {services &&
-                        Array.isArray(services) &&
-                        services.map((service, index) => (
-                            <SwiperSlide key={index} className="w-fit!">
-                                <PriceListCard {...service} />
-                            </SwiperSlide>
-                        ))}
-                </SwiperWrapper>
-            </div>
+            <SwiperWrapper
+                breakpoints={{
+                    768: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    1280: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                }}
+                slidesPerView="auto"
+                slidesPerGroup={1}
+                spaceBetween={20}
+                navigation={true}
+            >
+                {services.map((service, index) => (
+                    <SwiperSlide key={index}>
+                        <PriceListCard {...service} />
+                    </SwiperSlide>
+                ))}
+            </SwiperWrapper>
             <SpecialCard />
         </motion.div>
     );
