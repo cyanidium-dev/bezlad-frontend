@@ -6,7 +6,7 @@ import {
     SCHEDULE,
 } from "@/constants/constants";
 import { contactsPhoneRegex } from "@/regex/regex";
-import { fadeInAnimation, listVariants } from "@/utils/animationVarints";
+import { fadeInAnimation, listVariants } from "@/utils/animationVariants";
 import * as motion from "motion/react-client";
 
 interface ContactsProps {

@@ -8,36 +8,36 @@ import Header from "@/components/shared/header/Header";
 import Footer from "@/components/shared/footer/Footer";
 
 const raleway = Raleway({
-  variable: "--font-raleway",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
+    variable: "--font-raleway",
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700"],
+    display: "swap",
 });
 
 const azbuka = localFont({
-  src: [
-    {
-      path: "../../public/fonts/azbuka04.woff2",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-azbuka",
-  display: "swap",
-  preload: true,
-  fallback: ["Arial", "sans-serif"],
+    src: [
+        {
+            path: "../../public/fonts/azbuka04.woff2",
+            weight: "400",
+            style: "normal",
+        },
+    ],
+    variable: "--font-azbuka",
+    display: "swap",
+    preload: true,
+    fallback: ["Arial", "sans-serif"],
 });
 
 export const metadata: Metadata = {
-  title: "Безлад: безпечний простір природної гри з інтерактивними зонами",
-  description:
-    "Безлад — територія природної гри з інтерактивними зонами, індивідуальним супроводом нянь, відеоспостереженням та затишною кавʼярнею. Все для комфорту, розвитку й безпеки дітей.",
+    title: "Безлад: безпечний простір природної гри з інтерактивними зонами",
+    description:
+        "Безлад — територія природної гри з інтерактивними зонами, індивідуальним супроводом нянь, відеоспостереженням та затишною кавʼярнею. Все для комфорту, розвитку й безпеки дітей.",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
   return (
     <html lang="uk" className="scroll-smooth">
