@@ -31,7 +31,7 @@ export default function PriceListCard({
 
             <div className="absolute z-10 inset-0 shadow-[inset_0px_4px_12.6px_rgba(255,255,255,0.25)] pointer-events-none" />
             <div className="relative z-10 overflow-hidden w-full h-full py-6 px-5 rounded-[15px] md:flex md:flex-col md:justify-between">
-                <div className="w-50 h-50 absolute top-[-52px] right-[-13px] sm:right-[-40px] rounded-full overflow-hidden">
+                <div className="w-50 h-50 xsm:w-40 xsm:h-40 sm:w-50 sm:h-50 absolute top-[-52px] right-[-13px] xsm:right-[-50px] sm:right-[-40px] rounded-full overflow-hidden">
                     <Image
                         src={imageUrl}
                         alt={title}

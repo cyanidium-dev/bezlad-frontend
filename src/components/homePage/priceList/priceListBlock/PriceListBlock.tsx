@@ -15,10 +15,10 @@ import { useMemo, useRef } from "react";
 function PriceListBlock({ services }: { services: Service[] }) {
     const screenWidth = useScreenWidth();
 
-    const isMobileView = screenWidth < 768;
+    const isMobileView = screenWidth < 640;
 
     const itemsPerPage = useMemo(() => {
-        if (screenWidth < 640) {
+        if (screenWidth < 520) {
             return 3;
         } else {
             return 6;
@@ -48,7 +48,7 @@ function PriceListBlock({ services }: { services: Service[] }) {
                         useItemsPerPage={() => itemsPerPage}
                         scrollTargetRef={sectionRef}
                         renderItems={currentItems => (
-                            <ul className="flex flex-col flex-wrap sm:grid sm:grid-cols-2 items-center gap-5 w-full">
+                            <ul className="flex flex-col flex-wrap xsm:grid xsm:grid-cols-2 items-center gap-5 w-full">
                                 {currentItems.map((service, index) => (
                                     <motion.li
                                         initial="hidden"
@@ -83,7 +83,7 @@ function PriceListBlock({ services }: { services: Service[] }) {
             <AnimatedArrow className="text-white absolute top-[-144px] left-[45%] w-[295px] h-auto scale-y-[-1] rotate-[-8deg]" />
             <SwiperWrapper
                 breakpoints={{
-                    768: {
+                    640: {
                         slidesPerView: 1,
                         spaceBetween: 20,
                     },

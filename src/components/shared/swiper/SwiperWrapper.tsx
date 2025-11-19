@@ -191,7 +191,7 @@ export const SwiperWrapper = dynamic(
                                     ref={prevRef}
                                     disabled={disablePrev}
                                     className="shrink-0 enabled:cursor-pointer w-[50px] h-[50px] rounded-full flex items-center justify-center pointer-events-auto transition-filter 
-          duration-300 xl:enabled:hover:brightness-[1.25] bg-white disabled:bg-transparent disabled:border-11 disabled:border-transparent disabled:shadow-[0_0_0_1.5px_#ffffff]"
+          duration-300 xl:enabled:hover:brightness-[1.25] bg-white disabled:bg-purple/40 disabled:border-11 disabled:border-purple/40 disabled:shadow-[0_0_0_1.5px_#ffffff]"
                                 >
                                     <CircledArrowIcon
                                         className={clsx(
@@ -207,7 +207,7 @@ export const SwiperWrapper = dynamic(
                                     ref={nextRef}
                                     disabled={disableNext}
                                     className="shrink-0 enabled:cursor-pointer w-[50px] h-[50px] rounded-full flex items-center justify-center pointer-events-auto transition-filter 
-          duration-300 xl:enabled:hover:brightness-[1.25] bg-white disabled:bg-transparent disabled:border-11 disabled:border-transparent disabled:shadow-[0_0_0_1.5px_#ffffff]"
+          duration-300 xl:enabled:hover:brightness-[1.25] bg-white disabled:bg-purple/40 disabled:border-11 disabled:border-purple/40 disabled:shadow-[0_0_0_1.5px_#ffffff]"
                                 >
                                     <CircledArrowIcon
                                         className={clsx(
