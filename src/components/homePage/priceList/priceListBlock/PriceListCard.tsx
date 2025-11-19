@@ -37,7 +37,7 @@ export default function PriceListCard({
 
       <div className="absolute z-10 inset-0 shadow-[inset_0px_4px_12.6px_rgba(255,255,255,0.25)] pointer-events-none" />
       <div className="relative z-10 overflow-hidden w-full h-full py-6 px-5 rounded-[15px] md:flex md:flex-col md:justify-between">
-        <div className="w-50 h-50 absolute top-[-52px] right-[-13px] rounded-full overflow-hidden">
+        <div className="w-50 h-50 absolute top-[-52px] right-[-13px] lg:right-[-42px] rounded-full overflow-hidden">
           <Image
             src={imageUrl}
             alt={title}
@@ -51,7 +51,7 @@ export default function PriceListCard({
             <span key={index}>{word}</span>
           ))}
         </h3>
-        <p className="font-bold text-[48px] leading-[120%] uppercase text-white mb-7 flex items-baseline gap-2">
+        <p className="font-bold font-montserrat text-[48px] leading-[120%] uppercase text-white mb-7 flex items-baseline gap-2">
           {price}
           <span className="text-[14px] font-azbuka leading-[120%]">грн</span>
         </p>
