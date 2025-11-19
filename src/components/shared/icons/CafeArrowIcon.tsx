@@ -1,8 +1,12 @@
 interface CafeArrowIconProps {
     className?: string;
+    preserveAspectRatio?: "none" | "xMidYMid meet" | "xMidYMid slice";
 }
 
-export default function CafeArrowIcon({ className }: CafeArrowIconProps) {
+export default function CafeArrowIcon({
+    className,
+    preserveAspectRatio = "xMidYMid meet",
+}: CafeArrowIconProps) {
     return (
         <svg
             width="41"
@@ -12,6 +16,7 @@ export default function CafeArrowIcon({ className }: CafeArrowIconProps) {
             xmlns="http://www.w3.org/2000/svg"
             className={className}
             aria-label="cafe arrow icon"
+            preserveAspectRatio={preserveAspectRatio}
         >
             <path
                 d="M1.00007 48.1884C2.40156 42.859 7.78119 28.7882 17.3456 19.8746C20.8842 17.2217 25.58 14.0628 28.6135 12.179C31.6469 10.2952 32.8756 9.78218 36.3954 8.70319"
@@ -34,4 +39,3 @@ export default function CafeArrowIcon({ className }: CafeArrowIconProps) {
         </svg>
     );
 }
-

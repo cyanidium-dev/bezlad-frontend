@@ -19,7 +19,7 @@ export default function Advantages() {
         >
             <AdvantagesImages />
             <Container className="relative">
-                <SectionTitle className="relative mb-[82px] lg:mb-[42px] max-w-[300px] lg:max-w-[450px] lg:ml-auto text-[32px] leading-[150%] lg:text-[48px] lg:leading-[150%]">
+                <SectionTitle className="relative mb-[82px] lg:mb-[60px] xl:mb-[42px] max-w-[300px] lg:max-w-[450px] lg:ml-auto text-[32px] leading-[150%] lg:text-[48px] lg:leading-[150%]">
                     Ми подбали і про дітей, і про батьків
                     <StarIcon className="w-[62px] h-[62px] lg:w-[35px] lg:h-[35px] text-black absolute top-1/2 -translate-y-1/2 right-[-65px] xs:right-[-100px] lg:right-unset lg:left-[-69px] z-20" />
                 </SectionTitle>

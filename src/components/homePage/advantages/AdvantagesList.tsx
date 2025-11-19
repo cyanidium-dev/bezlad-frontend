@@ -7,7 +7,7 @@ export default function AdvantagesList() {
     return (
         <ul className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:flex lg:gap-0">
             <li className="relative w-[243px] sm:w-full h-[124px] md:h-[154px] lg:h-[124px] xl:h-[154px] justify-self-start">
-                <h3 className="text-base lg:text-[32px] leading-[120%] uppercase font-azbuka absolute right-[-77px] top-[6px] rotate-[13.5deg] lg:rotate-0 lg:right-unset lg:left-[65px] lg:top-[-110px]">
+                <h3 className="text-base sm:text-[20px] lg:text-[32px] leading-[120%] uppercase font-azbuka absolute right-[-77px] top-[6px] rotate-[13.5deg] sm:rotate-0 sm:right-auto sm:top-[-65px] sm:left-[65px] md:left-[120px] lg:left-[40px] lg:top-[-80px] xl:top-[-110px]">
                     Бібліотека
                 </h3>
                 <div className="relative w-full h-full rounded-full overflow-hidden">
@@ -18,10 +18,10 @@ export default function AdvantagesList() {
                         className="object-cover absolute inset-0"
                     />
                 </div>
-                <LibraryArrowIcon className="absolute right-[-43px] top-[30px] lg:scale-[-1] lg:rotate-110 lg:top-[-65px] lg:right-[105px]" />
+                <LibraryArrowIcon className="absolute right-[-43px] top-[30px] sm:scale-[-1] sm:rotate-110 sm:top-[-40px] lg:top-[-40px] xl:top-[-65px] sm:right-[105px]" />
             </li>
             <li className="relative w-[243px] sm:w-full h-[124px] md:h-[154px] lg:h-[124px] xl:h-[154px] justify-self-end">
-                <h3 className="text-[14px] lg:text-[32px] leading-[120%] uppercase font-azbuka absolute left-[-107px] top-[56px] z-3 rotate-[-54deg] lg:rotate-0 lg:left-auto lg:top-auto lg:right-[-173px] lg:bottom-[-105px]">
+                <h3 className="text-[14px] sm:text-[20px] lg:text-[32px] leading-[120%] uppercase font-azbuka absolute left-[-107px] top-[56px] z-3 rotate-[-54deg] sm:rotate-0 sm:top-[-80px] sm:left-[100px] lg:left-auto lg:top-auto lg:bottom-[-90px] lg:right-[-300px] xl:right-[-173px] xl:bottom-[-105px]">
                     Відеоспостереження
                 </h3>
                 <div className="relative w-full h-full rounded-full overflow-hidden z-2">
@@ -32,11 +32,11 @@ export default function AdvantagesList() {
                         className="object-cover absolute inset-0"
                     />
                 </div>
-                <div className="lg:hidden absolute z-1 w-[166px] h-[164px] left-[-112px] top-[-12px] bg-gray-light blur-[48.85px]" />
-                <SurveillanceArrowIcon className="absolute left-[-32px] bottom-[-17px] lg:bottom-[-66px] lg:left-[196px] z-2 lg:rotate-175" />
+                <div className="sm:hidden absolute z-1 w-[166px] h-[164px] left-[-112px] top-[-12px] bg-gray-light blur-[48.85px]" />
+                <SurveillanceArrowIcon className="absolute left-[-32px] bottom-[-17px] sm:bottom-auto sm:top-[-60px] sm:left-[100px] lg:top-auto lg:bottom-[-66px] lg:left-[196px] z-2 sm:rotate-80 lg:rotate-175" />
             </li>
             <li className="relative w-[243px] sm:w-full h-[124px] md:h-[154px] lg:h-[124px] xl:h-[154px] justify-self-start">
-                <h3 className="text-base lg:text-[24px] leading-[120%] uppercase font-azbuka absolute right-[-66px] top-[48px] rotate-[36.5deg] lg:rotate-0 lg:right-auto lg:left-[-41px] lg:top-[-70px]">
+                <h3 className="text-base sm:text-[24px] leading-[120%] uppercase font-azbuka absolute right-[-66px] top-[48px] rotate-[36.5deg] sm:rotate-0 sm:top-auto sm:bottom-[-38px] sm:right-[-145px] lg:rotate-0 lg:right-auto lg:left-[-41px] lg:top-[-60px] xl:top-[-70px]">
                     Кав’ярня
                 </h3>
                 <div className="relative w-full h-full rounded-full overflow-hidden">
@@ -47,9 +47,12 @@ export default function AdvantagesList() {
                         className="object-cover absolute inset-0"
                     />
                 </div>
-                <CafeArrowIcon className="absolute right-[-20px] bottom-[8px] lg:scale-[-1] lg:top-[-38px] lg:right-auto lg:left-[22px] lg:rotate-82" />
+                <CafeArrowIcon
+                    preserveAspectRatio="none"
+                    className="absolute sm:w-[60px] lg:w-auto right-[-20px] bottom-[8px] sm:scale-x-[-1] sm:rotate-180 sm:bottom-[-30px] sm:right-[-40px] lg:scale-[-1] lg:top-[-38px] lg:right-auto lg:left-[22px] lg:rotate-82"
+                />
             </li>
-            <li className="relative w-full max-w-[300px] h-[113px] md:h-[154px] lg:h-[124px] xl:h-[154px] justify-self-end rounded-full bg-yellow flex items-center lg:justify-center px-[86px]">
+            <li className="relative w-full max-w-[300px] md:max-w-[354px] lg:max-w-[236px] h-[113px] md:h-[154px] lg:h-[124px] xl:h-[154px] justify-self-end rounded-full bg-yellow flex items-center lg:justify-center px-[86px]">
                 <h3 className="text-[32px] lg:text-[40px] leading-[120%] uppercase font-azbuka">
                     Баланс
                 </h3>
