@@ -1,5 +1,7 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import * as motion from "motion/react-client";
+import { headerVariants } from "@/utils/animationVariants";
 import PhoneIcon from "../icons/PhoneIcon";
 import TelegramIcon from "../icons/TelegramIcon";
 import { PHONE, TELEGRAM_URL } from "@/constants/constants";
@@ -33,7 +35,12 @@ export default function CallButton() {
   };
 
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      exit="exit"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={headerVariants}
       ref={containerRef}
       className="fixed z-100 bottom-34 lg:bottom-14 right-6
       sm:right-[calc(max(0px,(100vw-640px)/2)+1.5rem)]
@@ -91,6 +98,6 @@ export default function CallButton() {
         <div className="absolute inset-0 -z-10 rounded-full xl:group-hover:translate-y-1 xl:group-hover:bg-black/50 blur-md transition duration-300 ease-in-out" />
         <PhoneIcon className="size-7 lg:size-9 text-white" />
       </button>
-    </div>
+    </motion.div>
   );
 }
