@@ -52,6 +52,14 @@ export default function RootLayout({
     return (
         <html lang="uk" className="scroll-smooth">
             <head>
+                <link
+                    rel="preload"
+                    href="/fonts/azbuka04.woff2"
+                    as="font"
+                    type="font/woff2"
+                    crossOrigin="anonymous"
+                    fetchPriority="high"
+                />
                 <link rel="preconnect" href="https://cdn.sanity.io" />
                 <link
                     rel="preload"
