@@ -37,7 +37,7 @@ export default function PriceListCard({
 
             <div className="absolute z-10 inset-0 shadow-[inset_0px_4px_12.6px_rgba(255,255,255,0.25)] pointer-events-none" />
             <div className="relative z-10 overflow-hidden w-full h-full py-6 px-5 rounded-[15px] md:flex md:flex-col md:justify-between">
-                <div className="w-50 h-50 absolute top-[-52px] right-[-13px] rounded-full overflow-hidden">
+                <div className="w-50 h-50 absolute top-[-52px] right-[-13px] lg:right-[-43px] rounded-full overflow-hidden">
                     <Image
                         src={imageUrl}
                         alt={title}
@@ -45,6 +45,8 @@ export default function PriceListCard({
                         height={200}
                         className="w-full h-full object-cover"
                         loading="lazy"
+                        sizes="200px"
+                        quality={75}
                     />
                 </div>
                 <h3 className="font-azbuka text-[24px] leading-[120%] uppercase text-white flex flex-col mb-7">

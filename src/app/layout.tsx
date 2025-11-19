@@ -5,7 +5,12 @@ import { Montserrat, Raleway } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/shared/header/Header";
-import Footer from "@/components/shared/footer/Footer";
+import dynamic from "next/dynamic";
+
+// Lazy load Footer since it's below the fold
+const Footer = dynamic(() => import("@/components/shared/footer/Footer"), {
+    ssr: true, // Keep SSR for SEO
+});
 
 const raleway = Raleway({
     variable: "--font-raleway",
@@ -38,6 +43,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+    metadataBase: new URL(
+        process.env.NEXT_PUBLIC_SITE_URL || "https://bezlad.com.ua"
+    ),
     title: "Безлад: безпечний простір природної гри з інтерактивними зонами",
     description:
         "Безлад — територія природної гри з інтерактивними зонами, індивідуальним супроводом нянь, відеоспостереженням та затишною кавʼярнею. Все для комфорту, розвитку й безпеки дітей.",
@@ -50,6 +58,15 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="uk" className="scroll-smooth">
+            <head>
+                {/* Preconnect to Sanity CDN for faster image loading */}
+                <link
+                    rel="preconnect"
+                    href="https://cdn.sanity.io"
+                    crossOrigin="anonymous"
+                />
+                <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+            </head>
             <body
                 className={`${raleway.variable} ${azbuka.variable} ${montserrat.variable} flex min-h-screen flex-col text-[16px] font-normal leading-[120%] antialiased`}
             >

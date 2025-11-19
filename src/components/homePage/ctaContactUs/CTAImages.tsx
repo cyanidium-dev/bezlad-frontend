@@ -15,6 +15,8 @@ export default function CTAImages() {
                     alt="noise"
                     className="object-cover"
                     loading="lazy"
+                    sizes="100vw"
+                    quality={60}
                 />
             </div>
             <div className="absolute left-0 md:left-auto md:right-0 bottom-0 w-full h-[279px] md:h-full md:w-[45%] lg:w-[35%] xl:w-[604px] rounded-2xl">
@@ -24,6 +26,8 @@ export default function CTAImages() {
                     alt="boy"
                     className="relative z-5 object-cover rounded-2xl"
                     loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 45vw, (max-width: 1280px) 35vw, 604px"
+                    quality={80}
                 />
                 <motion.div
                     initial="hidden"

@@ -10,6 +10,8 @@ export default function CTAOrderImages() {
                     fill
                     className="object-cover"
                     loading="lazy"
+                    sizes="100vw"
+                    quality={60}
                 />
             </div>
             <div className="absolute inset-0 lg:w-[649px] lg:h-[649px] left-0 lg:left-[calc(50%-712px)] xl:left-[calc(50%-762px)] top-0 lg:top-[-22px] pointer-events-none h-full w-full">
@@ -19,6 +21,8 @@ export default function CTAOrderImages() {
                     fill
                     className="object-cover"
                     loading="lazy"
+                    sizes="(max-width: 1024px) 100vw, 649px"
+                    quality={70}
                 />
             </div>
 
@@ -39,6 +43,8 @@ export default function CTAOrderImages() {
                     height={429}
                     className="w-[607px] lg:w-[931px] h-auto object-cover"
                     loading="lazy"
+                    sizes="(max-width: 1024px) 607px, 931px"
+                    quality={75}
                 />
             </div>
             <div className="absolute z-14 lg:z-5 left-[calc(50%-273px)] lg:left-auto lg:right-[calc(50%-686px)] bottom-[-18px] lg:bottom-[-34px] pointer-events-none w-[283px] lg:w-[394px] h-auto aspect-394/480">

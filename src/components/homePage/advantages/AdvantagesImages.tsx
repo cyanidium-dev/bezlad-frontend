@@ -12,6 +12,8 @@ export default function AdvantagesImages() {
                     alt="noise"
                     className="object-cover opacity-40"
                     loading="lazy"
+                    sizes="100vw"
+                    quality={60}
                 />
             </div>
             <motion.div
@@ -28,6 +30,8 @@ export default function AdvantagesImages() {
                     alt="flowersGray"
                     className="object-cover"
                     loading="lazy"
+                    sizes="(max-width: 1024px) 465px, 750px"
+                    quality={75}
                 />
             </motion.div>
             <motion.div
@@ -44,6 +48,8 @@ export default function AdvantagesImages() {
                     alt="flowersMob"
                     className="object-cover"
                     loading="lazy"
+                    sizes="342px"
+                    quality={75}
                 />
             </motion.div>
             <motion.div

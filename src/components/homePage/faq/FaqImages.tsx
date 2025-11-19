@@ -20,6 +20,8 @@ export default function FaqImages() {
                     height="712"
                     className="w-[619px] lg:w-[907px] h-auto"
                     loading="lazy"
+                    sizes="(max-width: 1024px) 619px, 907px"
+                    quality={70}
                 />
             </motion.div>
 

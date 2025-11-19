@@ -106,6 +106,8 @@ export const GlassCard = React.memo(
                             "object-cover absolute",
                             variant.imageClassName
                         )}
+                        sizes="(max-width: 768px) 224px, (max-width: 1024px) 272px, 272px"
+                        quality={75}
                     />
                 </div>
             </div>
@@ -140,6 +142,8 @@ export const PurpleBlobCard = React.memo(
                         fill
                         loading="lazy"
                         className="object-cover"
+                        sizes="(max-width: 768px) 207px, (max-width: 1024px) 280px, 404px"
+                        quality={75}
                     />
                 </div>
                 <div className="w-[153.74px] h-[60.2px] md:hidden lg:block xl:block lg:w-[220px] xl:w-[309px] z-1 lg:h-[85px] xl:h-[121px] text-purple absolute top-[70px] left-[5px] lg:top-[280px] xl:top-[322px] lg:left-[-12px] pointer-events-none">
@@ -151,6 +155,8 @@ export const PurpleBlobCard = React.memo(
                     fill
                     className="absolute inset-0 pointer-events-none lg:hidden"
                     loading="lazy"
+                    sizes="(max-width: 1024px) 350px, 0px"
+                    quality={60}
                 />
                 <Image
                     src="/images/interactiveZone/blobsVertical.svg"
@@ -158,6 +164,8 @@ export const PurpleBlobCard = React.memo(
                     fill
                     className="absolute inset-0 pointer-events-none lg:block hidden"
                     loading="lazy"
+                    sizes="(min-width: 1024px) 235px, 0px"
+                    quality={60}
                 />
             </div>
         );
@@ -238,6 +246,8 @@ export const PurpleNoiseCard = React.memo(
                         fill
                         loading="lazy"
                         className="object-cover"
+                        sizes="(max-width: 640px) 219px, (max-width: 1024px) 323px, 323px"
+                        quality={75}
                     />
                 </div>
                 <Image
@@ -246,6 +256,8 @@ export const PurpleNoiseCard = React.memo(
                     fill
                     className="absolute inset-0  pointer-events-none object-cover"
                     loading="lazy"
+                    sizes="(max-width: 640px) 350px, (max-width: 1024px) 330px, 386px"
+                    quality={60}
                 />
             </div>
         );
@@ -324,6 +336,10 @@ export const GrayCard = React.memo(
                                 : "object-contain w-[243px] h-[232px] md:w-[323px] md:h-[308.6px] lg:w-[230px] lg:h-auto",
                             "absolute"
                         )}
+                        sizes={pictureSize === "small" 
+                            ? "(max-width: 768px) 158px, (max-width: 1024px) 180px, 349px"
+                            : "(max-width: 768px) 243px, (max-width: 1024px) 230px, 230px"}
+                        quality={75}
                     />
                 </div>
             </div>
@@ -396,6 +412,8 @@ export const BlackCard = React.memo(
                     height={variant.imageSize.height}
                     loading="lazy"
                     className={clsx("object-cover", variant.imageClassName)}
+                    sizes="(max-width: 768px) 190px, (max-width: 1024px) 180px, 323px"
+                    quality={75}
                 />
                 <div className={clsx("absolute", variant.arrowClassName)}>
                     <DashedArrow className="w-28 xl:w-50 h-auto text-gray-dark" />
@@ -434,6 +452,8 @@ export const NoodleCard = React.memo(
                         fill
                         loading="lazy"
                         className="object-cover"
+                        sizes="(max-width: 768px) 202px, (max-width: 1024px) 280px, 404px"
+                        quality={75}
                     />
                 </div>
                 <Noodle2
@@ -510,6 +530,8 @@ export const YellowBlobCard = React.memo(
                         fill
                         loading="lazy"
                         className="object-cover"
+                        sizes="(max-width: 640px) 158px, (max-width: 1024px) 180px, 349px"
+                        quality={75}
                     />
                 </div>
                 <div className="w-[255px] h-[100px] md:hidden lg:block xl:block lg:w-[180px] xl:w-[255px] z-1 lg:h-[60px] xl:h-[100px] text-purple absolute top-[43px] left-[-72px] lg:top-[113px] lg:left-[-40px] xl:left-[-51px] pointer-events-none">
@@ -526,6 +548,8 @@ export const YellowBlobCard = React.memo(
                     fill
                     className="absolute inset-0 pointer-events-none "
                     loading="lazy"
+                    sizes="(max-width: 640px) 350px, (max-width: 1024px) 215px, 234px"
+                    quality={60}
                 />
             </div>
         );

@@ -40,6 +40,8 @@ export default function AdvantagesList() {
                         alt="library"
                         fill
                         className="object-cover absolute inset-0"
+                        sizes="(max-width: 640px) 243px, 100vw"
+                        quality={75}
                     />
                 </motion.div>
                 <motion.div
@@ -92,6 +94,8 @@ export default function AdvantagesList() {
                         alt="surveillance"
                         fill
                         className="object-cover absolute inset-0"
+                        sizes="(max-width: 640px) 243px, 100vw"
+                        quality={75}
                     />
                 </motion.div>
                 <div className="sm:hidden absolute w-[166px] h-[164px] left-[-112px] top-[-12px] bg-gray-light blur-[48.85px]" />
@@ -145,6 +149,8 @@ export default function AdvantagesList() {
                         alt="cafe"
                         fill
                         className="object-cover absolute inset-0"
+                        sizes="(max-width: 640px) 243px, 100vw"
+                        quality={75}
                     />
                 </motion.div>
                 <motion.div
