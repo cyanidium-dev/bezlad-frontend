@@ -25,7 +25,6 @@
 
   --font-raleway: var(--font-raleway), sans-serif;
   --font-azbuka: var(--font-azbuka), sans-serif;
-    --breakpoint-xsm: 32.5rem;
 }
 
 @layer base {
