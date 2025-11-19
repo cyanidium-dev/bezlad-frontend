@@ -22,7 +22,7 @@ export default function HeroImages() {
           alt="dashed line"
           width="533"
           height="303"
-          fetchPriority="high"
+          priority
           className="absolute top-[247px] lg:top-[323px] right-[125px] lg:right-[73px] rotate-[-5deg] w-[333px] lg:w-[533px] h-auto"
         />
       </motion.div>
