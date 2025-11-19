@@ -50,6 +50,7 @@ export default function NotificationPopUp({
             height="388"
             className="w-[183px] lg:w-[258px] h-auto"
             alt="bucket"
+            loading="lazy"
           />
         </div>
       </div>

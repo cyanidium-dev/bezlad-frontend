@@ -11,6 +11,7 @@ export default function AdvantagesImages() {
                     fill
                     alt="noise"
                     className="object-cover opacity-40"
+                    loading="lazy"
                 />
             </div>
             <motion.div
@@ -26,6 +27,7 @@ export default function AdvantagesImages() {
                     fill
                     alt="flowersGray"
                     className="object-cover"
+                    loading="lazy"
                 />
             </motion.div>
             <motion.div
@@ -41,6 +43,7 @@ export default function AdvantagesImages() {
                     fill
                     alt="flowersMob"
                     className="object-cover"
+                    loading="lazy"
                 />
             </motion.div>
             <motion.div
@@ -56,6 +59,7 @@ export default function AdvantagesImages() {
                     fill
                     alt="flowersDesk"
                     className="object-cover"
+                    loading="lazy"
                 />
             </motion.div>
         </div>

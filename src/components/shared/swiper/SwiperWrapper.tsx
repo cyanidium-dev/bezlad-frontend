@@ -1,8 +1,5 @@
 "use client";
 import { SwiperClass } from "swiper/react";
-import "swiper/css";
-import "swiper/css/grid";
-import "swiper/css/pagination";
 import clsx from "clsx";
 import { Children, useEffect, useCallback, useState, useRef } from "react";
 import { NavigationOptions, SwiperOptions } from "swiper/types";
@@ -24,7 +21,10 @@ interface SwiperWrapperProps {
 
 export const SwiperWrapper = dynamic(
     async () => {
-        const [{ Swiper }] = await Promise.all([import("swiper/react")]);
+        // Import CSS wrapper first - this loads CSS asynchronously when chunk loads
+        await import("./swiper-styles");
+
+        const { Swiper } = await import("swiper/react");
 
         const Component = ({
             children,

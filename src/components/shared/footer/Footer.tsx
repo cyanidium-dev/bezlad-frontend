@@ -79,6 +79,7 @@ export default function Footer() {
             width={267}
             height={153.46}
             className="block lg:hidden "
+            loading="lazy"
           />
         </motion.div>
         <motion.div
@@ -95,6 +96,7 @@ export default function Footer() {
             width={328.5}
             height={218.2}
             className="hidden lg:block"
+            loading="lazy"
           />
         </motion.div>
         <motion.div

@@ -150,12 +150,14 @@ export const PurpleBlobCard = React.memo(
                     alt="blobs horizontal"
                     fill
                     className="absolute inset-0 pointer-events-none lg:hidden"
+                    loading="lazy"
                 />
                 <Image
                     src="/images/interactiveZone/blobsVertical.svg"
                     alt="blobs vertical"
                     fill
                     className="absolute inset-0 pointer-events-none lg:block hidden"
+                    loading="lazy"
                 />
             </div>
         );
@@ -243,6 +245,7 @@ export const PurpleNoiseCard = React.memo(
                     alt="noise"
                     fill
                     className="absolute inset-0  pointer-events-none object-cover"
+                    loading="lazy"
                 />
             </div>
         );
@@ -470,6 +473,7 @@ export const PlaceholderCard = React.memo(
                     width={104}
                     height={164}
                     className="w-[104px] h-[164px] md:h-[204px] md:w-auto object-contain z-10 absolute top-[-31px] left-1/2 -translate-x-1/2"
+                    loading="lazy"
                 />
             </div>
         );
@@ -521,6 +525,7 @@ export const YellowBlobCard = React.memo(
                     alt="yellow blob"
                     fill
                     className="absolute inset-0 pointer-events-none "
+                    loading="lazy"
                 />
             </div>
         );

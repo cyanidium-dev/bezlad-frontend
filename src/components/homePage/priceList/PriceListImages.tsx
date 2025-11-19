@@ -12,6 +12,7 @@ export default function PriceListImages() {
                         fill
                         alt="noise"
                         className="object-cover opacity-20"
+                        loading="lazy"
                     />
                 </div>
                 <motion.div
@@ -28,6 +29,7 @@ export default function PriceListImages() {
                         width={321}
                         height={389.61}
                         className="md:h-[514px] md:w-[424px]"
+                        loading="lazy"
                     />
                 </motion.div>
             </div>

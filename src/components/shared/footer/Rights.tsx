@@ -19,6 +19,7 @@ export default function Rights() {
                     width={63.6}
                     height={21.2}
                     className="w-[63.6px] lg:w-[75.21px] h-[21.2px] lg:h-[25px]"
+                    loading="lazy"
                 />
             </a>
             <a
@@ -33,6 +34,7 @@ export default function Rights() {
                     width={78.82}
                     height={15}
                     className="w-[78.82px] lg:w-[93.2px] h-[15px] lg:h-[17.8px]"
+                    loading="lazy"
                 />
             </a>
         </div>
