@@ -39,7 +39,7 @@ export default function Advantages() {
                     className="text-black text-base font-light leading-[120%] mt-[46px] lg:mt-[62px] max-w-[380px]"
                 >
                     Відеоспостереження, бібліотека, кавʼярня з легкими
-                    перекусами - ми подумали про комфорт, безпеку й розвиток
+                    перекусами - ми подумали про комфорт, безпеку й розвиток.
                 </motion.p>
             </Container>
         </motion.section>

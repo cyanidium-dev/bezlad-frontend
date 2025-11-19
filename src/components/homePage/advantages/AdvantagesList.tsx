@@ -168,7 +168,7 @@ export default function AdvantagesList() {
                 exit="exit"
                 viewport={{ once: true, amount: 0.1 }}
                 variants={listItemVariants}
-                className="relative w-full max-w-[300px] md:max-w-[354px] lg:max-w-[236px] h-[113px] md:h-[154px] lg:h-[124px] xl:h-[154px] justify-self-end rounded-full bg-yellow flex items-center lg:justify-center px-[86px]"
+                className="relative w-full lg:max-w-[300px] md:max-w-[354px] lg:max-w-[236px] h-[113px] md:h-[154px] lg:h-[124px] xl:h-[154px] justify-self-end rounded-full bg-yellow flex items-center lg:justify-center px-[86px]"
             >
                 <h3 className="text-[32px] lg:text-[40px] leading-[120%] uppercase font-azbuka">
                     Баланс
