@@ -8,11 +8,13 @@ import OrderForm from "../forms/OrderForm";
 interface OrderModalProps {
   isModalShown: boolean;
   setIsModalShown: Dispatch<SetStateAction<boolean>>;
+  paymentUrl?: string;
 }
 
 export default function OrderModal({
   isModalShown,
   setIsModalShown,
+  paymentUrl,
 }: OrderModalProps) {
   const [isNotificationShown, setIsNotificationShown] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -39,6 +41,7 @@ export default function OrderModal({
             setIsError={setIsError}
             setIsNotificationShown={setIsNotificationShown}
             setIsModalShown={setIsModalShown}
+            paymentUrl={paymentUrl}
           />
         </div>
       </Modal>
