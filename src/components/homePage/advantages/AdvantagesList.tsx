@@ -3,11 +3,7 @@ import LibraryArrowIcon from "@/components/shared/icons/LibraryArrowIcon";
 import SurveillanceArrowIcon from "@/components/shared/icons/SurveillanceArrowIcon";
 import CafeArrowIcon from "@/components/shared/icons/CafeArrowIcon";
 import * as motion from "motion/react-client";
-import {
-    fadeInAnimation,
-    listItemVariants,
-    listVariants,
-} from "@/utils/animationVariants";
+import { fadeInAnimation } from "@/utils/animationVariants";
 
 export default function AdvantagesList() {
     return (
@@ -72,9 +68,9 @@ export default function AdvantagesList() {
                         x: 30,
                         y: -30,
                         scale: 0.9,
-                        delay: 1.3,
+                        delay: 1.5,
                     })}
-                    className="text-[14px] sm:text-[20px] lg:text-[32px] leading-[120%] uppercase font-azbuka absolute left-[-107px] top-[56px] z-3 rotate-[-54deg] sm:rotate-0 sm:top-[-80px] sm:left-[100px] lg:left-auto lg:top-auto lg:bottom-[-90px] lg:right-[-300px] xl:right-[-173px] xl:bottom-[-105px]"
+                    className="z-3 text-[14px] sm:text-[20px] lg:text-[32px] leading-[120%] uppercase font-azbuka absolute left-[-107px] top-[56px] rotate-[-54deg] sm:rotate-0 sm:top-[-80px] sm:left-[100px] lg:left-auto lg:top-auto lg:bottom-[-90px] lg:right-[-300px] xl:right-[-173px] xl:bottom-[-105px]"
                 >
                     Відеоспостереження
                 </motion.h3>
@@ -98,19 +94,21 @@ export default function AdvantagesList() {
                         className="object-cover absolute inset-0"
                     />
                 </motion.div>
-                <div className="sm:hidden absolute z-1 w-[166px] h-[164px] left-[-112px] top-[-12px] bg-gray-light blur-[48.85px]" />
+                <div className="sm:hidden absolute w-[166px] h-[164px] left-[-112px] top-[-12px] bg-gray-light blur-[48.85px]" />
                 <motion.div
+                    initial="hidden"
                     whileInView="visible"
                     exit="exit"
                     viewport={{ once: true, amount: 0.1 }}
                     variants={fadeInAnimation({
                         y: -30,
+                        x: 30,
                         scale: 0.9,
-                        delay: 1.1,
+                        delay: 1.3,
                     })}
                     className="absolute inset-0"
                 >
-                    <SurveillanceArrowIcon className="absolute left-[-32px] bottom-[-17px] sm:bottom-auto sm:top-[-60px] sm:left-[100px] lg:top-auto lg:bottom-[-66px] lg:left-[196px] z-2 sm:rotate-80 lg:rotate-175" />
+                    <SurveillanceArrowIcon className="absolute left-[-32px] bottom-[-17px] sm:bottom-auto sm:top-[-60px] sm:left-[100px] lg:top-auto lg:bottom-[-66px] lg:left-[196px] sm:rotate-80 lg:rotate-175" />
                 </motion.div>
             </li>
             <li className="relative w-[243px] sm:w-full h-[124px] md:h-[154px] lg:h-[124px] xl:h-[154px] justify-self-start">
@@ -178,7 +176,7 @@ export default function AdvantagesList() {
                     scale: 0.9,
                     delay: 2,
                 })}
-                className="relative w-full sm:w-[25%] h-[113px] sm:h-[124px] md:h-[154px] lg:h-[124px] xl:h-[154px] rounded-full bg-yellow flex items-center justify-center px-[86px]"
+                className="relative w-[243px] sm:w-full mx-auto lg:w-[25%] h-[113px] sm:h-[124px] md:h-[154px] lg:h-[124px] xl:h-[154px] rounded-full bg-yellow flex items-center justify-center px-[86px]"
             >
                 <h3 className="text-[32px] lg:text-[40px] leading-[120%] uppercase font-azbuka">
                     Баланс
