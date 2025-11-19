@@ -15,20 +15,22 @@ export default async function HomePage() {
   const services = await fetchSanityData(ALL_SERVICES_QUERY);
   const gallery = await fetchSanityData(GALLERY_IMAGES);
 
-    return (
-        <>
-            <Hero />
-            <InteractiveZones />
-            <Suspense fallback={<Loader />}>
-                <PriceList services={services} />
-            </Suspense>
-            <Advantages />
-            <Suspense fallback={<Loader />}>
-                <Gallery gallery={gallery} />
-            </Suspense>
-            <CTAOrder />
-            <Faq />
-            <CTAContactUs />
-        </>
-    );
+  console.log(services);
+
+  return (
+    <>
+      <Hero />
+      <InteractiveZones />
+      <Suspense fallback={<Loader />}>
+        <PriceList services={services} />
+      </Suspense>
+      <Advantages />
+      <Suspense fallback={<Loader />}>
+        <Gallery gallery={gallery} />
+      </Suspense>
+      <CTAOrder />
+      <Faq />
+      <CTAContactUs />
+    </>
+  );
 }

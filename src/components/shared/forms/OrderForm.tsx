@@ -20,6 +20,7 @@ interface OrderFormProps {
   setIsNotificationShown: Dispatch<SetStateAction<boolean>>;
   setIsModalShown?: Dispatch<SetStateAction<boolean>>;
   className?: string;
+  paymentUrl?: string;
 }
 
 export default function OrderForm({
@@ -27,6 +28,7 @@ export default function OrderForm({
   setIsNotificationShown,
   setIsModalShown,
   className = "",
+  paymentUrl,
 }: OrderFormProps) {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -38,6 +40,8 @@ export default function OrderForm({
   };
 
   const validationSchema = useOrderFormValidation();
+
+  console.log(paymentUrl);
 
   const submitForm = async (
     values: ValuesOrderFormType,
@@ -62,6 +66,15 @@ export default function OrderForm({
           "Content-Type": "application/json",
         },
       });
+
+      // Переадресація на оплату, якщо є paymentUrl
+      if (paymentUrl) {
+        setTimeout(() => {
+          window.location.href = paymentUrl;
+        }, 100);
+        return;
+      }
+
       resetForm();
       if (setIsModalShown) {
         setIsModalShown(false);

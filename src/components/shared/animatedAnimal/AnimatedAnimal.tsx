@@ -76,10 +76,6 @@ export default function AnimatedAnimal({
             return fill === "black" || fill === "#000" || fill === "#000000";
           });
 
-          if (whiteEyes.length !== pupils.length) {
-            console.warn("❌ Кількість очей і зіниць не збігається");
-          }
-
           const eyesData: EyeData[] = whiteEyes.map((eye, i) => {
             const bbox = eye.getBBox();
             const pupil = pupils[i];
