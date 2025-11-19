@@ -158,7 +158,7 @@ export const SwiperWrapper = dynamic(
                         className={clsx(
                             overflowVisible ? "overflow-visible!" : ""
                         )}
-                        wrapperClass={clsx(navigation ? "pb-19" : "")}
+                        wrapperClass={clsx(navigation ? "pb-20" : "")}
                         modules={[Keyboard, Navigation]}
                         keyboard={{
                             enabled: true,
@@ -186,7 +186,7 @@ export const SwiperWrapper = dynamic(
                             </div>
                         )}
                         {navigation && !isLocked && (
-                            <div className="absolute z-10 bottom-0 left-1/2 -translate-x-1/2 w-fit flex items-center justify-center gap-[35px]">
+                            <div className="overflow-visible absolute z-10 bottom-1 left-1/2 -translate-x-1/2 w-fit flex items-center justify-center gap-[35px]">
                                 <button
                                     ref={prevRef}
                                     disabled={disablePrev}
