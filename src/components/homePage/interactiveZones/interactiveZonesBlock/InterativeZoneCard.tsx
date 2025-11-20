@@ -123,7 +123,7 @@ export const PurpleBlobCard = React.memo(
                 className={clsx(
                     "relative overflow-hidden",
                     COMMON_CARD_BASE,
-                    "w-full lg:h-[350px] xl:h-[409px] bg-purple",
+                    "lg:w-[235px] lg:h-[350px] xl:w-[285px] xl:h-[409px] bg-purple",
                     COMMON_CARD_ROUNDED,
                     COMMON_CARD_PADDING
                 )}
