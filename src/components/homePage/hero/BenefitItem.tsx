@@ -44,26 +44,27 @@ export default function BenefitItem({ benefit }: BenefitItemProps) {
     <motion.li
       ref={ref}
       variants={listItemVariantsLeft}
-      className="flex flex-col justify-center items-center w-[207px] py-4 px-8 rounded-[14px] border-[0.5px] bg-white/6 border-transparent 
-      shadow-[inset_0px_4px_12px_rgba(255,255,255,0.06)] backdrop-blur-[19px]"
+      className="relative -z-10 flex flex-col justify-center items-center w-[207px] rounded-[14px] overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(129.84deg, #000000 27.26%, #FFFFFF 97.59%)",
+        padding: "1px",
+      }}
     >
       <div
-        className="absolute inset-0 rounded-[14px] pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(129.84deg, #000000 27.26%, #FFFFFF 97.59%)",
-          padding: "1.5px",
-          WebkitMask:
-            "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-          WebkitMaskComposite: "xor",
-          maskComposite: "exclude",
-        }}
+        className="absolute top-[1px] left-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] items-center rounded-[12.5px] bg-yellow 
+      backdrop-blur-[19px]"
       />
-      <p className="mb-px font-azbuka text-[64px] font-normal leading-[100%] uppercase">
-        <motion.span>{rounded}</motion.span>
-        {suffix}
-      </p>
-      <p className="text-[12px] font-medium text-center">{description}</p>
+      <div
+        className="relative flex flex-col justify-center items-center w-full h-full py-4 px-8 rounded-[12.5px] bg-white/6 
+      shadow-[inset_0px_4px_12px_rgba(255,255,255,0.06)]"
+      >
+        <p className="mb-px font-azbuka text-[64px] font-normal leading-[100%] uppercase">
+          <motion.span>{rounded}</motion.span>
+          {suffix}
+        </p>
+        <p className="text-[12px] font-medium text-center">{description}</p>
+      </div>
     </motion.li>
   );
 }

@@ -27,7 +27,7 @@ export default function BenefitsList() {
       exit="exit"
       viewport={{ once: true, amount: 0.2 }}
       variants={listVariants({ staggerChildren: 0.3, delayChildren: 0.4 })}
-      className="hidden lg:flex relative z-10 flex-col mb-[7px] gap-5"
+      className="flex relative z-10 flex-col mb-[7px] gap-5"
     >
       {benefitsList.map((benefit, idx) => (
         <BenefitItem key={idx} benefit={benefit} />
