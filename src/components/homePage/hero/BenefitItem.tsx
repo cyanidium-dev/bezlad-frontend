@@ -44,8 +44,11 @@ export default function BenefitItem({ benefit }: BenefitItemProps) {
     <motion.li
       ref={ref}
       variants={listItemVariantsLeft}
-      className="flex flex-col justify-center items-center w-[207px] py-4 px-8 rounded-[14px] border-[0.5px] bg-white/6 border-transparent 
+      className="relative flex flex-col justify-center items-center w-[207px] py-4 px-8 rounded-[14px] border-[0.5px] bg-white/6 border-transparent 
       shadow-[inset_0px_4px_12px_rgba(255,255,255,0.06)] backdrop-blur-[19px]"
+      style={{
+        isolation: "isolate",
+      }}
     >
       <div
         className="absolute inset-0 rounded-[14px] pointer-events-none"
