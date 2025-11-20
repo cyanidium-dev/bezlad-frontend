@@ -47,7 +47,7 @@ function InteractiveZonesBlock() {
                     <SwiperSlide key={breakpoint + "-" + slideIndex}>
                         {({ isVisible }) => (
                             <div
-                                className="flex flex-row gap-5"
+                                className="flex flex-row gap-[14px]"
                                 style={{
                                     opacity: isVisible ? 1 : 0,
                                     transition: "opacity 0.3s ease-in-out",
@@ -62,7 +62,7 @@ function InteractiveZonesBlock() {
                                             "-" +
                                             chunkIndex
                                         }
-                                        className="flex flex-wrap gap-5"
+                                        className="flex flex-wrap gap-[14px]"
                                     >
                                         {chunk.map(
                                             (item: InteractiveZoneItem) => (
