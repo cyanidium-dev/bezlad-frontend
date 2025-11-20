@@ -20,7 +20,13 @@ interface SwiperWrapperProps {
     overflowVisible?: boolean;
     spaceBetween?: number;
     slidesPerGroup?: number;
+    controllsVariant?: 'black' | 'purple';
 }
+
+const controllsVariants = {
+    black : 'bg-black disabled:bg-white disabled:shadow-[0_0_0_1.5px_#000000_inset] text-white disabled:text-black',
+    purple: 'bg-white disabled:bg-purple/40 disabled:border-purple/40 disabled:shadow-[0_0_0_1.5px_#ffffff_inset] text-purple disabled:text-white',
+    }
 
 export const SwiperWrapper = dynamic(
     async () => {
@@ -36,6 +42,7 @@ export const SwiperWrapper = dynamic(
             overflowVisible = false,
             spaceBetween = 20,
             slidesPerGroup = 1,
+            controllsVariant = 'purple',
         }: SwiperWrapperProps) => {
             const swiperInstanceRef = useRef<SwiperClass | null>(null);
             const [activeIndex, setActiveIndex] = useState(0);
@@ -190,33 +197,18 @@ export const SwiperWrapper = dynamic(
                                 <button
                                     ref={prevRef}
                                     disabled={disablePrev}
-                                    className="shrink-0 enabled:cursor-pointer w-[50px] h-[50px] rounded-full flex items-center justify-center pointer-events-auto transition-filter 
-          duration-300 xl:enabled:hover:brightness-[1.25] bg-white disabled:bg-purple/40 disabled:border-11 disabled:border-purple/40 disabled:shadow-[0_0_0_1.5px_#ffffff]"
+                                    className={`shrink-0 enabled:cursor-pointer w-[50px] h-[50px] rounded-full flex items-center justify-center pointer-events-auto transition-filter 
+          duration-300 xl:enabled:hover:brightness-[1.25] ${controllsVariants[controllsVariant]}`}
                                 >
-                                    <CircledArrowIcon
-                                        className={clsx(
-                                            "w-[28px] h-[28px]",
-                                            disablePrev
-                                                ? "text-white"
-                                                : "text-purple"
-                                        )}
-                                    />
+                                    <CircledArrowIcon className="w-[28px] h-[28px]" />
                                 </button>
-
                                 <button
                                     ref={nextRef}
                                     disabled={disableNext}
-                                    className="shrink-0 enabled:cursor-pointer w-[50px] h-[50px] rounded-full flex items-center justify-center pointer-events-auto transition-filter 
-          duration-300 xl:enabled:hover:brightness-[1.25] bg-white disabled:bg-purple/40 disabled:border-11 disabled:border-purple/40 disabled:shadow-[0_0_0_1.5px_#ffffff]"
+                                    className={`shrink-0 enabled:cursor-pointer w-[50px] h-[50px] rounded-full flex items-center justify-center pointer-events-auto transition-filter 
+          duration-300 xl:enabled:hover:brightness-[1.25] ${controllsVariants[controllsVariant]}`}
                                 >
-                                    <CircledArrowIcon
-                                        className={clsx(
-                                            "w-[28px] h-[28px] rotate-180",
-                                            disableNext
-                                                ? "text-white"
-                                                : "text-purple"
-                                        )}
-                                    />
+                                    <CircledArrowIcon className="w-[28px] h-[28px] rotate-180" />
                                 </button>
                             </div>
                         )}

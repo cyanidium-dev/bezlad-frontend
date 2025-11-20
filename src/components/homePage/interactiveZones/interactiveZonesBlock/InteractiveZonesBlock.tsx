@@ -117,9 +117,11 @@ function InteractiveZonesBlock() {
 
     return (
         <SwiperWrapper
-            pagination={true}
+            pagination={breakpoint !== 'desktop'}
+            navigation={breakpoint === 'desktop'}
             overflowVisible={true}
             spaceBetween={30}
+            controllsVariant='black'
         >
             {renderSlides}
         </SwiperWrapper>
