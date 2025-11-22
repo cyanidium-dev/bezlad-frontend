@@ -8,7 +8,7 @@ import { fadeInAnimation } from "@/utils/animationVariants";
 export default function Confirmation() {
   return (
     <section className="">
-      <Container className="relative pt-[173px] lg:pt-[192px] pb-[347px] lg:pb-[432px]">
+      <Container className="relative pt-[173px] lg:pt-48 pb-[347px] lg:pb-[432px]">
         <ConfirmationImages />
         <motion.h1
           initial="hidden"
