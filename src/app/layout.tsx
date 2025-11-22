@@ -71,15 +71,13 @@ export default function RootLayout({
                 <main className="flex-1 overflow-hidden"> {children}</main>
                 <Footer />
                 <CallButton />
-                {schemaOrgData && (
-                    <Script
-                        id="schema-org"
-                        type="application/ld+json"
-                        dangerouslySetInnerHTML={{
-                            __html: JSON.stringify(schemaOrgData),
-                        }}
-                    />
-                )}
+                <Script
+                    id="schema-org"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify(schemaOrgData),
+                    }}
+                />
             </body>
         </html>
     );
