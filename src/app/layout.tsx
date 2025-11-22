@@ -7,6 +7,8 @@ import "./globals.css";
 import Header from "@/components/shared/header/Header";
 import Footer from "@/components/shared/footer/Footer";
 import CallButton from "@/components/shared/callButton/CallButton";
+import schemaOrgData from "@/constants/schemaOrgData.json";
+import Script from "next/script";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://bezlad-frontend.vercel.app";
@@ -60,16 +62,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="uk" className="scroll-smooth">
-      <body
-        className={`${raleway.variable} ${azbuka.variable} ${montserrat.variable} flex min-h-screen flex-col text-[16px] font-normal leading-[120%] antialiased`}
-      >
-        <Header />
-        <main className="flex-1 overflow-hidden"> {children}</main>
-        <Footer />
-        <CallButton />
-      </body>
-    </html>
-  );
+    return (
+        <html lang="uk" className="scroll-smooth">
+            <body
+                className={`${raleway.variable} ${azbuka.variable} ${montserrat.variable} flex min-h-screen flex-col text-[16px] font-normal leading-[120%] antialiased`}
+            >
+                <Header />
+                <main className="flex-1 overflow-hidden"> {children}</main>
+                <Footer />
+                <CallButton />
+                {schemaOrgData && (
+                    <Script
+                        id="schema-org"
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify(schemaOrgData),
+                        }}
+                    />
+                )}
+            </body>
+        </html>
+    );
 }
