@@ -16,6 +16,7 @@ import { useScreenWidth } from "@/hooks/useScreenWidth";
 import { renderCard } from "./cardMapper";
 import { getSlides } from "./helpers";
 import dynamic from "next/dynamic";
+import clsx from "clsx";
 
 function InteractiveZonesBlock() {
     const screenWidth = useScreenWidth();
@@ -47,7 +48,7 @@ function InteractiveZonesBlock() {
                     <SwiperSlide key={breakpoint + "-" + slideIndex}>
                         {({ isVisible }) => (
                             <div
-                                className="flex flex-row gap-[14px]"
+                                className="flex justify-between w-full"
                                 style={{
                                     opacity: isVisible ? 1 : 0,
                                     transition: "opacity 0.3s ease-in-out",
@@ -62,7 +63,12 @@ function InteractiveZonesBlock() {
                                             "-" +
                                             chunkIndex
                                         }
-                                        className="flex flex-wrap gap-[14px]"
+                                        className={clsx(
+                                            "flex flex-wrap gap-5",
+                                            slideIndex % 2 === 0
+                                                ? "justify-end w-fit"
+                                                : "justify-start w-fit"
+                                        )}
                                     >
                                         {chunk.map(
                                             (item: InteractiveZoneItem) => (
